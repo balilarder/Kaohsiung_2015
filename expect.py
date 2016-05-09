@@ -84,7 +84,7 @@ for i in range(len(case)):
 				#print probability_list[each]
 #print infected
 
-
+f1.close()
 def expect_next_time(thresholds, which):
 	#thresholds is float to decide can be infected by neibor or not, which is a int indicating id in all areas
 	others_to_me = []	#collect all propagate credit from neibor
@@ -92,8 +92,8 @@ def expect_next_time(thresholds, which):
 	#print probability_list[which]
 
 	#if this week "which" has been infected, it should give itself a probability x for the next week to expect
-	#if infected[which] == 1:
-		#others_to_me.append(0.2)
+	if infected[which] == 1:
+		others_to_me.append(0.8)
 	for i in range(len(probability_list[which])):
 		for key in probability_list[which][i]:
 			#print key
@@ -112,34 +112,53 @@ def expect_next_time(thresholds, which):
 	expection = 1- expection
 	#print expection
 	if expection >= thresholds:
-		print "%s is infected" %id[which]
-		infected[which] = 1
+		#print "%s is infected" %id[which]
+		predict[which] = 1
 	else:
-		print "%s isn't infected" %id[which]
+		#print "%s isn't infected" %id[which]
+		predict[which] = 0
 	
 #fuction end
-for i in range(len(id)):
-	expect_next_time(0.7, i)
-
-#section 4 :compare
-correct = 0
-incorcet = 0
-compare = [0 for x in range(len(id))]
-case = lines[29].strip().split('\t')[1:]	
-
-for i in range(len(case)):
-	if int(case[i]) > 0:
-		for each in range(len(id)):
-			if id[each] == col_name[i]:
-				compare[each] = 1
-
-for i in range(len(id)):
-	if (infected[i] == 1 and compare[i] == 1) or (infected[i] == 0 and compare[i] == 0) :
-		correct += 1
-	else:
-		incorcet +=1
-print correct
-print incorcet
 
 
-f1.close()
+#section 4 :compare, may copy "predict/compare(real situation)" to "infected" to process next interative
+#There are four menchmark: TP, FP, FN, TN
+def experiment():
+	TP = 0
+	FP = 0
+	FN = 0
+	TN = 0
+	compare = [0 for x in range(len(id))]
+	case = lines[29].strip().split('\t')[1:]	
+
+	for i in range(len(case)):
+		if int(case[i]) > 0:
+			for each in range(len(id)):
+				if id[each] == col_name[i]:
+					compare[each] = 1
+
+	for i in range(len(id)):
+		if (predict[i] == 1 and compare[i] == 1):
+			TP += 1
+		elif(predict[i] == 1 and compare[i] == 0):
+			FP += 1
+		elif (predict[i] == 0 and compare[i] == 1):
+			FN += 1
+		elif (predict[i] == 0 and compare[i] == 0):
+			TN += 1 
+			
+	print "TP is %d"  %TP
+	print  "FP is %d" %FP
+	print "FN is %d" %FN
+	print "TN is %d" %TN
+	print "Total is %d" %(TP + FP + FN + TN)
+	print "TPR is %f" %(TP / float(TP + FN))
+	print "FPR is %f" %(FP / float(FP + TN))
+
+
+for loop in range(9):
+	for i in range(len(id)):
+		expect_next_time(loop * 0.1 + 0.1, i)
+	print "thresholds is %f" %(loop * 0.1 + 0.1)	#0.1~0.9
+	
+	experiment()

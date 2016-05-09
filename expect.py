@@ -53,19 +53,26 @@ for i in range(1,len(lines)):
 f1.close()
 
 
-
-
-
+def search_index(x):
+	i = 0
+	for each in id:
+		if each == x:
+			break
+		i += 1
+	if i == len (id):
+		return -1
+	return i
 #section 3: expection(try some different thresholds)
 infected = [0 for x in range(len(id))]	#a bool list record infected or not, and to compute similarity in real data
+predict = [0 for x in range(len(id))]
 f1 = open('time-space.csv', 'r')
 count = 0
-#goal: find infected in time[3](= line[3])
+	#goal: find infected in time[3](= line[3])
 lines = f1.readlines()
 col_name = lines[0].strip().split('\t')[1:]
 
-#case = lines[28].strip().split('\t')[1:]
-case = lines[5].strip().split('\t')[1:]
+case = lines[28].strip().split('\t')[1:]
+#case = lines[5].strip().split('\t')[1:]	#want to expect after the time
 
 for i in range(len(case)):
 	if int(case[i]) > 0:
@@ -73,8 +80,66 @@ for i in range(len(case)):
 		for each in range(len(id)):
 			if id[each] == col_name[i]:
 				infected[each] = 1
-				print id[each]
-				print probability_list[each]
+				#print id[each]
+				#print probability_list[each]
 #print infected
+
+
+def expect_next_time(thresholds, which):
+	#thresholds is float to decide can be infected by neibor or not, which is a int indicating id in all areas
+	others_to_me = []	#collect all propagate credit from neibor
+	#print id[which]
+	#print probability_list[which]
+
+	#if this week "which" has been infected, it should give itself a probability x for the next week to expect
+	#if infected[which] == 1:
+		#others_to_me.append(0.2)
+	for i in range(len(probability_list[which])):
+		for key in probability_list[which][i]:
+			#print key
+			for j in range(len(probability_list[search_index(key)])):
+				for being_infected in probability_list[search_index(key)][j]:
+					if being_infected == id[which]:
+						if infected[search_index(key)] == 1:
+							others_to_me.append(probability_list[search_index(key)][j][being_infected])
+						else:
+							others_to_me.append(0)
+						break
+	#print others_to_me
+	expection = 1.0
+	for i in others_to_me:
+		expection = expection * (1 - i)
+	expection = 1- expection
+	#print expection
+	if expection >= thresholds:
+		print "%s is infected" %id[which]
+		infected[which] = 1
+	else:
+		print "%s isn't infected" %id[which]
+	
+#fuction end
+for i in range(len(id)):
+	expect_next_time(0.7, i)
+
+#section 4 :compare
+correct = 0
+incorcet = 0
+compare = [0 for x in range(len(id))]
+case = lines[29].strip().split('\t')[1:]	
+
+for i in range(len(case)):
+	if int(case[i]) > 0:
+		for each in range(len(id)):
+			if id[each] == col_name[i]:
+				compare[each] = 1
+
+for i in range(len(id)):
+	if (infected[i] == 1 and compare[i] == 1) or (infected[i] == 0 and compare[i] == 0) :
+		correct += 1
+	else:
+		incorcet +=1
+print correct
+print incorcet
+
 
 f1.close()

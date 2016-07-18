@@ -157,7 +157,7 @@ def experiment(predict,week):
 thresholds_list = range(41)
 for thres in thresholds_list:
 	predict = {}
-	expect_next_week(predict, 50, float(thres) / 40, 0.3)
+	expect_next_week(predict, 44, float(thres) / 40, 0.3)
 
 	print "thresholds is %f" %(float(thres) / 40)	
-	experiment(predict, 51)
+	experiment(predict, 45)

@@ -1,3 +1,7 @@
+"""
+read neighbor information, and form a graph of 1,2 degree of neighbor
+to a dict "list_1_2_deg"
+"""
 import csv
 import re
 
@@ -17,7 +21,7 @@ match = 0
 unmatch = 0
 list_1_2_deg= {}						
 """
-{area: Au, [[1deg, Av2u],[]...], [[2deg, Av2u], [],...]}
+{area: Av, [[1deg, Av2u],[]...], [[2deg, Av2u], [],...]}
 note that Av2u will become probability
 """
 for i in range(1, total_areas):

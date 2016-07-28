@@ -185,6 +185,7 @@ def expect_next_week(predict, week, thresholds, x):
 print "let's experiment"
 
 def experiment(predict,week):
+	"""
 	real = {}
 	for k in list_1_2_deg:
 		if week_in_2015[k][week][0] > 0:
@@ -206,20 +207,34 @@ def experiment(predict,week):
 			FN += 1
 		elif (predict[k] == 0 and real[k] == 0):
 			TN += 1 
-			
-	#print "TP is %d"  %TP
-	#print  "FP is %d" %FP
-	#print "FN is %d" %FN
-	#print "TN is %d" %TN
-	#print "Total is %d" %(TP + FP + FN + TN)
+
 	
 	print "FPR is %f" %(FP / float(FP + TN))
 	print "TPR is %f" %(TP / float(TP + FN))
+	"""
+
+	"""
+	expexted newly infected or not newly infected
+	"""
+	
+	# 1. newly infected(TPR):
+	total_care = 0
+	TP = 0
+	for k in list_1_2_deg:
+		if week_in_2015[k][week][0] > 0 and week_in_2015[k][week - 1][0] == 0:	# the case to be considered
+
+			total_care += 1
+			if predict[k] == 1:
+				TP += 1
+	print "newly infected TPR = ", TP / float(total_care)
+	
+	# 2. not newly infected:
+
 
 thresholds_list = range(41)
 for thres in thresholds_list:
 	predict = {}
-	expect_next_week(predict, 50, float(thres) / 40, 0.5)
+	expect_next_week(predict, 44, float(thres) / 40, 0.5)
 
 	print "thresholds is %f" %(float(thres) / 40)	
-	experiment(predict, 51)
+	experiment(predict, 45)

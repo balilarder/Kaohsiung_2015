@@ -214,7 +214,7 @@ log_write.close()
 
 
 """learning and fill the list_1_2_deg(Au, Av2u), noting that not to imported to table.py"""
-if sys.argv[0] != "table.py":
+if sys.argv[0] == "expect2015.py":
 
 	def build_propagate_graph():
 		pass

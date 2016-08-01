@@ -4,6 +4,16 @@ to a dict "list_1_2_deg"
 """
 import csv
 import re
+class AreaInfo(object):
+	def __init__(self):
+		self.Av = 0
+		self.deg1Av2u = {}
+		self.deg2Av2u = {}
+		self.toself = 0
+	def __repr__(self):
+		pass
+
+
 
 deg1 = open('neighbors_1deg.csv', 'r')
 lines_1 = deg1.readlines()
@@ -51,7 +61,8 @@ for i in range(1, total_areas):
 
 
 print len(list_1_2_deg)
-
+# 17387
+print len(list_1_2_deg['A6432-0106-00'])
 
 deg1.close()
 deg2.close()

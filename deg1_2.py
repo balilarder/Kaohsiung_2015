@@ -10,9 +10,12 @@ class AreaInfo(object):
 		self.deg1Av2u = {}
 		self.deg2Av2u = {}
 		self.toself = 0
-	def __repr__(self):
-		pass
-
+	def show(self):
+		print self.Av
+		print self.deg1Av2u 
+		print self.deg2Av2u 
+		print self.toself
+		
 
 
 deg1 = open('neighbors_1deg.csv', 'r')
@@ -30,39 +33,31 @@ for i in range(len(lines_1)):	#use regular expression to remove "  " " and " \n 
 match = 0
 unmatch = 0
 list_1_2_deg= {}						
-"""
-{area: Av, [[1deg, Av2u],[]...], [[2deg, Av2u], [],...]}
-note that Av2u will become probability
-"""
-for i in range(1, total_areas):
 
+
+for i in range(1, total_areas):
 	segment1 = lines_1[i].split(",")
 	segment1.pop()
-	list_1_2_deg[segment1[0]] = []
-	list_1_2_deg[segment1[0]].append(0)
-	nei_1 = []
+	list_1_2_deg[segment1[0]] = AreaInfo()
+	
+	
 	for j in range(1, len(segment1)):
-		list1deg = []
-		list1deg.append(segment1[j])
-		list1deg.append(0)
-		nei_1.append(list1deg)
-	list_1_2_deg[segment1[0]].append(nei_1)
+		list_1_2_deg[segment1[0]].deg1Av2u[segment1[j]] = 0
+	
 
 for i in range(1, total_areas):
 	segment2 = lines_2[i].split(",")
 	segment2.pop()
-	nei_2 = []
+
+	
+	
 	for j in range(1, len(segment2)):
-		list2deg = []
-		list2deg.append(segment2[j])
-		list2deg.append(0)
-		nei_2.append(list2deg)
-	list_1_2_deg[segment2[0]].append(nei_2)
+		list_1_2_deg[segment2[0]].deg2Av2u[segment2[j]] = 0
 
 
 print len(list_1_2_deg)
 # 17387
-print len(list_1_2_deg['A6432-0106-00'])
+list_1_2_deg['A6432-0106-00'].show()
 
 deg1.close()
 deg2.close()

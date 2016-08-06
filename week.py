@@ -121,7 +121,7 @@ file.close()
 
 
 """build a case table, using 2014 to learn, and 2015 is just to be observed"""
-
+# case table 2014
 total = 0
 header = [""]
 for i in range(1, 54):
@@ -139,7 +139,7 @@ for k in week_in_2014:
 	w.writerows([data])
 file.close()
 print "total count from csv is %d" %total
-
+# case table 2015
 total = 0
 header = [""]
 for i in range(1, 54):
@@ -162,16 +162,15 @@ print "total count from csv is %d" %total
 """
 product action log (1+ people) both 2014 and 2015
 2015 action log is to obseved the action time of a node, tv, in Discrete Time model 
+
+* action log v2: consider the effect of self-propagation, by defining its action
 """
-
-
-
 #2014 action log
 log_write = open("2014action_log_kaohsiung.txt", 'w')
 log_2014 = []
 #there are 51 actions(number from 1 to 51)
 for i in range(1, 52):											#i indicate action number
-	#time = [-1 for x in range(len(list_1_2_deg))]				#time is a list record every area do an action time, if no action, then = -1
+	
 	
 	#for a new action, default it is inactive
 	for k in week_in_2014:
@@ -194,7 +193,7 @@ log_write = open("2015action_log_kaohsiung.txt", 'w')
 log_2015 = []
 #there are 51 actions(number from 1 to 51)
 for i in range(1, 52):											#i indicate action number
-	#time = [-1 for x in range(len(list_1_2_deg))]				#time is a list record every area do an action time, if no action, then = -1
+	
 	
 	#for a new action, default it is inactive
 	for k in week_in_2015:
@@ -216,30 +215,28 @@ log_write.close()
 """learning and fill the list_1_2_deg(Au, Av2u), noting that not to imported to table.py"""
 if sys.argv[0] == "expect2015.py":
 
-	def build_propagate_graph():
-		pass
-	# write a file to indicate edges(propagate) 
-	# format:<a(action number), v, u, tu-tv>
-
 	print "start learning"
 	now_action = 0
 	action = 0
 	for i in range(len(log_2014)):
 		
-		
 		#Av +1
-		list_1_2_deg[log_2014[i][0]][0] += 1
+		list_1_2_deg[log_2014[i][0]].Av += 1
 
 		now_action = log_2014[i][1]
+
+		# Learning probability to other
 		for j in range(i+1, len(log_2014)):
 			conect = 0
 			
 			if log_2014[j][1] == now_action and log_2014[j][2] > log_2014[i][2]:
-				for k in list_1_2_deg[log_2014[i][0]][1]:
-					if k[0] == log_2014[j][0]:
+				for k in list_1_2_deg[log_2014[i][0]].deg1:
+
+					if k == log_2014[j][0]:
 						conect = 1
-						k[1] += 1	#Av2u +1
-						#can build a propagate graph...prop(a, v, u)
+						
+						list_1_2_deg[log_2014[i][0]].deg1[k].Av2u += 1				#Av2u +1
+						
 
 						action += 1
 						
@@ -249,15 +246,24 @@ if sys.argv[0] == "expect2015.py":
 			elif log_2014[j][1] > now_action:
 				
 				break
+
+		# Learning probability to self
+		pass
+
+	print "total action(to other):%d" %action
 	#test
 	#print list_1_2_deg['A6412-0312-00']
 	#print list_1_2_deg['A6409-0129-00']
 
 	"""calculate probability by Av2u/Au"""
 	for k in list_1_2_deg:
-		for p in list_1_2_deg[k][1]:
-			if list_1_2_deg[k][0] != 0:		#avoid dividing zero
-				p[1] = p[1] / float(list_1_2_deg[k][0])
+		for p in list_1_2_deg[k].deg1:
+			if list_1_2_deg[k].deg1[p].Av2u != 0:		#avoid dividing zero
+				list_1_2_deg[k].deg1[p].pv_u_0 = list_1_2_deg[k].deg1[p].Av2u / float(list_1_2_deg[k].Av)
 	#test
-	#print list_1_2_deg['A6412-0312-00']
-	#print list_1_2_deg['A6409-0129-00']
+	"""
+	print "A6412-0312-00:"
+	list_1_2_deg['A6412-0312-00'].show()
+	print "A6409-0129-00"
+	list_1_2_deg['A6409-0129-00'].show()
+	"""

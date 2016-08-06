@@ -7,6 +7,7 @@ combine AreaInfo with Cell to build a table maintain information
 import csv
 import re
 
+# A relation between an area and its neighborhoods
 class Cell(object):
 	def __init__(self):
 		self.pv_u_0 = 0
@@ -16,7 +17,7 @@ class Cell(object):
 	def __repr__(self):
 		return "p is %s. tau is %s. Av2u is %s. credit_a is %s." %  \
     	(self.pv_u_0, self.tau, self.Av2u, self.credit_a)
-
+# Information collection of an area
 class AreaInfo(object):
 	def __init__(self):
 		self.Av = 0
@@ -68,9 +69,9 @@ for i in range(1, total_areas):
 		list_1_2_deg[segment2[0]].deg2[segment2[j]] = Cell()
 
 
-print len(list_1_2_deg)
-# 17387
-list_1_2_deg['A6432-0106-00'].show()
+print len(list_1_2_deg)	# should be 17387
+# test
+#list_1_2_deg['A6432-0106-00'].show()
 
 deg1.close()
 deg2.close()

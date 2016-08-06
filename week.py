@@ -66,8 +66,8 @@ for i in range(1, len(lines)):
 
 			if tuple[0] == 2014:
 				week_in_2014[segment[8]][week - 1][0] += 1
-			else:		#although it is 2104, but it seem as 2015
-				#print "although %s is 2014, but it seem as 2015" %segment[2]
+			else:		
+				#although it is 2014, but it seem as 2015
 				week_in_2015[segment[8]][week - 1][0] += 1
 			
 print  "there are %d valid cases" %valid_case
@@ -169,7 +169,7 @@ product action log (1+ people) both 2014 and 2015
 log_write = open("2014action_log_kaohsiung.txt", 'w')
 log_2014 = []
 #there are 51 actions(number from 1 to 51)
-for i in range(1, 52):											#i indicate action number
+for i in range(1, 52):									#i indicate action number
 	
 	
 	#for a new action, default it is inactive
@@ -192,7 +192,7 @@ log_write.close()
 log_write = open("2015action_log_kaohsiung.txt", 'w')
 log_2015 = []
 #there are 51 actions(number from 1 to 51)
-for i in range(1, 52):											#i indicate action number
+for i in range(1, 52):									#i indicate action number
 	
 	
 	#for a new action, default it is inactive
@@ -200,7 +200,8 @@ for i in range(1, 52):											#i indicate action number
 		week_in_2015[k][53] = -1
 	
 	for k in week_in_2015:					
-		for b in range(i - 1, i + 2):							#b indicate the block which need to lookup in the week_in_2015{}
+		for b in range(i - 1, i + 2):
+			#b indicate the block which need to lookup in the week_in_2015{}
 			if(week_in_2015[k][b][0] > 0 and week_in_2015[k][53] == -1):		#more than 0 means action
 				week_in_2015[k][53] = b
 				log_2015.append([k, i , b + 1])
@@ -248,7 +249,15 @@ if sys.argv[0] == "expect2015.py":
 				break
 
 		# Learning probability to self
-		pass
+		# The condition is that when an area do an action(in log), and its action id and action time is same
+		# means the action is the earliest it could be, then check 2 week later. If once of then infected
+		# seen as self propagation
+		if log_2014[i][1] == log_2014[i][2]:
+			if week_in_2014[log_2014[i][0]][log_2014[i][2]][0] > 0 or \
+			week_in_2014[log_2014[i][0]][log_2014[i][2] + 1][0] > 0:
+				# self += 1
+				list_1_2_deg[log_2014[i][0]].toself.Av2u += 1
+
 
 	print "total action(to other):%d" %action
 	#test
@@ -256,14 +265,21 @@ if sys.argv[0] == "expect2015.py":
 	#print list_1_2_deg['A6409-0129-00']
 
 	"""calculate probability by Av2u/Au"""
+	# to other
 	for k in list_1_2_deg:
 		for p in list_1_2_deg[k].deg1:
-			if list_1_2_deg[k].deg1[p].Av2u != 0:		#avoid dividing zero
+			if list_1_2_deg[k].Av != 0:		#avoid dividing zero
 				list_1_2_deg[k].deg1[p].pv_u_0 = list_1_2_deg[k].deg1[p].Av2u / float(list_1_2_deg[k].Av)
+	# to itself
+	for k in list_1_2_deg:
+		if list_1_2_deg[k].Av != 0:
+			list_1_2_deg[k].toself.pv_u_0 = list_1_2_deg[k].toself.Av2u / float(list_1_2_deg[k].Av)
+
+
 	#test
-	"""
-	print "A6412-0312-00:"
-	list_1_2_deg['A6412-0312-00'].show()
+	
+	print "A6405-0814-00:"
+	list_1_2_deg['A6405-0814-00'].show()
 	print "A6409-0129-00"
 	list_1_2_deg['A6409-0129-00'].show()
-	"""
+	

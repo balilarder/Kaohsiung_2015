@@ -1,65 +1,14 @@
 import datetime
 
-from week import list_1_2_deg
+from week import list_1_2_deg, week_in_2014, week_in_2015
 
-print "will expect 2015"
-
-"""read 2015 case file(real case to compare)"""
-real_in_2015 = {}
-#real_in_2015 = area_name: [[week1, level], [week2, level], [week3, level]..., active?]"""
-
-for k in list_1_2_deg:
-	real_in_2015[k] = [[0, 0] for x in range(53)]		#2015 has 53 weeks
-	real_in_2015[k].append(-1)				
-
-import csv
-import re
-
-file = open('Kaohsiung2015_case.csv', 'r')
-lines = file.readlines()
-for i in range(len(lines)):	#use regular expression to remove" \n "
-	lines[i] = re.sub('[\n]','',lines[i])
-print "there are %d case" %(len(lines) - 1)
-count = 0
-
-no_match = 0
-valid_case = 0
-
-trace = 0
-
-for i in range(1, len(lines)):
-	segment = lines[i].split(",")
-
-	month = 0
-	day = 0
-	week = 0
-
-	month = segment[2].split("/")[1]
-	day = segment[2].split("/")[2]
-	week = datetime.date(2015, int(month), int(day)).isocalendar()[1]
-	
-	
-	if(segment[8] != "" ):
-		
-		if(segment[8] in real_in_2015 ):	
-				
-			valid_case += 1	
-			#print segment[8], week
-			real_in_2015[segment[8]][week - 1][0] += 1
-			
-print  "there are %d valid cases" %valid_case
-#test
-#print real_in_2015['A6412-0176-00']
-for i in real_in_2015:
-	if real_in_2015[i][0][0] > 0:
-		print i
 
 """
-start expectation, real data by real_in_2015[k][0~52]
-And Au, Av2u is from list_1_2_deg
+predict function: based on real data(week in 2015) to predict specific week
+return a dictionary of predict result
 """
 
-def expect_next_week(predict, week, thresholds, x):
+def predict_next_week(predict, week, thresholds, x):
 		
 	#predict = {}
 	for k in list_1_2_deg:
@@ -112,8 +61,11 @@ def expect_next_week(predict, week, thresholds, x):
 			#print "%s isn't infected" %area
 			predict[area] = 0
 	
-"""experiment"""
-print "let's experiment"
+"""
+experiment function: observe the result of the changing between inactive and active in an area
+especially 0 -> 1 in early time
+
+"""
 
 def experiment(predict,week):
 	compare = {}

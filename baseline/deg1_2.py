@@ -1,0 +1,270 @@
+"""
+* In baseline of the experiment, we don't need to learn to probabilities,
+  just setting a value to its 1 deg neighbor, then 2 deg.(ex. 1/2, 1/4).
+  When predict, don't care how many of its neighbor has been infected and 
+  without considering the effect of time
+"""
+import csv
+import re
+
+# A relation between an area and its neighborhoods
+class Cell(object):
+	def __init__(self):
+		self.pv_u_0 = 0
+		self.tau = 1
+		self.Av2u = 0
+		self.credit_a = []
+	def __repr__(self):
+		return "p is %s" %(self.pv_u_0)
+    
+# Information collection of an area
+class AreaInfo(object):
+	def __init__(self):
+		self.Av = 0
+		self.deg1 = {}	# ex:{'A6432-0108-00': Cell1, 'A6432-0104-00': Cell2}
+		self.deg2 = {}
+		self.toitself = Cell()
+	def show(self):
+		
+		print self.deg1 
+		print self.deg2 
+		
+"""	
+read neighbor information, and form a graph of 1,2 degree of neighbor
+to a dict "list_1_2_deg"
+"""
+def baseline(p):
+	deg1 = open('neighbors_1deg.csv', 'r')
+	lines_1 = deg1.readlines()
+
+	deg2 = open("neighbors_2deg.csv", 'r')
+	lines_2 = deg2.readlines()
+	total_areas = len(lines_1)
+
+	for i in range(len(lines_1)):	#use regular expression to remove "  " " and " \n "
+		lines_1[i] = re.sub('["\n]','',lines_1[i])
+		lines_2[i] = re.sub('["\n]','',lines_2[i])
+
+
+	match = 0
+	unmatch = 0
+	list_1_2_deg = {}						
+
+
+	for i in range(1, total_areas):
+		segment1 = lines_1[i].split(",")
+		segment1.pop()
+		list_1_2_deg[segment1[0]] = AreaInfo()	# create an object information of area
+		
+		
+		for j in range(1, len(segment1)):
+			list_1_2_deg[segment1[0]].deg1[segment1[j]] = Cell()
+			list_1_2_deg[segment1[0]].deg1[segment1[j]].pv_u_0 = float(1) / p 
+		
+
+	for i in range(1, total_areas):
+		segment2 = lines_2[i].split(",")
+		segment2.pop()
+
+		
+		
+		for j in range(1, len(segment2)):
+			list_1_2_deg[segment2[0]].deg2[segment2[j]] = Cell()
+			list_1_2_deg[segment2[0]].deg2[segment2[j]].pv_u_0 = float(1) / p / p
+	
+
+	deg1.close()
+	deg2.close()
+	return list_1_2_deg
+"""
+real data
+"""
+import datetime
+def read_data(list_1_2_deg, week_in_2014, week_in_2015):	
+	
+	print "there are %d areas" % len(list_1_2_deg)
+	# week_in_2014 = area_name: [[week1, level], [week2, level], [week3, level]..., active?]
+
+	for k in list_1_2_deg:
+		week_in_2014[k] = [[0, 0] for x in range(53)]		#isocalendar may has 53 weeks in a year
+		week_in_2014[k].append(-1)							#default not active yet
+		
+		week_in_2015[k] = [[0, 0] for x in range(53)]		#isocalendar may has 53 weeks in a year
+		week_in_2015[k].append(-1)							#default not active yet
+
+
+	#real data for 2014
+	import csv
+	import re
+
+	print "2014 cases:"
+	file = open('Kaohsiung2014_case.csv', 'r')
+	lines = file.readlines()
+	for i in range(len(lines)):	#use regular expression to remove" \n "
+		lines[i] = re.sub('[\n]','',lines[i])
+	print "there are %d case" %(len(lines) - 1)
+	count = 0
+
+	no_match = 0
+	valid_case = 0
+
+	trace = 0
+
+	for i in range(1, len(lines)):
+		segment = lines[i].split(",")
+
+		year = 0
+		month = 0
+		day = 0
+		week = 0
+		tuple = ()
+
+		year = segment[2].split("/")[0]
+		month = segment[2].split("/")[1]
+		day = segment[2].split("/")[2]
+		tuple = datetime.date(int(year), int(month), int(day)).isocalendar()
+		week = tuple[1]
+		
+
+		
+		if(segment[8] != "" ):
+			
+			if(segment[8] in week_in_2014 ):	
+					
+				valid_case += 1	
+
+				if tuple[0] == 2014:
+					week_in_2014[segment[8]][week - 1][0] += 1
+				else:		
+					#although it is 2014, but it seem as 2015
+					week_in_2015[segment[8]][week - 1][0] += 1
+				
+	print  "there are %d valid cases" %valid_case
+	file.close()
+	print
+
+	#real data for 2015
+	print "2015 cases:"
+	file = open('Kaohsiung2015_case.csv', 'r')
+	lines = file.readlines()
+	for i in range(len(lines)):	#use regular expression to remove" \n "
+		lines[i] = re.sub('[\n]','',lines[i])
+	print "there are %d case" %(len(lines) - 1)
+	count = 0
+
+	no_match = 0
+	valid_case = 0
+
+	trace = 0
+
+	for i in range(1, len(lines)):
+		segment = lines[i].split(",")
+
+		year = 0
+		month = 0
+		day = 0
+		week = 0
+		tuple = ()
+
+		year = segment[2].split("/")[0]
+		month = segment[2].split("/")[1]
+		day = segment[2].split("/")[2]
+		tuple = datetime.date(int(year), int(month), int(day)).isocalendar()
+		week = tuple[1]
+		
+
+		
+		if(segment[8] != "" ):
+			
+			if(segment[8] in week_in_2015 ):	
+					
+				valid_case += 1	
+
+				if tuple[0] == 2015:
+					week_in_2015[segment[8]][week - 1][0] += 1
+				
+	print  "there are %d valid cases" %valid_case
+	file.close()
+
+
+"""
+prediction
+"""
+# 36,37 44,45 50,51's 
+# result of prediction will be the same, because don't care time. so just compare with real data
+def predict(list_1_2_deg, thresholds):
+	prediction = {}
+	for k in list_1_2_deg:
+		prediction[k] = "?"
+
+		contribution = []
+		for neighbor1 in list_1_2_deg[k].deg1:
+			contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0)
+		for neighbor2 in list_1_2_deg[k].deg2:
+			contribution.append(list_1_2_deg[neighbor2].deg2[k].pv_u_0)
+
+		expection = 1.0
+		for i in contribution:
+			expection = expection * (1 - i)
+		expection = 1 - expection
+		#print expection
+		if expection >= thresholds:
+			
+			prediction[k] = 1
+		else:
+	
+			prediction[k] = 0
+		
+	return prediction
+
+def analyze(prediction, week_in_2015, week):
+	real = {}
+	for k in prediction:
+		if week_in_2015[k][week][0] >= 1:
+			real[k] = 1
+		else:
+			real[k] = 0
+
+	TP = 0
+	FP = 0
+	FN = 0
+	TN = 0
+
+	for k in prediction:
+		if (prediction[k] == 1 and real[k] == 1):
+			TP += 1
+		elif(prediction[k] == 1 and real[k] == 0):
+			FP += 1
+		elif (prediction[k] == 0 and real[k] == 1):
+			FN += 1
+		elif (prediction[k] == 0 and real[k] == 0):
+			TN += 1
+	print "TP=%d,FP=%d, FN=%d, TN=%d" %(TP, FP, FN, TN)
+	print "The result of week%d. TPR=%f, FPR=%f" %(week, TP / float(TP + FN), FP / float(FP + TN))
+	
+
+if __name__ == "__main__":
+	list_1_2_deg = baseline(3)
+	print len(list_1_2_deg)	# should be 17387
+	# test
+	list_1_2_deg['A6432-0106-00'].show()
+	
+	week_in_2014 = {}
+	week_in_2015 = {}
+	read_data(list_1_2_deg, week_in_2014, week_in_2015)
+
+	print "start predict"
+
+	check_week = [37, 45, 51]
+	for week in check_week:
+		thresholds_list = range(41)
+		for thres in thresholds_list:
+			prediction = predict(list_1_2_deg, float(thres) / 40)
+			print "thresholds is %f" %(float(thres) / 40)
+			analyze(prediction, week_in_2015, week)
+
+	
+
+
+
+

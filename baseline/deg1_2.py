@@ -248,37 +248,71 @@ def analyze(prediction, week_in_2015, week, out, data):
 	
 	w = csv.writer(out)
 	data.extend((FP / float(FP + TN), TP / float(TP + FN)))
-	w.writerows([data])
+	#w.writerow(data)
+	return data
 
 if __name__ == "__main__":
-	list_1_2_deg = baseline(int(sys.argv[1]))
-	print len(list_1_2_deg)	# should be 17387
-	# test
-	list_1_2_deg['A6432-0106-00'].show()
+	test_parameter = [2, 3, 4]
+	open("chart.xlsx", 'w').close()
+
+	for offset in range(len(test_parameter)):
+		out = open("chart.xlsx","r+")
+		
+		w = csv.writer(out)
+		r = csv.reader(out)
+
+		list_1_2_deg = baseline(test_parameter[offset])
+		print len(list_1_2_deg)	# should be 17387
+		# test
+		#list_1_2_deg['A6432-0106-00'].show()
+		
+		week_in_2014 = {}
+		week_in_2015 = {}
+		read_data(list_1_2_deg, week_in_2014, week_in_2015)
+
+		print "start predict"
+		all_rows = []
+		row_index = 0
+		for rows in r:
+			all_rows.append(rows)
+		out.seek(0)
+
+
+		print len(all_rows)
+		if len(all_rows) == 0:
+			w.writerow(["baseline method, decay parameter = 1/" + str(test_parameter[offset]), "", ""] )
+		else:
+			w.writerow(all_rows[row_index] + ["baseline method, decay parameter = 1/" + str(test_parameter[offset]), "", ""] )
+			row_index += 1
+
+		check_week = [37, 45, 51]
+		
+		for week in check_week:
+
+			if len(all_rows) == 0:
+				w.writerow(["The result of " + str(week) + " prediction:", "", ""] )
+				w.writerow(["threshold", "FPR", "TPR"])
+			else:
+				w.writerow(all_rows[row_index] + ["The result of " + str(week) + " prediction:", "", ""] )
+				row_index += 1
+				w.writerow(all_rows[row_index] + ["threshold", "FPR", "TPR"])
+				row_index += 1
+
+			thresholds_list = range(41)
+			for thres in thresholds_list:
+				prediction = predict(list_1_2_deg, float(thres) / 40)
+				data = []
+				print "thresholds is %f" %(float(thres) / 40)
+				data.append(float(thres) / 40)
+				analyze(prediction, week_in_2015, week, out, data)
+				if len(all_rows) == 0:
+					w.writerow(data)
+				else:
+					w.writerow(all_rows[row_index] + data)
+					row_index += 1
+
+			w.writerows(["\n"])
+			row_index += 1
+			
+		out.close()
 	
-	week_in_2014 = {}
-	week_in_2015 = {}
-	read_data(list_1_2_deg, week_in_2014, week_in_2015)
-
-	print "start predict"
-
-	out = open("chart.xlsx","w")
-	w = csv.writer(out)
-	w.writerows([["baseline method, decay parameter = 1/" + sys.argv[1]]] )
-	check_week = [37, 45, 51]
-	for week in check_week:
-
-		
-		w.writerows([["The result of " + str(week) + " prediction:"]] )
-		w.writerows([["threshold", "FPR", "TPR"]])
-		
-		thresholds_list = range(41)
-		for thres in thresholds_list:
-			prediction = predict(list_1_2_deg, float(thres) / 40)
-			data = []
-			print "thresholds is %f" %(float(thres) / 40)
-			data.append(float(thres) / 40)
-			analyze(prediction, week_in_2015, week, out, data)
-		
-		w.writerows(["\n", "\n"])
-	out.close()

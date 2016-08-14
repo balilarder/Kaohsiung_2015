@@ -3,7 +3,10 @@
   just setting a value to its 1 deg neighbor, then 2 deg.(ex. 1/2, 1/4).
   When predict, don't care how many of its neighbor has been infected and 
   without considering the effect of time
+
+* Output: chart.xlsx
 """
+import sys
 import csv
 import re
 
@@ -217,7 +220,7 @@ def predict(list_1_2_deg, thresholds):
 		
 	return prediction
 
-def analyze(prediction, week_in_2015, week):
+def analyze(prediction, week_in_2015, week, out, data):
 	real = {}
 	for k in prediction:
 		if week_in_2015[k][week][0] >= 1:
@@ -241,10 +244,14 @@ def analyze(prediction, week_in_2015, week):
 			TN += 1
 	print "TP=%d,FP=%d, FN=%d, TN=%d" %(TP, FP, FN, TN)
 	print "The result of week%d. TPR=%f, FPR=%f" %(week, TP / float(TP + FN), FP / float(FP + TN))
+
 	
+	w = csv.writer(out)
+	data.extend((FP / float(FP + TN), TP / float(TP + FN)))
+	w.writerows([data])
 
 if __name__ == "__main__":
-	list_1_2_deg = baseline(3)
+	list_1_2_deg = baseline(int(sys.argv[1]))
 	print len(list_1_2_deg)	# should be 17387
 	# test
 	list_1_2_deg['A6432-0106-00'].show()
@@ -255,16 +262,23 @@ if __name__ == "__main__":
 
 	print "start predict"
 
+	out = open("chart.xlsx","w")
+	w = csv.writer(out)
+	w.writerows([["baseline method, decay parameter = 1/" + sys.argv[1]]] )
 	check_week = [37, 45, 51]
 	for week in check_week:
+
+		
+		w.writerows([["The result of " + str(week) + " prediction:"]] )
+		w.writerows([["threshold", "FPR", "TPR"]])
+		
 		thresholds_list = range(41)
 		for thres in thresholds_list:
 			prediction = predict(list_1_2_deg, float(thres) / 40)
+			data = []
 			print "thresholds is %f" %(float(thres) / 40)
-			analyze(prediction, week_in_2015, week)
-
-	
-
-
-
-
+			data.append(float(thres) / 40)
+			analyze(prediction, week_in_2015, week, out, data)
+		
+		w.writerows(["\n", "\n"])
+	out.close()

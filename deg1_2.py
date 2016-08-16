@@ -27,7 +27,7 @@ class AreaInfo(object):
 	def show(self):
 		print self.Av
 		print self.deg1 
-		print self.deg2 
+		#print self.deg2 
 		print self.toself
 		
 

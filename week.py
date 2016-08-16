@@ -159,127 +159,47 @@ file.close()
 print "total count from csv is %d" %total
 
 
-"""
-product action log (1+ people) both 2014 and 2015
-2015 action log is to obseved the action time of a node, tv, in Discrete Time model 
-
-* action log v2: consider the effect of self-propagation, by defining its action
-"""
-#2014 action log
-log_write = open("2014action_log_kaohsiung.txt", 'w')
-log_2014 = []
-#there are 51 actions(number from 1 to 51)
-for i in range(1, 52):									#i indicate action number
-	
-	
-	#for a new action, default it is inactive
-	for k in week_in_2014:
-		week_in_2014[k][53] = -1
-	
-	for k in week_in_2014:					
-		for b in range(i - 1, i + 2):							#b indicate the block which need to lookup in the week_in_2014{}
-			if(week_in_2014[k][b][0] > 0 and week_in_2014[k][53] == -1):		#more than 0 means action
-				week_in_2014[k][53] = b
-				log_2014.append([k, i , b + 1])
-
-
-log_2014 = sorted(log_2014, key = lambda x : (x[1], x[2]))				#sort by two criteria (first by col1, then col2)
-for each in log_2014:
-	print >> log_write, "%s" %each
-log_write.close()
-
-#2015 action log
-log_write = open("2015action_log_kaohsiung.txt", 'w')
-log_2015 = []
-#there are 51 actions(number from 1 to 51)
-for i in range(1, 52):									#i indicate action number
-	
-	
-	#for a new action, default it is inactive
-	for k in week_in_2015:
-		week_in_2015[k][53] = -1
-	
-	for k in week_in_2015:					
-		for b in range(i - 1, i + 2):
-			#b indicate the block which need to lookup in the week_in_2015{}
-			if(week_in_2015[k][b][0] > 0 and week_in_2015[k][53] == -1):		#more than 0 means action
-				week_in_2015[k][53] = b
-				log_2015.append([k, i , b + 1])
-
-
-log_2015 = sorted(log_2015, key = lambda x : (x[1], x[2]))				#sort by two criteria (first by col1, then col2)
-for each in log_2015:
-	print >> log_write, "%s" %each
-log_write.close()
-
-
 """learning and fill the list_1_2_deg(Au, Av2u), noting that not to imported to table.py"""
-if sys.argv[0] == "expect2015.py":
-
-	print "start learning"
-	now_action = 0
-	action = 0
-	for i in range(len(log_2014)):
-		
-		#Av +1
-		list_1_2_deg[log_2014[i][0]].Av += 1
-
-		now_action = log_2014[i][1]
-
-		# Learning probability to other
-		for j in range(i+1, len(log_2014)):
-			conect = 0
-			
-			if log_2014[j][1] == now_action and log_2014[j][2] > log_2014[i][2]:
-				for k in list_1_2_deg[log_2014[i][0]].deg1:
-
-					if k == log_2014[j][0]:
-						conect = 1
-						
-						list_1_2_deg[log_2014[i][0]].deg1[k].Av2u += 1				#Av2u +1
-						
-
-						action += 1
-						
-						#print "there is a action %d, cause by %d. %s to %s" %(action, i, log_2014[i][0], log_2014[j][0])
-						break
-				
-			elif log_2014[j][1] > now_action:
-				
-				break
-
-		# Learning probability to self
-		# The condition is that when an area do an action(in log), and its action id and action time is same
-		# means the action is the earliest it could be, then check 2 week later. If once of then infected
-		# seen as self propagation
-		if log_2014[i][1] == log_2014[i][2]:
-			if week_in_2014[log_2014[i][0]][log_2014[i][2]][0] > 0 or \
-			week_in_2014[log_2014[i][0]][log_2014[i][2] + 1][0] > 0:
-				# self += 1
-				list_1_2_deg[log_2014[i][0]].toself.Av2u += 1
 
 
-	print "total action(to other):%d" %action
-	#test
-	#print list_1_2_deg['A6412-0312-00']
-	#print list_1_2_deg['A6409-0129-00']
+print "start learning by 2014"
+now_action = 0
+action = 0
+print week_in_2014['A6412-1446-00']
+for k in week_in_2014:
+	for w in range(52):
+		if w <= 50: 	# check 2 week after
+			if week_in_2014[k][w][0] > 0:	
+				list_1_2_deg[k].Av += 1
+				# check itself
+				if week_in_2014[k][w + 1][0] > 0 or week_in_2014[k][w + 2][0] > 0:
+					list_1_2_deg[k].toself.Av2u += 1
 
-	"""calculate probability by Av2u/Au"""
-	# to other
-	for k in list_1_2_deg:
-		for p in list_1_2_deg[k].deg1:
-			if list_1_2_deg[k].Av != 0:		#avoid dividing zero
-				list_1_2_deg[k].deg1[p].pv_u_0 = list_1_2_deg[k].deg1[p].Av2u / float(list_1_2_deg[k].Av)
-	# to itself
-	for k in list_1_2_deg:
-		if list_1_2_deg[k].Av != 0:
-			list_1_2_deg[k].toself.pv_u_0 = list_1_2_deg[k].toself.Av2u / float(list_1_2_deg[k].Av)
+				# check its neighbor
+				for n1 in list_1_2_deg[k].deg1:
+					if week_in_2014[n1][w + 1][0] > 0 or week_in_2014[n1][w + 2][0] > 0:
+						list_1_2_deg[k].deg1[n1].Av2u += 1
+		else: 			# only check 53th week
+			if week_in_2014[k][w][0] > 0:	
+				list_1_2_deg[k].Av += 1
+				# check itself
+				if week_in_2014[k][w + 1][0] > 0:
+					list_1_2_deg[k].toself.Av2u += 1
 
+				# check its neighbor
+				for n1 in list_1_2_deg[k].deg1:
+					if week_in_2014[n1][w + 1][0] > 0:
+						list_1_2_deg[k].deg1[n1].Av2u += 1
+# test
+list_1_2_deg['A6409-0129-00'].show()
 
-	#test
-	
-	print "A6405-0814-00:"
-	list_1_2_deg['A6405-0814-00'].show()
-	print "A6409-0129-00"
-	list_1_2_deg['A6409-0129-00'].show()
-	
+"""calculate probability by Av2u/Au"""
+# to other
+for k in list_1_2_deg:
+	for p in list_1_2_deg[k].deg1:
+		if list_1_2_deg[k].Av != 0:		#avoid dividing zero
+			list_1_2_deg[k].deg1[p].pv_u_0 = list_1_2_deg[k].deg1[p].Av2u / float(list_1_2_deg[k].Av)
+# to itself
+for k in list_1_2_deg:
+	if list_1_2_deg[k].Av != 0:
+		list_1_2_deg[k].toself.pv_u_0 = list_1_2_deg[k].toself.Av2u / float(list_1_2_deg[k].Av)

@@ -4,7 +4,9 @@
   When predict, don't care how many of its neighbor has been infected and 
   without considering the effect of time
 
-* Output: chart.xlsx
+  -> probability is constant
+
+* Output: chart2.xlsx
 """
 import sys
 import csv
@@ -62,7 +64,7 @@ def baseline(p):
 		
 		for j in range(1, len(segment1)):
 			list_1_2_deg[segment1[0]].deg1[segment1[j]] = Cell()
-			list_1_2_deg[segment1[0]].deg1[segment1[j]].pv_u_0 = float(1) / p 
+			list_1_2_deg[segment1[0]].deg1[segment1[j]].pv_u_0 = p 
 		
 
 	for i in range(1, total_areas):
@@ -73,7 +75,7 @@ def baseline(p):
 		
 		for j in range(1, len(segment2)):
 			list_1_2_deg[segment2[0]].deg2[segment2[j]] = Cell()
-			list_1_2_deg[segment2[0]].deg2[segment2[j]].pv_u_0 = float(1) / p / p
+			list_1_2_deg[segment2[0]].deg2[segment2[j]].pv_u_0 = p / p
 	
 
 	deg1.close()
@@ -195,17 +197,32 @@ prediction
 """
 # 36,37 44,45 50,51's 
 # result of prediction will be the same, because don't care time. so just compare with real data
-def predict(list_1_2_deg, thresholds):
+def predict(list_1_2_deg, thresholds, week_in_2015, week, parameter):
 	prediction = {}
 	for k in list_1_2_deg:
 		prediction[k] = "?"
 
 		contribution = []
+		# self
+		if week_in_2015[k][week - 1][0] > 0:
+		 	contribution.append(parameter)
+		if week_in_2015[k][week - 2][0] > 0:
+		 	contribution.append(parameter * 0.5)
+		if week_in_2015[k][week - 3][0] > 0:
+		 	contribution.append(parameter * 0.25)
+		# self end
 		for neighbor1 in list_1_2_deg[k].deg1:
-			contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0)
+			if week_in_2015[neighbor1][week - 1][0] > 0:
+				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0)
+			if week_in_2015[neighbor1][week - 2][0] > 0:
+				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0 * 0.5)
+			if week_in_2015[neighbor1][week - 3][0] > 0:
+				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0 * 0.25)
+		# ignore 2 deg
+		"""
 		for neighbor2 in list_1_2_deg[k].deg2:
 			contribution.append(list_1_2_deg[neighbor2].deg2[k].pv_u_0)
-
+		"""
 		expection = 1.0
 		for i in contribution:
 			expection = expection * (1 - i)
@@ -242,26 +259,30 @@ def analyze(prediction, week_in_2015, week, out, data):
 			FN += 1
 		elif (prediction[k] == 0 and real[k] == 0):
 			TN += 1
+	
+	FPR = FP / float(FP + TN)
+	TPR = TP / float(TP + FN)
+	distance = ((FPR - 0) ** 2 + (TPR - 1) ** 2) ** 0.5
 	print "TP=%d,FP=%d, FN=%d, TN=%d" %(TP, FP, FN, TN)
-	print "The result of week%d. TPR=%f, FPR=%f" %(week, TP / float(TP + FN), FP / float(FP + TN))
+	print "The result of week%d. TPR=%f, FPR=%f, distance=%f" %(week, TPR, FPR, distance)
 
 	
 	w = csv.writer(out)
-	data.extend((FP / float(FP + TN), TP / float(TP + FN)))
+	data.extend((FPR, TPR, distance))
 	#w.writerow(data)
 	return data
 
 if __name__ == "__main__":
-	test_parameter = [2, 3, 4]
-	open("chart.xlsx", 'w').close()
+	test_parameter = [0.5, 0.33, 0.2, 0.15, 0.1]
+	open("chart2.xlsx", 'w').close()
 
-	for offset in range(len(test_parameter)):
-		out = open("chart.xlsx","r+")
+	for parameter in test_parameter:
+		out = open("chart2.xlsx","r+")
 		
 		w = csv.writer(out)
 		r = csv.reader(out)
 
-		list_1_2_deg = baseline(test_parameter[offset])
+		list_1_2_deg = baseline(parameter)
 		print len(list_1_2_deg)	# should be 17387
 		# test
 		#list_1_2_deg['A6432-0106-00'].show()
@@ -280,9 +301,9 @@ if __name__ == "__main__":
 
 		print len(all_rows)
 		if len(all_rows) == 0:
-			w.writerow(["baseline method, decay parameter = 1/" + str(test_parameter[offset]), "", ""] )
+			w.writerow(["baseline method, p=" + str(parameter), "", "", ""] )
 		else:
-			w.writerow(all_rows[row_index] + ["baseline method, decay parameter = 1/" + str(test_parameter[offset]), "", ""] )
+			w.writerow(all_rows[row_index] + ["baseline method, p=" + str(parameter), "", "" ,""] )
 			row_index += 1
 
 		check_week = [37, 45, 51]
@@ -290,17 +311,17 @@ if __name__ == "__main__":
 		for week in check_week:
 
 			if len(all_rows) == 0:
-				w.writerow(["The result of " + str(week) + " prediction:", "", ""] )
-				w.writerow(["threshold", "FPR", "TPR"])
+				w.writerow(["The result of " + str(week) + " prediction:", "", "", ""] )
+				w.writerow(["threshold", "FPR", "TPR", "distance"])
 			else:
-				w.writerow(all_rows[row_index] + ["The result of " + str(week) + " prediction:", "", ""] )
+				w.writerow(all_rows[row_index] + ["The result of " + str(week) + " prediction:", "", "", ""] )
 				row_index += 1
-				w.writerow(all_rows[row_index] + ["threshold", "FPR", "TPR"])
+				w.writerow(all_rows[row_index] + ["threshold", "FPR", "TPR", "distance"])
 				row_index += 1
 
 			thresholds_list = range(41)
 			for thres in thresholds_list:
-				prediction = predict(list_1_2_deg, float(thres) / 40)
+				prediction = predict(list_1_2_deg, float(thres) / 40, week_in_2015, week, parameter)
 				data = []
 				print "thresholds is %f" %(float(thres) / 40)
 				data.append(float(thres) / 40)

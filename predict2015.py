@@ -1,5 +1,5 @@
 import datetime
-
+import csv
 from week import list_1_2_deg, week_in_2014, week_in_2015
 
 
@@ -22,8 +22,8 @@ def predict_next_week(predict, week, thresholds):
 
 		#if this week "area" has been infected, it should give itself a probability x for the next week to expect
 		# if week_in_2015[area][week][0] > 0:
-		# 	others_to_me.append(list_1_2_deg[area].toself.pv_u_0)
-		# 	#others_to_me.append(0.5)
+		#  	others_to_me.append(list_1_2_deg[area].toself.pv_u_0)
+		#  	#others_to_me.append(0.5)
 		# if week_in_2015[area][week - 1][0] > 0:
 		# 	others_to_me.append(list_1_2_deg[area].toself.pv_u_0 * 0.5)
 		# 	#others_to_me.append(0.5 * 0.5)
@@ -61,7 +61,7 @@ especially 0 -> 1 in early time
 
 """
 
-def experiment(predict,week):
+def experiment(predict,week, data):
 	real = {}
 	for k in list_1_2_deg:
 		if week_in_2015[k][week][0] > 0:
@@ -97,18 +97,24 @@ def experiment(predict,week):
 	print "TPR is %f" %TPR
 	print "FPR is %f" %FPR
 	print "distance=%f" %distance
+	data.extend((FPR, TPR, distance))
 
+out = open("chart_summary.xlsx","w")
+w = csv.writer(out)
+check_week = [37, 45, 51]
+for week in check_week:
+	w.writerow(["The result of " + str(week) + " prediction:"] )
+	w.writerow(["threshold", "FPR", "TPR", "distance", "AUC"])
+	thresholds_list = range(41)
+	for thres in thresholds_list:
 
+		predict = {}
+		predict_next_week(predict, week - 1, float(thres) / 40)
+		data = []
+		data.append(float(thres) / 40)
+		
 
-thresholds_list = range(41)
-for thres in thresholds_list:
-	predict = {}
-	predict_next_week(predict, 50, float(thres) / 40)
-
-	print "thresholds is %f" %(float(thres) / 40)	
-	experiment(predict, 51)
-"""
-all_self2self = []
-for k in list_1_2_deg:
-	print list_1_2_deg[k].toself.pv_u_0, 
-"""
+		print "thresholds is %f" %(float(thres) / 40)	
+		experiment(predict, week, data)
+		w.writerow(data)
+out.close()

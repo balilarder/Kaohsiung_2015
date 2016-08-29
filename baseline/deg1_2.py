@@ -203,14 +203,14 @@ def predict(list_1_2_deg, thresholds, week_in_2015, week, parameter):
 		prediction[k] = "?"
 
 		contribution = []
-		# self
-		if week_in_2015[k][week - 1][0] > 0:
-		 	contribution.append(parameter)
-		if week_in_2015[k][week - 2][0] > 0:
-		 	contribution.append(parameter * 0.5)
-		if week_in_2015[k][week - 3][0] > 0:
-		 	contribution.append(parameter * 0.25)
-		# self end
+		#self
+		# if week_in_2015[k][week - 1][0] > 0:
+		#  	contribution.append(parameter)
+		# if week_in_2015[k][week - 2][0] > 0:
+		#  	contribution.append(parameter * 0.5)
+		# if week_in_2015[k][week - 3][0] > 0:
+		#  	contribution.append(parameter * 0.25)
+		#self end
 		for neighbor1 in list_1_2_deg[k].deg1:
 			if week_in_2015[neighbor1][week - 1][0] > 0:
 				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0)
@@ -250,34 +250,65 @@ def analyze(prediction, week_in_2015, week, out, data):
 	FN = 0
 	TN = 0
 
+	# neighbor_infected = 0
+	# neighbor_notinfected = 0
+	# infected = 0
+	# notinfected = 0 
+
+	# for k in prediction:
+	# 	if all(real[x] == 0 for x in list_1_2_deg[k].deg1):
+	# 		neighbor_notinfected += 1
+	# 	else:
+	# 		neighbor_infected += 1
+	# print neighbor_notinfected + neighbor_infected
+	case1 = 0
+	case2 = 0
+	# compute 2 case when guess wrong
 	for k in prediction:
 		if (prediction[k] == 1 and real[k] == 1):
 			TP += 1
+			
 		elif(prediction[k] == 1 and real[k] == 0):
 			FP += 1
+			if not all(real[x] == 0 for x in list_1_2_deg[k].deg1):
+				case2 += 1
 		elif (prediction[k] == 0 and real[k] == 1):
 			FN += 1
+			if all(real[x] == 0 for x in list_1_2_deg[k].deg1):
+				case1 += 1
 		elif (prediction[k] == 0 and real[k] == 0):
 			TN += 1
+			
 	
 	FPR = FP / float(FP + TN)
 	TPR = TP / float(TP + FN)
 	distance = ((FPR - 0) ** 2 + (TPR - 1) ** 2) ** 0.5
+	# if neighbor_notinfected != 0:
+	# 	case1 = float(infected) / neighbor_notinfected 
+	# else:
+	# 	case1 = 0
+	# if neighbor_infected != 0:
+	# 	case2 = float(notinfected) / neighbor_infected
+	# else:
+	# 	case2 = 0
+	case1 = float(case1) / (FP + FN)
+	case2 = float(case2) / (FP + FN)
 	print "TP=%d,FP=%d, FN=%d, TN=%d" %(TP, FP, FN, TN)
 	print "The result of week%d. TPR=%f, FPR=%f, distance=%f" %(week, TPR, FPR, distance)
 
 	
 	w = csv.writer(out)
-	data.extend((FPR, TPR, distance))
+	data.extend((FPR, TPR, distance, case1,case2, "", "", ""))
 	#w.writerow(data)
 	return data
 
 if __name__ == "__main__":
-	test_parameter = [0.5, 0.33, 0.2, 0.15, 0.1]
-	open("chart2.xlsx", 'w').close()
+	test_parameter = [0.5, 0.4, 0.3]
+	
+	open("chart.xlsx", 'w').close()
 
 	for parameter in test_parameter:
-		out = open("chart2.xlsx","r+")
+		out = open("chart.xlsx","r+")
 		
 		w = csv.writer(out)
 		r = csv.reader(out)
@@ -301,9 +332,9 @@ if __name__ == "__main__":
 
 		print len(all_rows)
 		if len(all_rows) == 0:
-			w.writerow(["baseline method, p=" + str(parameter), "", "", ""] )
+			w.writerow(["baseline method, p=" + str(parameter), "","","", "", "", "", "", ""] )
 		else:
-			w.writerow(all_rows[row_index] + ["baseline method, p=" + str(parameter), "", "" ,""] )
+			w.writerow(all_rows[row_index] + ["baseline method, p=" + str(parameter), "","","", "", "" ,"", "", ""] )
 			row_index += 1
 
 		check_week = [37, 45, 51]
@@ -311,12 +342,12 @@ if __name__ == "__main__":
 		for week in check_week:
 
 			if len(all_rows) == 0:
-				w.writerow(["The result of " + str(week) + " prediction:", "", "", ""] )
-				w.writerow(["threshold", "FPR", "TPR", "distance"])
+				w.writerow(["The result of " + str(week) + " prediction:", "","","", "", "", "", "", ""] )
+				w.writerow(["threshold", "FPR", "TPR", "distance", "case1 rate", "case2 rate","", "", ""])
 			else:
-				w.writerow(all_rows[row_index] + ["The result of " + str(week) + " prediction:", "", "", ""] )
+				w.writerow(all_rows[row_index] + ["The result of " + str(week) + " prediction:", "","","", "", "", "", "", ""] )
 				row_index += 1
-				w.writerow(all_rows[row_index] + ["threshold", "FPR", "TPR", "distance"])
+				w.writerow(all_rows[row_index] + ["threshold", "FPR", "TPR", "distance","case1 rate","case2 rate","","", ""])
 				row_index += 1
 
 			thresholds_list = range(41)

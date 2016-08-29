@@ -203,3 +203,52 @@ for k in list_1_2_deg:
 for k in list_1_2_deg:
 	if list_1_2_deg[k].Av != 0:
 		list_1_2_deg[k].toself.pv_u_0 = list_1_2_deg[k].toself.Av2u / float(list_1_2_deg[k].Av)
+
+
+"""
+check probability
+"""
+print "checking..."
+v1 = 0	#0
+v1_good = 0
+v2 = 0	#0.0
+v2_good = 0
+v3 = 0
+v3_good =0
+print len(list_1_2_deg)
+check = open("probability.txt", "w")
+for k in list_1_2_deg:
+	if list_1_2_deg[k].toself.pv_u_0 == 0 and type(list_1_2_deg[k].toself.pv_u_0) == int:
+		v1 += 1
+		if all(list_1_2_deg[k].deg1[n1].pv_u_0 == 0 for n1 in list_1_2_deg[k].deg1):
+			v1_good += 1
+	if list_1_2_deg[k].toself.pv_u_0 == 0 and type(list_1_2_deg[k].toself.pv_u_0) == float:
+		v2 += 1
+		if all(list_1_2_deg[k].deg1[n1].pv_u_0 == 0 for n1 in list_1_2_deg[k].deg1):
+			v2_good += 1
+	elif list_1_2_deg[k].toself.pv_u_0 > 0.0:
+		v3 += 1
+		if all(list_1_2_deg[k].deg1[n1].pv_u_0 < list_1_2_deg[k].toself.pv_u_0 for n1 in list_1_2_deg[k].deg1):
+			v3_good += 1
+
+
+	print >> check, k, " | ", list_1_2_deg[k].toself.pv_u_0, " | ", 
+	for n1 in list_1_2_deg[k].deg1:
+		print >> check, list_1_2_deg[k].deg1[n1].pv_u_0,
+	print >> check, " | ",
+	print >> check
+check.close()
+print v1, v2, v3
+print type(0), type(0.0)
+
+print "v1_good rate= ", float(v1_good) / v1
+print "v2_good rate= ", float(v2_good) / v2
+print "v3_good rate= ", float(v3_good) / v3
+
+print float(v1_good + v2_good) / (v1 + v2)
+
+without = 0
+for k in list_1_2_deg:
+	if list_1_2_deg[k].Av == 0:
+		without += 1
+print without

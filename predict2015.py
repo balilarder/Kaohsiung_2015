@@ -23,13 +23,13 @@ def predict_next_week(predict, week, thresholds):
 		#if this week "area" has been infected, it should give itself a probability x for the next week to expect
 		# if week_in_2015[area][week][0] > 0:
 		#  	others_to_me.append(list_1_2_deg[area].toself.pv_u_0)
-		#  	#others_to_me.append(0.5)
+		#  	# others_to_me.append(0.5)
 		# if week_in_2015[area][week - 1][0] > 0:
 		# 	others_to_me.append(list_1_2_deg[area].toself.pv_u_0 * 0.5)
-		# 	#others_to_me.append(0.5 * 0.5)
+		# 	# others_to_me.append(0.5 * 0.5)
 		# if week_in_2015[area][week - 2][0] > 0:
 		# 	others_to_me.append(list_1_2_deg[area].toself.pv_u_0 * 0.25)
-		# 	#others_to_me.append(0.5 * 0.25)
+		# 	# others_to_me.append(0.5 * 0.25)
 		
 		for n1 in list_1_2_deg[area].deg1:
 			if week_in_2015[n1][week][0] > 0:
@@ -75,14 +75,20 @@ def experiment(predict,week, data):
 	FN = 0
 	TN = 0
 	
+	case1 = 0
+	case2 = 0
 
 	for k in list_1_2_deg:
 		if (predict[k] == 1 and real[k] == 1):
 			TP += 1
 		elif(predict[k] == 1 and real[k] == 0):
 			FP += 1
+			if not all(real[x] == 0 for x in list_1_2_deg[k].deg1):
+				case2 += 1
 		elif (predict[k] == 0 and real[k] == 1):
 			FN += 1
+			if all(real[x] == 0 for x in list_1_2_deg[k].deg1):
+				case1 += 1
 		elif (predict[k] == 0 and real[k] == 0):
 			TN += 1 
 	
@@ -94,17 +100,19 @@ def experiment(predict,week, data):
 	# print "FN is %d" %FN
 	# print "TN is %d" %TN
 	# print "Total is %d" %(TP + FP + FN + TN)
+	case1 = float(case1) / (FP + FN)
+	case2 = float(case2) / (FP + FN)
 	print "TPR is %f" %TPR
 	print "FPR is %f" %FPR
 	print "distance=%f" %distance
-	data.extend((FPR, TPR, distance))
+	data.extend((FPR, TPR, distance,case1, case2))
 
 out = open("chart_summary.xlsx","w")
 w = csv.writer(out)
 check_week = [37, 45, 51]
 for week in check_week:
 	w.writerow(["The result of " + str(week) + " prediction:"] )
-	w.writerow(["threshold", "FPR", "TPR", "distance", "AUC"])
+	w.writerow(["threshold", "FPR", "TPR", "distance", "case1 rate", "case2 rate"])
 	thresholds_list = range(41)
 	for thres in thresholds_list:
 

@@ -1,16 +1,11 @@
 """
-* In baseline of the experiment, we don't need to learn to probabilities,
-  just setting a value to its 1 deg neighbor, then 2 deg.(ex. 1/2, 1/4).
-  When predict, don't care how many of its neighbor has been infected and 
-  without considering the effect of time
-
-  -> probability is constant
-
-* Output: chart2.xlsx
+* baseline2: not by neignbor, but actually contagion nodes
 """
 import sys
 import csv
 import re
+import os.path
+
 
 # A relation between an area and its neighborhoods
 class Cell(object):
@@ -26,63 +21,38 @@ class Cell(object):
 class AreaInfo(object):
 	def __init__(self):
 		self.Av = 0
-		self.deg1 = {}	# ex:{'A6432-0108-00': Cell1, 'A6432-0104-00': Cell2}
-		self.deg2 = {}
+		self.toother = {}	# ex:{'A6432-0108-00': Cell1, 'A6432-0104-00': Cell2}
 		self.toitself = Cell()
 	def show(self):
-		
-		print self.deg1 
-		print self.deg2 
+		print self.toother
 		
 """	
-read neighbor information, and form a graph of 1,2 degree of neighbor
+read neighbor information, and form a complete graph
 to a dict "list_1_2_deg"
 """
-def baseline(p):
+def getAllNode():
 	deg1 = open('neighbors_1deg.csv', 'r')
 	lines_1 = deg1.readlines()
 
-	deg2 = open("neighbors_2deg.csv", 'r')
-	lines_2 = deg2.readlines()
+	
 	total_areas = len(lines_1)
-
+	print total_areas
+	
 	for i in range(len(lines_1)):	#use regular expression to remove "  " " and " \n "
 		lines_1[i] = re.sub('["\n]','',lines_1[i])
-		lines_2[i] = re.sub('["\n]','',lines_2[i])
-
-
-	match = 0
-	unmatch = 0
+		
 	list_1_2_deg = {}						
-
 
 	for i in range(1, total_areas):
 		segment1 = lines_1[i].split(",")
 		segment1.pop()
 		list_1_2_deg[segment1[0]] = AreaInfo()	# create an object information of area
 		
-		
-		for j in range(1, len(segment1)):
-			list_1_2_deg[segment1[0]].deg1[segment1[j]] = Cell()
-			list_1_2_deg[segment1[0]].deg1[segment1[j]].pv_u_0 = p 
-		
-
-	for i in range(1, total_areas):
-		segment2 = lines_2[i].split(",")
-		segment2.pop()
-
-		
-		
-		for j in range(1, len(segment2)):
-			list_1_2_deg[segment2[0]].deg2[segment2[j]] = Cell()
-			list_1_2_deg[segment2[0]].deg2[segment2[j]].pv_u_0 = p / p
-	
-
 	deg1.close()
-	deg2.close()
 	return list_1_2_deg
+
 """
-real data
+Read real data
 """
 import datetime
 def read_data(list_1_2_deg, week_in_2014, week_in_2015):	
@@ -191,118 +161,52 @@ def read_data(list_1_2_deg, week_in_2014, week_in_2015):
 	print  "there are %d valid cases" %valid_case
 	file.close()
 
+"""
+Find link between nodes(if has been contagious once, then has a edge)
+"""
+def getAllLink(list_1_2_deg, week_in_2014):
+	
+	
+	count = 0
+	for k in week_in_2014:
+		for w in range(52):
+			
+			if w <= 50: 	# check 2 week after
+				if week_in_2014[k][w][0] > 0:	
+					# check all node, and build links
+					for nodes in list_1_2_deg:
+						if nodes != k and (week_in_2014[nodes][w + 1][0] > 0 or week_in_2014[nodes][w + 2][0] > 0):
+							list_1_2_deg[k].toother[nodes] = Cell()
+							#print "%s -> %s" %(k, nodes)
 
-"""
-prediction
-"""
-# 36,37 44,45 50,51's 
-# result of prediction will be the same, because don't care time. so just compare with real data
-def predict(list_1_2_deg, thresholds, week_in_2015, week, parameter):
-	prediction = {}
+			else: 			# only check 53th week
+				if week_in_2014[k][w][0] > 0:	
+					# check all node, and build links
+					for nodes in list_1_2_deg:
+						if nodes != k and week_in_2014[nodes][w + 1][0] > 0:
+							list_1_2_deg[k].toother[nodes] = Cell()
+							#print "%s -> %s" %(k, nodes)
+		count += 1
+		print count
+	print "finish graph~"
+	file = open("Contagious graph.txt", "w")
 	for k in list_1_2_deg:
-		prediction[k] = "?"
+		print >> file, "%s:" %k,
+		for nodes in list_1_2_deg[k].toother:
+			print >> file, "%s," %nodes,
+		print >> file
+	# print len(list_1_2_deg["A6430-0017-00"].toother)
+	# print len(list_1_2_deg["A6434-0043-00"].toother)
+	# print len(list_1_2_deg["A6412-0723-00"].toother)
+	# print len(list_1_2_deg["A6405-0201-00"].toother)
+	print len(list_1_2_deg["A6405-1215-00"].toother)
 
-		contribution = []
-		#self
-		# if week_in_2015[k][week - 1][0] > 0:
-		#  	contribution.append(parameter)
-		# if week_in_2015[k][week - 2][0] > 0:
-		#  	contribution.append(parameter * 0.5)
-		# if week_in_2015[k][week - 3][0] > 0:
-		#  	contribution.append(parameter * 0.25)
-		#self end
-		for neighbor1 in list_1_2_deg[k].deg1:
-			if week_in_2015[neighbor1][week - 1][0] > 0:
-				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0)
-			if week_in_2015[neighbor1][week - 2][0] > 0:
-				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0 * 0.5)
-			if week_in_2015[neighbor1][week - 3][0] > 0:
-				contribution.append(list_1_2_deg[neighbor1].deg1[k].pv_u_0 * 0.25)
-		# ignore 2 deg
-		"""
-		for neighbor2 in list_1_2_deg[k].deg2:
-			contribution.append(list_1_2_deg[neighbor2].deg2[k].pv_u_0)
-		"""
-		expection = 1.0
-		for i in contribution:
-			expection = expection * (1 - i)
-		expection = 1 - expection
-		#print expection
-		if expection >= thresholds:
-			
-			prediction[k] = 1
-		else:
-	
-			prediction[k] = 0
-		
-	return prediction
 
-def analyze(prediction, week_in_2015, week, out, data):
-	real = {}
-	for k in prediction:
-		if week_in_2015[k][week][0] >= 1:
-			real[k] = 1
-		else:
-			real[k] = 0
 
-	TP = 0
-	FP = 0
-	FN = 0
-	TN = 0
 
-	# neighbor_infected = 0
-	# neighbor_notinfected = 0
-	# infected = 0
-	# notinfected = 0 
-
-	# for k in prediction:
-	# 	if all(real[x] == 0 for x in list_1_2_deg[k].deg1):
-	# 		neighbor_notinfected += 1
-	# 	else:
-	# 		neighbor_infected += 1
-	# print neighbor_notinfected + neighbor_infected
-	case1 = 0
-	case2 = 0
-	# compute 2 case when guess wrong
-	for k in prediction:
-		if (prediction[k] == 1 and real[k] == 1):
-			TP += 1
-			
-		elif(prediction[k] == 1 and real[k] == 0):
-			FP += 1
-			if not all(real[x] == 0 for x in list_1_2_deg[k].deg1):
-				case2 += 1
-		elif (prediction[k] == 0 and real[k] == 1):
-			FN += 1
-			if all(real[x] == 0 for x in list_1_2_deg[k].deg1):
-				case1 += 1
-		elif (prediction[k] == 0 and real[k] == 0):
-			TN += 1
-			
-	
-	FPR = FP / float(FP + TN)
-	TPR = TP / float(TP + FN)
-	distance = ((FPR - 0) ** 2 + (TPR - 1) ** 2) ** 0.5
-	# if neighbor_notinfected != 0:
-	# 	case1 = float(infected) / neighbor_notinfected 
-	# else:
-	# 	case1 = 0
-	# if neighbor_infected != 0:
-	# 	case2 = float(notinfected) / neighbor_infected
-	# else:
-	# 	case2 = 0
-	case1 = float(case1) / (FP + FN)
-	case2 = float(case2) / (FP + FN)
-	print "TP=%d,FP=%d, FN=%d, TN=%d" %(TP, FP, FN, TN)
-	print "The result of week%d. TPR=%f, FPR=%f, distance=%f" %(week, TPR, FPR, distance)
-
-	
-	w = csv.writer(out)
-	data.extend((FPR, TPR, distance, case1,case2, "", "", ""))
-	#w.writerow(data)
-	return data
 
 if __name__ == "__main__":
+	"""
 	test_parameter = [0.5, 0.4, 0.3]
 	
 	open("chart.xlsx", 'w').close()
@@ -367,4 +271,12 @@ if __name__ == "__main__":
 			row_index += 1
 			
 		out.close()
+	"""
+	list_1_2_deg = getAllNode()
+
+	week_in_2014 = {}
+	week_in_2015 = {}
+	read_data(list_1_2_deg, week_in_2014, week_in_2015)
 	
+	want_to_predict = [37, 45, 51]
+	getAllLink(list_1_2_deg, week_in_2014)

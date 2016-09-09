@@ -1,5 +1,7 @@
 """
 * baseline2: not by neignbor, but actually contagion nodes
+
+* This program will output a graph file "Contagiouns graph.txt"
 """
 import sys
 import csv
@@ -187,7 +189,7 @@ def getAllLink(list_1_2_deg, week_in_2014):
 							list_1_2_deg[k].toother[nodes] = Cell()
 							#print "%s -> %s" %(k, nodes)
 		count += 1
-		print count
+		#print count
 	print "finish graph~"
 	file = open("Contagious graph.txt", "w")
 	for k in list_1_2_deg:
@@ -202,76 +204,8 @@ def getAllLink(list_1_2_deg, week_in_2014):
 	print len(list_1_2_deg["A6405-1215-00"].toother)
 
 
-
-
-
 if __name__ == "__main__":
-	"""
-	test_parameter = [0.5, 0.4, 0.3]
 	
-	open("chart.xlsx", 'w').close()
-
-	for parameter in test_parameter:
-		out = open("chart.xlsx","r+")
-		
-		w = csv.writer(out)
-		r = csv.reader(out)
-
-		list_1_2_deg = baseline(parameter)
-		print len(list_1_2_deg)	# should be 17387
-		# test
-		#list_1_2_deg['A6432-0106-00'].show()
-		
-		week_in_2014 = {}
-		week_in_2015 = {}
-		read_data(list_1_2_deg, week_in_2014, week_in_2015)
-
-		print "start predict"
-		all_rows = []
-		row_index = 0
-		for rows in r:
-			all_rows.append(rows)
-		out.seek(0)
-
-
-		print len(all_rows)
-		if len(all_rows) == 0:
-			w.writerow(["baseline method, p=" + str(parameter), "","","", "", "", "", "", ""] )
-		else:
-			w.writerow(all_rows[row_index] + ["baseline method, p=" + str(parameter), "","","", "", "" ,"", "", ""] )
-			row_index += 1
-
-		check_week = [37, 45, 51]
-		
-		for week in check_week:
-
-			if len(all_rows) == 0:
-				w.writerow(["The result of " + str(week) + " prediction:", "","","", "", "", "", "", ""] )
-				w.writerow(["threshold", "FPR", "TPR", "distance", "case1 rate", "case2 rate","", "", ""])
-			else:
-				w.writerow(all_rows[row_index] + ["The result of " + str(week) + " prediction:", "","","", "", "", "", "", ""] )
-				row_index += 1
-				w.writerow(all_rows[row_index] + ["threshold", "FPR", "TPR", "distance","case1 rate","case2 rate","","", ""])
-				row_index += 1
-
-			thresholds_list = range(41)
-			for thres in thresholds_list:
-				prediction = predict(list_1_2_deg, float(thres) / 40, week_in_2015, week, parameter)
-				data = []
-				print "thresholds is %f" %(float(thres) / 40)
-				data.append(float(thres) / 40)
-				analyze(prediction, week_in_2015, week, out, data)
-				if len(all_rows) == 0:
-					w.writerow(data)
-				else:
-					w.writerow(all_rows[row_index] + data)
-					row_index += 1
-
-			w.writerows(["\n"])
-			row_index += 1
-			
-		out.close()
-	"""
 	list_1_2_deg = getAllNode()
 
 	week_in_2014 = {}

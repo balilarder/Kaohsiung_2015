@@ -29,8 +29,7 @@ class AreaInfo(object):
 		print self.toother
 		
 """	
-read neighbor information, and form a complete graph
-to a dict "list_1_2_deg"
+get a key as all nodes
 """
 def getAllNode():
 	deg1 = open('neighbors_1deg.csv', 'r')
@@ -54,7 +53,7 @@ def getAllNode():
 	return list_1_2_deg
 
 """
-Read real data
+Read real data in order to find where links are
 """
 import datetime
 def read_data(list_1_2_deg, week_in_2014, week_in_2015):	

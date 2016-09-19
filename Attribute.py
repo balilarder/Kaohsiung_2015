@@ -45,3 +45,9 @@ def read_area():
         
     file.close()
     return nodes
+def compute_deg(graph):
+    # input graph, count deg and fill the DegTable
+    DegTable = {}
+    for k in graph:
+        DegTable[k] = len(graph[k].toother)
+    return DegTable

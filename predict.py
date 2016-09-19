@@ -188,15 +188,31 @@ def OutputROC(filename, constant_list, graph, week_in_2015, iteration):
 
         out.close()
 
+def classifier(cg1, cg2, cg3, cg4, week_in_2014):
+    for k in week_in_2014:
+        # do somthing...
+        w = 0
+        while w <= 52:
+            if week_in_2014[k][w][0] > 0:
+                break
+            else:
+                w += 1
+
+        if w >= 0 and w <= 37:
+            cg1.append(k)
+        elif w >= 38 and w <= 45:
+            cg2.append(k)
+        elif w >= 38 and w <= 52:
+            cg3.append(k)
+        elif w == 53:
+            cg4.append(k)
+
 if __name__ == '__main__':
 
     # get attribute tables
     populationTable = read_population()
     homeTable = read_home()
     areaTable = read_area()
-    # moreDegTable
-    # neighborDegTable
-
     
     # read 2 kinds of graph as input
     graph_MoreEdge = {}
@@ -204,8 +220,10 @@ if __name__ == '__main__':
     
     read_graph_MoreEdge(graph_MoreEdge)
     read_graph_Neighbor(graph_NeighborEdge)
+    # compute moreDegTable, neighborDegTable
+    moreDegTable = compute_deg(graph_MoreEdge)
+    neighborDegTable = compute_deg(graph_NeighborEdge)
 
-    
     # read real data to get week in 2014, 2015
     week_in_2014 = {}
     week_in_2015 = {}
@@ -217,7 +235,7 @@ if __name__ == '__main__':
 
     
     # do ROC file
-
+    """
     methods = [predictMethod1, predictMethod2, predictMethod3, predictMethod4,
     predictMethod5, predictMethod6, predictMethod7, predictMethod8,
     predictMethod9, predictMethod10, predictMethod11, predictMethod12]              # 1-12
@@ -236,7 +254,7 @@ if __name__ == '__main__':
             clearGraph(g)
             computeProbability(g, week_in_2014)
             print name + " is finish"
-        
+    """   
         
     
     # try to observe 
@@ -286,3 +304,57 @@ if __name__ == '__main__':
         computeProbability(graph_MoreEdge, week_in_2014)
     csvFile.close()
     """
+
+    print "analyze 4 kinds of nodes..."
+    # devide nodes into 4 catagories:
+    # firstly infected in early, middle, last time, and never
+    cg1 = []
+    cg2 = []
+    cg3 = []
+    cg4 = []
+    # There total must be 17387
+    print len(populationTable), len(homeTable), len(areaTable),\
+    len(moreDegTable), len(neighborDegTable)
+    print "check correctence"
+    print populationTable['A6421-0167-00']
+    print homeTable['A6421-0254-00']
+    print areaTable['A6427-0083-00']
+    print moreDegTable['A6409-0046-00'], moreDegTable['A6405-1215-00']
+    print neighborDegTable['A6412-1644-00']
+
+    classifier(cg1, cg2, cg3, cg4, week_in_2014)
+    print "after classify"
+    print len(cg1), len(cg2), len(cg3), len(cg4)
+    # A file show 4 catagories
+    catagoryFile = open("catagory.csv", "w")
+    w = csv.writer(catagoryFile)
+    
+    catagory = 1
+    for cg in [cg1, cg2, cg3, cg4]:
+        w.writerow(["catagory " + str(catagory)])
+        w.writerow(["key", "population", "home", "area", "moreDeg", "neighborDeg"])
+        for k in cg:
+            data = []
+            p = ""
+            h = ""
+            a = ""
+            mD = ""
+            nD = ""
+            if k in populationTable:
+                p = populationTable[k]
+            if k in homeTable:
+                h = homeTable[k]
+            if k in areaTable:
+                a = areaTable[k]
+            if k in moreDegTable:
+                mD = moreDegTable[k]
+            if k in neighborDegTable:
+                nD = neighborDegTable[k]  
+            data.extend((k, p, h, a, mD, nD))
+            w.writerow(data)
+            
+        catagory += 1
+        w.writerow(["\n"])
+
+    catagoryFile.close()
+

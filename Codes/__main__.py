@@ -4,6 +4,7 @@ if __name__ == '__main__':
 	from case import *
 	from predict import *		# predict all
 	from result import *
+	from case_days import *		# observe day data for 2nd statistic area 
 	import precisionkMethod		# only care for precision at k
 	
 	print "main function"
@@ -29,7 +30,7 @@ if __name__ == '__main__':
 	secondary_homeTable = {}
 	secondary_areaTable = {}
 
-	city = "T"
+	city = "K"
 	# T/K
 
 	BuildBase(base_graph, city)
@@ -73,6 +74,12 @@ if __name__ == '__main__':
 		secondary_homeTable = BuildAttributeTable(first_homeTable, secondary_member)
 		secondary_areaTable = BuildAttributeTable(first_areaTable, secondary_member)
 	
+	# New: case for day
+	daydata = ReadCaseByDay(city, secondary_graph, base2first_table, base2secondary_table)
+	Day2Csv(daydata)
+
+	exit()
+
 	# step2: count case by weeks, based on given time interval, T
 	
 	base_2014 = {}

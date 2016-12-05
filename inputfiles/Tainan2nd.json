@@ -1,0 +1,5738 @@
+{
+  "Info": [
+    {
+      "InMetaDatCode": "3A1FA_A1C2",
+      "InSTUnitCode": "U0202",
+      "InCountyId": "67000",
+      "OutTotal": "632"
+    }
+  ],
+  "ColumnList": [
+    {
+      "COLUMN_NAME": "INFO_TIME",
+      "DATA_TYPE": "文字",
+      "COLUMN_DESC": "資料時間",
+      "DISPLAY_UNIT": null
+    },
+    {
+      "COLUMN_NAME": "CODE2",
+      "DATA_TYPE": "文字",
+      "COLUMN_DESC": "二級發布區代碼",
+      "DISPLAY_UNIT": ""
+    },
+    {
+      "COLUMN_NAME": "H_CNT",
+      "DATA_TYPE": "數值",
+      "COLUMN_DESC": "戶數",
+      "DISPLAY_UNIT": "戶"
+    },
+    {
+      "COLUMN_NAME": "P_CNT",
+      "DATA_TYPE": "數值",
+      "COLUMN_DESC": "人口數",
+      "DISPLAY_UNIT": "人"
+    },
+    {
+      "COLUMN_NAME": "M_CNT",
+      "DATA_TYPE": "數值",
+      "COLUMN_DESC": "男性人口數",
+      "DISPLAY_UNIT": "人"
+    },
+    {
+      "COLUMN_NAME": "F_CNT",
+      "DATA_TYPE": "數值",
+      "COLUMN_DESC": "女性人口數",
+      "DISPLAY_UNIT": "人"
+    }
+  ],
+  "RowDataList": [
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-01",
+      "H_CNT": 1026.0,
+      "P_CNT": 2908.0,
+      "M_CNT": 1480.0,
+      "F_CNT": 1428.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-02",
+      "H_CNT": 725.0,
+      "P_CNT": 2022.0,
+      "M_CNT": 1027.0,
+      "F_CNT": 995.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-03",
+      "H_CNT": 1173.0,
+      "P_CNT": 3665.0,
+      "M_CNT": 1787.0,
+      "F_CNT": 1878.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-04",
+      "H_CNT": 901.0,
+      "P_CNT": 2591.0,
+      "M_CNT": 1248.0,
+      "F_CNT": 1343.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-05",
+      "H_CNT": 966.0,
+      "P_CNT": 2947.0,
+      "M_CNT": 1513.0,
+      "F_CNT": 1434.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-06",
+      "H_CNT": 1038.0,
+      "P_CNT": 3346.0,
+      "M_CNT": 1641.0,
+      "F_CNT": 1705.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-07",
+      "H_CNT": 989.0,
+      "P_CNT": 2747.0,
+      "M_CNT": 1300.0,
+      "F_CNT": 1447.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-08",
+      "H_CNT": 1167.0,
+      "P_CNT": 3307.0,
+      "M_CNT": 1602.0,
+      "F_CNT": 1705.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-09",
+      "H_CNT": 1190.0,
+      "P_CNT": 3356.0,
+      "M_CNT": 1660.0,
+      "F_CNT": 1696.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-10",
+      "H_CNT": 1000.0,
+      "P_CNT": 2923.0,
+      "M_CNT": 1463.0,
+      "F_CNT": 1460.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-11",
+      "H_CNT": 1131.0,
+      "P_CNT": 2876.0,
+      "M_CNT": 1368.0,
+      "F_CNT": 1508.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-12",
+      "H_CNT": 1289.0,
+      "P_CNT": 3548.0,
+      "M_CNT": 1714.0,
+      "F_CNT": 1834.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-13",
+      "H_CNT": 1184.0,
+      "P_CNT": 3389.0,
+      "M_CNT": 1672.0,
+      "F_CNT": 1717.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-14",
+      "H_CNT": 1047.0,
+      "P_CNT": 2854.0,
+      "M_CNT": 1446.0,
+      "F_CNT": 1408.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-15",
+      "H_CNT": 1210.0,
+      "P_CNT": 2972.0,
+      "M_CNT": 1392.0,
+      "F_CNT": 1580.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-16",
+      "H_CNT": 1190.0,
+      "P_CNT": 2972.0,
+      "M_CNT": 1454.0,
+      "F_CNT": 1518.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-17",
+      "H_CNT": 1087.0,
+      "P_CNT": 2771.0,
+      "M_CNT": 1398.0,
+      "F_CNT": 1373.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-18",
+      "H_CNT": 993.0,
+      "P_CNT": 2808.0,
+      "M_CNT": 1378.0,
+      "F_CNT": 1430.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-19",
+      "H_CNT": 1154.0,
+      "P_CNT": 3059.0,
+      "M_CNT": 1462.0,
+      "F_CNT": 1597.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-20",
+      "H_CNT": 1076.0,
+      "P_CNT": 2703.0,
+      "M_CNT": 1350.0,
+      "F_CNT": 1353.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-21",
+      "H_CNT": 1195.0,
+      "P_CNT": 2826.0,
+      "M_CNT": 1413.0,
+      "F_CNT": 1413.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-22",
+      "H_CNT": 1114.0,
+      "P_CNT": 2682.0,
+      "M_CNT": 1330.0,
+      "F_CNT": 1352.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-14",
+      "H_CNT": 1006.0,
+      "P_CNT": 2826.0,
+      "M_CNT": 1377.0,
+      "F_CNT": 1449.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-15",
+      "H_CNT": 2438.0,
+      "P_CNT": 6018.0,
+      "M_CNT": 3084.0,
+      "F_CNT": 2934.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-02",
+      "H_CNT": 996.0,
+      "P_CNT": 3092.0,
+      "M_CNT": 1575.0,
+      "F_CNT": 1517.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-04",
+      "H_CNT": 976.0,
+      "P_CNT": 3042.0,
+      "M_CNT": 1565.0,
+      "F_CNT": 1477.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-05",
+      "H_CNT": 940.0,
+      "P_CNT": 2964.0,
+      "M_CNT": 1509.0,
+      "F_CNT": 1455.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-13",
+      "H_CNT": 1336.0,
+      "P_CNT": 3754.0,
+      "M_CNT": 1800.0,
+      "F_CNT": 1954.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-03",
+      "H_CNT": 957.0,
+      "P_CNT": 3099.0,
+      "M_CNT": 1527.0,
+      "F_CNT": 1572.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-08",
+      "H_CNT": 948.0,
+      "P_CNT": 2924.0,
+      "M_CNT": 1429.0,
+      "F_CNT": 1495.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-09",
+      "H_CNT": 962.0,
+      "P_CNT": 2771.0,
+      "M_CNT": 1375.0,
+      "F_CNT": 1396.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-10",
+      "H_CNT": 982.0,
+      "P_CNT": 2955.0,
+      "M_CNT": 1481.0,
+      "F_CNT": 1474.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-11",
+      "H_CNT": 948.0,
+      "P_CNT": 2969.0,
+      "M_CNT": 1549.0,
+      "F_CNT": 1420.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-12",
+      "H_CNT": 996.0,
+      "P_CNT": 2775.0,
+      "M_CNT": 1363.0,
+      "F_CNT": 1412.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-01",
+      "H_CNT": 926.0,
+      "P_CNT": 2829.0,
+      "M_CNT": 1441.0,
+      "F_CNT": 1388.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-02",
+      "H_CNT": 927.0,
+      "P_CNT": 2715.0,
+      "M_CNT": 1418.0,
+      "F_CNT": 1297.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-04",
+      "H_CNT": 935.0,
+      "P_CNT": 2782.0,
+      "M_CNT": 1441.0,
+      "F_CNT": 1341.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-05",
+      "H_CNT": 983.0,
+      "P_CNT": 3055.0,
+      "M_CNT": 1575.0,
+      "F_CNT": 1480.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-06",
+      "H_CNT": 818.0,
+      "P_CNT": 2678.0,
+      "M_CNT": 1355.0,
+      "F_CNT": 1323.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-07",
+      "H_CNT": 791.0,
+      "P_CNT": 2631.0,
+      "M_CNT": 1367.0,
+      "F_CNT": 1264.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-08",
+      "H_CNT": 846.0,
+      "P_CNT": 2586.0,
+      "M_CNT": 1293.0,
+      "F_CNT": 1293.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-09",
+      "H_CNT": 1194.0,
+      "P_CNT": 3415.0,
+      "M_CNT": 1732.0,
+      "F_CNT": 1683.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-10",
+      "H_CNT": 754.0,
+      "P_CNT": 2378.0,
+      "M_CNT": 1218.0,
+      "F_CNT": 1160.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-11",
+      "H_CNT": 940.0,
+      "P_CNT": 2753.0,
+      "M_CNT": 1426.0,
+      "F_CNT": 1327.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6721-12",
+      "H_CNT": 860.0,
+      "P_CNT": 2742.0,
+      "M_CNT": 1420.0,
+      "F_CNT": 1322.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6722-02",
+      "H_CNT": 900.0,
+      "P_CNT": 2443.0,
+      "M_CNT": 1283.0,
+      "F_CNT": 1160.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6722-03",
+      "H_CNT": 876.0,
+      "P_CNT": 2418.0,
+      "M_CNT": 1262.0,
+      "F_CNT": 1156.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6722-04",
+      "H_CNT": 911.0,
+      "P_CNT": 2522.0,
+      "M_CNT": 1328.0,
+      "F_CNT": 1194.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6723-02",
+      "H_CNT": 471.0,
+      "P_CNT": 1410.0,
+      "M_CNT": 740.0,
+      "F_CNT": 670.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6723-04",
+      "H_CNT": 910.0,
+      "P_CNT": 2649.0,
+      "M_CNT": 1343.0,
+      "F_CNT": 1306.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6723-06",
+      "H_CNT": 950.0,
+      "P_CNT": 2441.0,
+      "M_CNT": 1212.0,
+      "F_CNT": 1229.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6723-07",
+      "H_CNT": 898.0,
+      "P_CNT": 2480.0,
+      "M_CNT": 1266.0,
+      "F_CNT": 1214.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6723-08",
+      "H_CNT": 897.0,
+      "P_CNT": 2572.0,
+      "M_CNT": 1372.0,
+      "F_CNT": 1200.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6723-09",
+      "H_CNT": 908.0,
+      "P_CNT": 2536.0,
+      "M_CNT": 1369.0,
+      "F_CNT": 1167.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6724-01",
+      "H_CNT": 427.0,
+      "P_CNT": 1154.0,
+      "M_CNT": 642.0,
+      "F_CNT": 512.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6724-03",
+      "H_CNT": 1081.0,
+      "P_CNT": 3016.0,
+      "M_CNT": 1567.0,
+      "F_CNT": 1449.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6724-04",
+      "H_CNT": 1028.0,
+      "P_CNT": 2910.0,
+      "M_CNT": 1587.0,
+      "F_CNT": 1323.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6724-05",
+      "H_CNT": 993.0,
+      "P_CNT": 2860.0,
+      "M_CNT": 1473.0,
+      "F_CNT": 1387.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6725-01",
+      "H_CNT": 1084.0,
+      "P_CNT": 3492.0,
+      "M_CNT": 1856.0,
+      "F_CNT": 1636.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6725-03",
+      "H_CNT": 957.0,
+      "P_CNT": 2871.0,
+      "M_CNT": 1562.0,
+      "F_CNT": 1309.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6725-04",
+      "H_CNT": 888.0,
+      "P_CNT": 2641.0,
+      "M_CNT": 1453.0,
+      "F_CNT": 1188.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6726-01",
+      "H_CNT": 1065.0,
+      "P_CNT": 2738.0,
+      "M_CNT": 1474.0,
+      "F_CNT": 1264.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6726-02",
+      "H_CNT": 993.0,
+      "P_CNT": 2519.0,
+      "M_CNT": 1455.0,
+      "F_CNT": 1064.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-01",
+      "H_CNT": 1047.0,
+      "P_CNT": 3023.0,
+      "M_CNT": 1516.0,
+      "F_CNT": 1507.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-02",
+      "H_CNT": 1015.0,
+      "P_CNT": 3028.0,
+      "M_CNT": 1520.0,
+      "F_CNT": 1508.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-03",
+      "H_CNT": 1154.0,
+      "P_CNT": 3177.0,
+      "M_CNT": 1690.0,
+      "F_CNT": 1487.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-04",
+      "H_CNT": 1565.0,
+      "P_CNT": 4040.0,
+      "M_CNT": 2114.0,
+      "F_CNT": 1926.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-05",
+      "H_CNT": 1063.0,
+      "P_CNT": 3038.0,
+      "M_CNT": 1547.0,
+      "F_CNT": 1491.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-06",
+      "H_CNT": 1095.0,
+      "P_CNT": 3051.0,
+      "M_CNT": 1522.0,
+      "F_CNT": 1529.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-07",
+      "H_CNT": 1103.0,
+      "P_CNT": 3047.0,
+      "M_CNT": 1503.0,
+      "F_CNT": 1544.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-08",
+      "H_CNT": 1501.0,
+      "P_CNT": 4045.0,
+      "M_CNT": 2066.0,
+      "F_CNT": 1979.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-09",
+      "H_CNT": 1119.0,
+      "P_CNT": 3119.0,
+      "M_CNT": 1600.0,
+      "F_CNT": 1519.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-10",
+      "H_CNT": 1729.0,
+      "P_CNT": 3871.0,
+      "M_CNT": 1936.0,
+      "F_CNT": 1935.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-11",
+      "H_CNT": 1502.0,
+      "P_CNT": 4025.0,
+      "M_CNT": 1993.0,
+      "F_CNT": 2032.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-12",
+      "H_CNT": 1096.0,
+      "P_CNT": 3281.0,
+      "M_CNT": 1663.0,
+      "F_CNT": 1618.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-13",
+      "H_CNT": 1447.0,
+      "P_CNT": 3636.0,
+      "M_CNT": 1849.0,
+      "F_CNT": 1787.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-14",
+      "H_CNT": 1238.0,
+      "P_CNT": 3400.0,
+      "M_CNT": 1732.0,
+      "F_CNT": 1668.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-15",
+      "H_CNT": 1100.0,
+      "P_CNT": 3190.0,
+      "M_CNT": 1634.0,
+      "F_CNT": 1556.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-16",
+      "H_CNT": 1422.0,
+      "P_CNT": 4170.0,
+      "M_CNT": 2070.0,
+      "F_CNT": 2100.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-17",
+      "H_CNT": 1265.0,
+      "P_CNT": 3541.0,
+      "M_CNT": 1762.0,
+      "F_CNT": 1779.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-18",
+      "H_CNT": 1275.0,
+      "P_CNT": 3510.0,
+      "M_CNT": 1798.0,
+      "F_CNT": 1712.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-19",
+      "H_CNT": 1054.0,
+      "P_CNT": 2953.0,
+      "M_CNT": 1521.0,
+      "F_CNT": 1432.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-20",
+      "H_CNT": 1003.0,
+      "P_CNT": 2829.0,
+      "M_CNT": 1471.0,
+      "F_CNT": 1358.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-22",
+      "H_CNT": 1092.0,
+      "P_CNT": 3036.0,
+      "M_CNT": 1551.0,
+      "F_CNT": 1485.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6727-23",
+      "H_CNT": 1157.0,
+      "P_CNT": 3319.0,
+      "M_CNT": 1732.0,
+      "F_CNT": 1587.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-01",
+      "H_CNT": 913.0,
+      "P_CNT": 2688.0,
+      "M_CNT": 1414.0,
+      "F_CNT": 1274.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-02",
+      "H_CNT": 947.0,
+      "P_CNT": 2852.0,
+      "M_CNT": 1437.0,
+      "F_CNT": 1415.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-03",
+      "H_CNT": 1050.0,
+      "P_CNT": 3172.0,
+      "M_CNT": 1637.0,
+      "F_CNT": 1535.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-04",
+      "H_CNT": 936.0,
+      "P_CNT": 2803.0,
+      "M_CNT": 1433.0,
+      "F_CNT": 1370.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-05",
+      "H_CNT": 1035.0,
+      "P_CNT": 3297.0,
+      "M_CNT": 1657.0,
+      "F_CNT": 1640.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-06",
+      "H_CNT": 911.0,
+      "P_CNT": 2958.0,
+      "M_CNT": 1454.0,
+      "F_CNT": 1504.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-07",
+      "H_CNT": 967.0,
+      "P_CNT": 2893.0,
+      "M_CNT": 1445.0,
+      "F_CNT": 1448.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-08",
+      "H_CNT": 1044.0,
+      "P_CNT": 3475.0,
+      "M_CNT": 1731.0,
+      "F_CNT": 1744.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-09",
+      "H_CNT": 1049.0,
+      "P_CNT": 3187.0,
+      "M_CNT": 1622.0,
+      "F_CNT": 1565.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-10",
+      "H_CNT": 1053.0,
+      "P_CNT": 3452.0,
+      "M_CNT": 1740.0,
+      "F_CNT": 1712.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-11",
+      "H_CNT": 919.0,
+      "P_CNT": 2784.0,
+      "M_CNT": 1392.0,
+      "F_CNT": 1392.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-12",
+      "H_CNT": 898.0,
+      "P_CNT": 2707.0,
+      "M_CNT": 1356.0,
+      "F_CNT": 1351.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-13",
+      "H_CNT": 956.0,
+      "P_CNT": 2914.0,
+      "M_CNT": 1435.0,
+      "F_CNT": 1479.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-14",
+      "H_CNT": 910.0,
+      "P_CNT": 2854.0,
+      "M_CNT": 1440.0,
+      "F_CNT": 1414.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-15",
+      "H_CNT": 905.0,
+      "P_CNT": 2723.0,
+      "M_CNT": 1350.0,
+      "F_CNT": 1373.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-16",
+      "H_CNT": 1049.0,
+      "P_CNT": 3210.0,
+      "M_CNT": 1615.0,
+      "F_CNT": 1595.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-17",
+      "H_CNT": 1182.0,
+      "P_CNT": 3793.0,
+      "M_CNT": 1918.0,
+      "F_CNT": 1875.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-18",
+      "H_CNT": 847.0,
+      "P_CNT": 2572.0,
+      "M_CNT": 1302.0,
+      "F_CNT": 1270.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-19",
+      "H_CNT": 1141.0,
+      "P_CNT": 3644.0,
+      "M_CNT": 1817.0,
+      "F_CNT": 1827.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-20",
+      "H_CNT": 991.0,
+      "P_CNT": 2997.0,
+      "M_CNT": 1543.0,
+      "F_CNT": 1454.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-21",
+      "H_CNT": 1300.0,
+      "P_CNT": 3678.0,
+      "M_CNT": 1915.0,
+      "F_CNT": 1763.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6728-22",
+      "H_CNT": 1236.0,
+      "P_CNT": 3008.0,
+      "M_CNT": 1730.0,
+      "F_CNT": 1278.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-01",
+      "H_CNT": 2158.0,
+      "P_CNT": 6456.0,
+      "M_CNT": 3387.0,
+      "F_CNT": 3069.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-02",
+      "H_CNT": 872.0,
+      "P_CNT": 2789.0,
+      "M_CNT": 1440.0,
+      "F_CNT": 1349.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-03",
+      "H_CNT": 1043.0,
+      "P_CNT": 3246.0,
+      "M_CNT": 1688.0,
+      "F_CNT": 1558.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-04",
+      "H_CNT": 911.0,
+      "P_CNT": 2869.0,
+      "M_CNT": 1448.0,
+      "F_CNT": 1421.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-05",
+      "H_CNT": 914.0,
+      "P_CNT": 2890.0,
+      "M_CNT": 1464.0,
+      "F_CNT": 1426.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-06",
+      "H_CNT": 932.0,
+      "P_CNT": 2845.0,
+      "M_CNT": 1451.0,
+      "F_CNT": 1394.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-07",
+      "H_CNT": 863.0,
+      "P_CNT": 2831.0,
+      "M_CNT": 1457.0,
+      "F_CNT": 1374.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-08",
+      "H_CNT": 925.0,
+      "P_CNT": 3150.0,
+      "M_CNT": 1613.0,
+      "F_CNT": 1537.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6729-09",
+      "H_CNT": 2488.0,
+      "P_CNT": 7895.0,
+      "M_CNT": 4122.0,
+      "F_CNT": 3773.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6730-01",
+      "H_CNT": 686.0,
+      "P_CNT": 1802.0,
+      "M_CNT": 967.0,
+      "F_CNT": 835.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6730-02",
+      "H_CNT": 764.0,
+      "P_CNT": 2026.0,
+      "M_CNT": 1104.0,
+      "F_CNT": 922.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-02",
+      "H_CNT": 23.0,
+      "P_CNT": 80.0,
+      "M_CNT": 42.0,
+      "F_CNT": 38.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-03",
+      "H_CNT": 1133.0,
+      "P_CNT": 3230.0,
+      "M_CNT": 1630.0,
+      "F_CNT": 1600.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-04",
+      "H_CNT": 852.0,
+      "P_CNT": 2560.0,
+      "M_CNT": 1317.0,
+      "F_CNT": 1243.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-06",
+      "H_CNT": 1058.0,
+      "P_CNT": 3224.0,
+      "M_CNT": 1632.0,
+      "F_CNT": 1592.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-07",
+      "H_CNT": 1043.0,
+      "P_CNT": 3049.0,
+      "M_CNT": 1498.0,
+      "F_CNT": 1551.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-07",
+      "H_CNT": 1410.0,
+      "P_CNT": 3641.0,
+      "M_CNT": 1783.0,
+      "F_CNT": 1858.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-08",
+      "H_CNT": 955.0,
+      "P_CNT": 2696.0,
+      "M_CNT": 1348.0,
+      "F_CNT": 1348.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-09",
+      "H_CNT": 1198.0,
+      "P_CNT": 3627.0,
+      "M_CNT": 1815.0,
+      "F_CNT": 1812.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-10",
+      "H_CNT": 1047.0,
+      "P_CNT": 3438.0,
+      "M_CNT": 1723.0,
+      "F_CNT": 1715.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-11",
+      "H_CNT": 1756.0,
+      "P_CNT": 5090.0,
+      "M_CNT": 2540.0,
+      "F_CNT": 2550.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-12",
+      "H_CNT": 1027.0,
+      "P_CNT": 3262.0,
+      "M_CNT": 1660.0,
+      "F_CNT": 1602.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-13",
+      "H_CNT": 1283.0,
+      "P_CNT": 3786.0,
+      "M_CNT": 1872.0,
+      "F_CNT": 1914.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-14",
+      "H_CNT": 1120.0,
+      "P_CNT": 3218.0,
+      "M_CNT": 1605.0,
+      "F_CNT": 1613.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-15",
+      "H_CNT": 889.0,
+      "P_CNT": 2931.0,
+      "M_CNT": 1483.0,
+      "F_CNT": 1448.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-16",
+      "H_CNT": 986.0,
+      "P_CNT": 3068.0,
+      "M_CNT": 1525.0,
+      "F_CNT": 1543.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-17",
+      "H_CNT": 1015.0,
+      "P_CNT": 3200.0,
+      "M_CNT": 1620.0,
+      "F_CNT": 1580.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-18",
+      "H_CNT": 1168.0,
+      "P_CNT": 3544.0,
+      "M_CNT": 1790.0,
+      "F_CNT": 1754.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-19",
+      "H_CNT": 1061.0,
+      "P_CNT": 3250.0,
+      "M_CNT": 1593.0,
+      "F_CNT": 1657.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-20",
+      "H_CNT": 960.0,
+      "P_CNT": 2952.0,
+      "M_CNT": 1452.0,
+      "F_CNT": 1500.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-21",
+      "H_CNT": 961.0,
+      "P_CNT": 3097.0,
+      "M_CNT": 1576.0,
+      "F_CNT": 1521.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-22",
+      "H_CNT": 1674.0,
+      "P_CNT": 4719.0,
+      "M_CNT": 2339.0,
+      "F_CNT": 2380.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-23",
+      "H_CNT": 1059.0,
+      "P_CNT": 3019.0,
+      "M_CNT": 1514.0,
+      "F_CNT": 1505.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-24",
+      "H_CNT": 1196.0,
+      "P_CNT": 3401.0,
+      "M_CNT": 1683.0,
+      "F_CNT": 1718.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-25",
+      "H_CNT": 1060.0,
+      "P_CNT": 2839.0,
+      "M_CNT": 1414.0,
+      "F_CNT": 1425.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-27",
+      "H_CNT": 2045.0,
+      "P_CNT": 4517.0,
+      "M_CNT": 2395.0,
+      "F_CNT": 2122.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-28",
+      "H_CNT": 982.0,
+      "P_CNT": 3141.0,
+      "M_CNT": 1563.0,
+      "F_CNT": 1578.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-29",
+      "H_CNT": 940.0,
+      "P_CNT": 2676.0,
+      "M_CNT": 1288.0,
+      "F_CNT": 1388.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-30",
+      "H_CNT": 973.0,
+      "P_CNT": 2785.0,
+      "M_CNT": 1324.0,
+      "F_CNT": 1461.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-31",
+      "H_CNT": 1181.0,
+      "P_CNT": 3330.0,
+      "M_CNT": 1600.0,
+      "F_CNT": 1730.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-32",
+      "H_CNT": 1794.0,
+      "P_CNT": 5023.0,
+      "M_CNT": 2465.0,
+      "F_CNT": 2558.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-33",
+      "H_CNT": 1029.0,
+      "P_CNT": 3040.0,
+      "M_CNT": 1471.0,
+      "F_CNT": 1569.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-34",
+      "H_CNT": 1142.0,
+      "P_CNT": 3312.0,
+      "M_CNT": 1609.0,
+      "F_CNT": 1703.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-35",
+      "H_CNT": 1133.0,
+      "P_CNT": 3352.0,
+      "M_CNT": 1666.0,
+      "F_CNT": 1686.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-36",
+      "H_CNT": 1431.0,
+      "P_CNT": 3967.0,
+      "M_CNT": 1921.0,
+      "F_CNT": 2046.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-37",
+      "H_CNT": 1445.0,
+      "P_CNT": 3746.0,
+      "M_CNT": 1798.0,
+      "F_CNT": 1948.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-38",
+      "H_CNT": 1338.0,
+      "P_CNT": 3273.0,
+      "M_CNT": 1526.0,
+      "F_CNT": 1747.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-39",
+      "H_CNT": 1190.0,
+      "P_CNT": 3726.0,
+      "M_CNT": 1861.0,
+      "F_CNT": 1865.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-40",
+      "H_CNT": 1267.0,
+      "P_CNT": 3517.0,
+      "M_CNT": 1723.0,
+      "F_CNT": 1794.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-41",
+      "H_CNT": 993.0,
+      "P_CNT": 3110.0,
+      "M_CNT": 1569.0,
+      "F_CNT": 1541.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-42",
+      "H_CNT": 1079.0,
+      "P_CNT": 2871.0,
+      "M_CNT": 1374.0,
+      "F_CNT": 1497.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-43",
+      "H_CNT": 1283.0,
+      "P_CNT": 3398.0,
+      "M_CNT": 1670.0,
+      "F_CNT": 1728.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-44",
+      "H_CNT": 1082.0,
+      "P_CNT": 3134.0,
+      "M_CNT": 1595.0,
+      "F_CNT": 1539.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-45",
+      "H_CNT": 1092.0,
+      "P_CNT": 3425.0,
+      "M_CNT": 1713.0,
+      "F_CNT": 1712.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-46",
+      "H_CNT": 1151.0,
+      "P_CNT": 3103.0,
+      "M_CNT": 1430.0,
+      "F_CNT": 1673.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-47",
+      "H_CNT": 1027.0,
+      "P_CNT": 3324.0,
+      "M_CNT": 1674.0,
+      "F_CNT": 1650.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-48",
+      "H_CNT": 1383.0,
+      "P_CNT": 3413.0,
+      "M_CNT": 1633.0,
+      "F_CNT": 1780.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-49",
+      "H_CNT": 1246.0,
+      "P_CNT": 3433.0,
+      "M_CNT": 1730.0,
+      "F_CNT": 1703.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-50",
+      "H_CNT": 975.0,
+      "P_CNT": 2919.0,
+      "M_CNT": 1406.0,
+      "F_CNT": 1513.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-51",
+      "H_CNT": 1202.0,
+      "P_CNT": 3287.0,
+      "M_CNT": 1549.0,
+      "F_CNT": 1738.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-52",
+      "H_CNT": 1156.0,
+      "P_CNT": 3237.0,
+      "M_CNT": 1633.0,
+      "F_CNT": 1604.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-53",
+      "H_CNT": 922.0,
+      "P_CNT": 2915.0,
+      "M_CNT": 1473.0,
+      "F_CNT": 1442.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-54",
+      "H_CNT": 1596.0,
+      "P_CNT": 3703.0,
+      "M_CNT": 1697.0,
+      "F_CNT": 2006.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-55",
+      "H_CNT": 1235.0,
+      "P_CNT": 3291.0,
+      "M_CNT": 1638.0,
+      "F_CNT": 1653.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-56",
+      "H_CNT": 1008.0,
+      "P_CNT": 3125.0,
+      "M_CNT": 1481.0,
+      "F_CNT": 1644.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-57",
+      "H_CNT": 949.0,
+      "P_CNT": 3043.0,
+      "M_CNT": 1494.0,
+      "F_CNT": 1549.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-58",
+      "H_CNT": 1162.0,
+      "P_CNT": 3207.0,
+      "M_CNT": 1563.0,
+      "F_CNT": 1644.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-59",
+      "H_CNT": 922.0,
+      "P_CNT": 2804.0,
+      "M_CNT": 1457.0,
+      "F_CNT": 1347.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-60",
+      "H_CNT": 1169.0,
+      "P_CNT": 3279.0,
+      "M_CNT": 1600.0,
+      "F_CNT": 1679.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-61",
+      "H_CNT": 1463.0,
+      "P_CNT": 3678.0,
+      "M_CNT": 1735.0,
+      "F_CNT": 1943.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-62",
+      "H_CNT": 1063.0,
+      "P_CNT": 3265.0,
+      "M_CNT": 1604.0,
+      "F_CNT": 1661.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-63",
+      "H_CNT": 922.0,
+      "P_CNT": 2757.0,
+      "M_CNT": 1360.0,
+      "F_CNT": 1397.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-64",
+      "H_CNT": 1384.0,
+      "P_CNT": 3529.0,
+      "M_CNT": 1705.0,
+      "F_CNT": 1824.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-65",
+      "H_CNT": 1147.0,
+      "P_CNT": 3166.0,
+      "M_CNT": 1561.0,
+      "F_CNT": 1605.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-66",
+      "H_CNT": 1283.0,
+      "P_CNT": 3316.0,
+      "M_CNT": 1648.0,
+      "F_CNT": 1668.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-67",
+      "H_CNT": 1131.0,
+      "P_CNT": 2796.0,
+      "M_CNT": 1354.0,
+      "F_CNT": 1442.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-68",
+      "H_CNT": 1000.0,
+      "P_CNT": 3020.0,
+      "M_CNT": 1487.0,
+      "F_CNT": 1533.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-69",
+      "H_CNT": 876.0,
+      "P_CNT": 2797.0,
+      "M_CNT": 1448.0,
+      "F_CNT": 1349.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-70",
+      "H_CNT": 1606.0,
+      "P_CNT": 3624.0,
+      "M_CNT": 1764.0,
+      "F_CNT": 1860.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-71",
+      "H_CNT": 924.0,
+      "P_CNT": 2914.0,
+      "M_CNT": 1448.0,
+      "F_CNT": 1466.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6731-72",
+      "H_CNT": 1642.0,
+      "P_CNT": 3676.0,
+      "M_CNT": 1860.0,
+      "F_CNT": 1816.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-01",
+      "H_CNT": 1087.0,
+      "P_CNT": 2804.0,
+      "M_CNT": 1342.0,
+      "F_CNT": 1462.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-02",
+      "H_CNT": 981.0,
+      "P_CNT": 2564.0,
+      "M_CNT": 1256.0,
+      "F_CNT": 1308.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-03",
+      "H_CNT": 1090.0,
+      "P_CNT": 2410.0,
+      "M_CNT": 1216.0,
+      "F_CNT": 1194.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-04",
+      "H_CNT": 1064.0,
+      "P_CNT": 2789.0,
+      "M_CNT": 1375.0,
+      "F_CNT": 1414.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-05",
+      "H_CNT": 968.0,
+      "P_CNT": 2543.0,
+      "M_CNT": 1251.0,
+      "F_CNT": 1292.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-06",
+      "H_CNT": 1006.0,
+      "P_CNT": 2591.0,
+      "M_CNT": 1222.0,
+      "F_CNT": 1369.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-07",
+      "H_CNT": 1161.0,
+      "P_CNT": 3131.0,
+      "M_CNT": 1494.0,
+      "F_CNT": 1637.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-08",
+      "H_CNT": 1066.0,
+      "P_CNT": 2815.0,
+      "M_CNT": 1354.0,
+      "F_CNT": 1461.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-09",
+      "H_CNT": 1037.0,
+      "P_CNT": 2599.0,
+      "M_CNT": 1264.0,
+      "F_CNT": 1335.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-10",
+      "H_CNT": 1073.0,
+      "P_CNT": 2438.0,
+      "M_CNT": 1188.0,
+      "F_CNT": 1250.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-11",
+      "H_CNT": 1107.0,
+      "P_CNT": 2853.0,
+      "M_CNT": 1337.0,
+      "F_CNT": 1516.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-12",
+      "H_CNT": 941.0,
+      "P_CNT": 2442.0,
+      "M_CNT": 1143.0,
+      "F_CNT": 1299.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-13",
+      "H_CNT": 956.0,
+      "P_CNT": 2453.0,
+      "M_CNT": 1172.0,
+      "F_CNT": 1281.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-14",
+      "H_CNT": 1117.0,
+      "P_CNT": 2611.0,
+      "M_CNT": 1220.0,
+      "F_CNT": 1391.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-15",
+      "H_CNT": 1033.0,
+      "P_CNT": 2750.0,
+      "M_CNT": 1292.0,
+      "F_CNT": 1458.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-16",
+      "H_CNT": 1117.0,
+      "P_CNT": 2869.0,
+      "M_CNT": 1387.0,
+      "F_CNT": 1482.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-17",
+      "H_CNT": 1246.0,
+      "P_CNT": 3847.0,
+      "M_CNT": 1912.0,
+      "F_CNT": 1935.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-18",
+      "H_CNT": 969.0,
+      "P_CNT": 2340.0,
+      "M_CNT": 1108.0,
+      "F_CNT": 1232.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-19",
+      "H_CNT": 1119.0,
+      "P_CNT": 2922.0,
+      "M_CNT": 1404.0,
+      "F_CNT": 1518.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-20",
+      "H_CNT": 1091.0,
+      "P_CNT": 2663.0,
+      "M_CNT": 1295.0,
+      "F_CNT": 1368.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-21",
+      "H_CNT": 1104.0,
+      "P_CNT": 2504.0,
+      "M_CNT": 1223.0,
+      "F_CNT": 1281.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-22",
+      "H_CNT": 1217.0,
+      "P_CNT": 2875.0,
+      "M_CNT": 1358.0,
+      "F_CNT": 1517.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-23",
+      "H_CNT": 850.0,
+      "P_CNT": 2587.0,
+      "M_CNT": 1256.0,
+      "F_CNT": 1331.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-24",
+      "H_CNT": 1212.0,
+      "P_CNT": 3647.0,
+      "M_CNT": 1790.0,
+      "F_CNT": 1857.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-25",
+      "H_CNT": 1181.0,
+      "P_CNT": 2992.0,
+      "M_CNT": 1471.0,
+      "F_CNT": 1521.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-26",
+      "H_CNT": 1365.0,
+      "P_CNT": 3197.0,
+      "M_CNT": 1465.0,
+      "F_CNT": 1732.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-27",
+      "H_CNT": 974.0,
+      "P_CNT": 2716.0,
+      "M_CNT": 1308.0,
+      "F_CNT": 1408.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-28",
+      "H_CNT": 912.0,
+      "P_CNT": 2595.0,
+      "M_CNT": 1223.0,
+      "F_CNT": 1372.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-29",
+      "H_CNT": 1230.0,
+      "P_CNT": 3034.0,
+      "M_CNT": 1425.0,
+      "F_CNT": 1609.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-17",
+      "H_CNT": 848.0,
+      "P_CNT": 2722.0,
+      "M_CNT": 1340.0,
+      "F_CNT": 1382.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-18",
+      "H_CNT": 1345.0,
+      "P_CNT": 3143.0,
+      "M_CNT": 1488.0,
+      "F_CNT": 1655.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-19",
+      "H_CNT": 1931.0,
+      "P_CNT": 3965.0,
+      "M_CNT": 1767.0,
+      "F_CNT": 2198.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-20",
+      "H_CNT": 1412.0,
+      "P_CNT": 3157.0,
+      "M_CNT": 1482.0,
+      "F_CNT": 1675.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-21",
+      "H_CNT": 1103.0,
+      "P_CNT": 2634.0,
+      "M_CNT": 1303.0,
+      "F_CNT": 1331.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-22",
+      "H_CNT": 952.0,
+      "P_CNT": 2934.0,
+      "M_CNT": 1430.0,
+      "F_CNT": 1504.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-23",
+      "H_CNT": 1194.0,
+      "P_CNT": 3628.0,
+      "M_CNT": 1719.0,
+      "F_CNT": 1909.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-24",
+      "H_CNT": 1083.0,
+      "P_CNT": 3178.0,
+      "M_CNT": 1544.0,
+      "F_CNT": 1634.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-25",
+      "H_CNT": 1167.0,
+      "P_CNT": 3000.0,
+      "M_CNT": 1445.0,
+      "F_CNT": 1555.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-26",
+      "H_CNT": 1184.0,
+      "P_CNT": 3182.0,
+      "M_CNT": 1638.0,
+      "F_CNT": 1544.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-27",
+      "H_CNT": 1325.0,
+      "P_CNT": 2961.0,
+      "M_CNT": 1425.0,
+      "F_CNT": 1536.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-28",
+      "H_CNT": 1032.0,
+      "P_CNT": 3011.0,
+      "M_CNT": 1462.0,
+      "F_CNT": 1549.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-29",
+      "H_CNT": 1019.0,
+      "P_CNT": 3042.0,
+      "M_CNT": 1513.0,
+      "F_CNT": 1529.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-30",
+      "H_CNT": 1264.0,
+      "P_CNT": 3056.0,
+      "M_CNT": 1532.0,
+      "F_CNT": 1524.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-31",
+      "H_CNT": 935.0,
+      "P_CNT": 2841.0,
+      "M_CNT": 1382.0,
+      "F_CNT": 1459.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-32",
+      "H_CNT": 1075.0,
+      "P_CNT": 3013.0,
+      "M_CNT": 1487.0,
+      "F_CNT": 1526.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-33",
+      "H_CNT": 964.0,
+      "P_CNT": 2659.0,
+      "M_CNT": 1325.0,
+      "F_CNT": 1334.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-34",
+      "H_CNT": 1255.0,
+      "P_CNT": 3041.0,
+      "M_CNT": 1486.0,
+      "F_CNT": 1555.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-35",
+      "H_CNT": 1362.0,
+      "P_CNT": 3132.0,
+      "M_CNT": 1518.0,
+      "F_CNT": 1614.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-36",
+      "H_CNT": 1283.0,
+      "P_CNT": 3354.0,
+      "M_CNT": 1614.0,
+      "F_CNT": 1740.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-37",
+      "H_CNT": 1003.0,
+      "P_CNT": 2814.0,
+      "M_CNT": 1363.0,
+      "F_CNT": 1451.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-38",
+      "H_CNT": 1267.0,
+      "P_CNT": 2992.0,
+      "M_CNT": 1292.0,
+      "F_CNT": 1700.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-39",
+      "H_CNT": 1319.0,
+      "P_CNT": 3118.0,
+      "M_CNT": 1522.0,
+      "F_CNT": 1596.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-40",
+      "H_CNT": 1234.0,
+      "P_CNT": 3047.0,
+      "M_CNT": 1500.0,
+      "F_CNT": 1547.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-41",
+      "H_CNT": 1221.0,
+      "P_CNT": 3042.0,
+      "M_CNT": 1490.0,
+      "F_CNT": 1552.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-42",
+      "H_CNT": 1098.0,
+      "P_CNT": 2895.0,
+      "M_CNT": 1425.0,
+      "F_CNT": 1470.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-43",
+      "H_CNT": 1598.0,
+      "P_CNT": 3409.0,
+      "M_CNT": 1835.0,
+      "F_CNT": 1574.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-44",
+      "H_CNT": 1417.0,
+      "P_CNT": 3020.0,
+      "M_CNT": 1470.0,
+      "F_CNT": 1550.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-01",
+      "H_CNT": 878.0,
+      "P_CNT": 3259.0,
+      "M_CNT": 1680.0,
+      "F_CNT": 1579.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-02",
+      "H_CNT": 852.0,
+      "P_CNT": 2718.0,
+      "M_CNT": 1401.0,
+      "F_CNT": 1317.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-03",
+      "H_CNT": 1220.0,
+      "P_CNT": 3748.0,
+      "M_CNT": 1938.0,
+      "F_CNT": 1810.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-04",
+      "H_CNT": 984.0,
+      "P_CNT": 3384.0,
+      "M_CNT": 1696.0,
+      "F_CNT": 1688.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-05",
+      "H_CNT": 1112.0,
+      "P_CNT": 3603.0,
+      "M_CNT": 1846.0,
+      "F_CNT": 1757.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-06",
+      "H_CNT": 1115.0,
+      "P_CNT": 3577.0,
+      "M_CNT": 1795.0,
+      "F_CNT": 1782.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-07",
+      "H_CNT": 916.0,
+      "P_CNT": 3065.0,
+      "M_CNT": 1546.0,
+      "F_CNT": 1519.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-08",
+      "H_CNT": 991.0,
+      "P_CNT": 3017.0,
+      "M_CNT": 1558.0,
+      "F_CNT": 1459.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-10",
+      "H_CNT": 916.0,
+      "P_CNT": 3161.0,
+      "M_CNT": 1542.0,
+      "F_CNT": 1619.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-11",
+      "H_CNT": 1086.0,
+      "P_CNT": 3506.0,
+      "M_CNT": 1793.0,
+      "F_CNT": 1713.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-12",
+      "H_CNT": 932.0,
+      "P_CNT": 2960.0,
+      "M_CNT": 1479.0,
+      "F_CNT": 1481.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-13",
+      "H_CNT": 825.0,
+      "P_CNT": 2936.0,
+      "M_CNT": 1484.0,
+      "F_CNT": 1452.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-14",
+      "H_CNT": 2029.0,
+      "P_CNT": 5613.0,
+      "M_CNT": 2815.0,
+      "F_CNT": 2798.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-15",
+      "H_CNT": 941.0,
+      "P_CNT": 3079.0,
+      "M_CNT": 1600.0,
+      "F_CNT": 1479.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-16",
+      "H_CNT": 1073.0,
+      "P_CNT": 3482.0,
+      "M_CNT": 1791.0,
+      "F_CNT": 1691.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-17",
+      "H_CNT": 1132.0,
+      "P_CNT": 3504.0,
+      "M_CNT": 1826.0,
+      "F_CNT": 1678.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-18",
+      "H_CNT": 1257.0,
+      "P_CNT": 4005.0,
+      "M_CNT": 2020.0,
+      "F_CNT": 1985.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-19",
+      "H_CNT": 964.0,
+      "P_CNT": 3167.0,
+      "M_CNT": 1601.0,
+      "F_CNT": 1566.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-20",
+      "H_CNT": 941.0,
+      "P_CNT": 2968.0,
+      "M_CNT": 1504.0,
+      "F_CNT": 1464.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-21",
+      "H_CNT": 1000.0,
+      "P_CNT": 3169.0,
+      "M_CNT": 1631.0,
+      "F_CNT": 1538.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-22",
+      "H_CNT": 1066.0,
+      "P_CNT": 3362.0,
+      "M_CNT": 1698.0,
+      "F_CNT": 1664.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-23",
+      "H_CNT": 1252.0,
+      "P_CNT": 3971.0,
+      "M_CNT": 2016.0,
+      "F_CNT": 1955.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-24",
+      "H_CNT": 1066.0,
+      "P_CNT": 3234.0,
+      "M_CNT": 1650.0,
+      "F_CNT": 1584.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-25",
+      "H_CNT": 1035.0,
+      "P_CNT": 3471.0,
+      "M_CNT": 1723.0,
+      "F_CNT": 1748.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-26",
+      "H_CNT": 1076.0,
+      "P_CNT": 2982.0,
+      "M_CNT": 1443.0,
+      "F_CNT": 1539.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-27",
+      "H_CNT": 1095.0,
+      "P_CNT": 3372.0,
+      "M_CNT": 1669.0,
+      "F_CNT": 1703.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-28",
+      "H_CNT": 932.0,
+      "P_CNT": 2894.0,
+      "M_CNT": 1453.0,
+      "F_CNT": 1441.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-29",
+      "H_CNT": 1029.0,
+      "P_CNT": 3252.0,
+      "M_CNT": 1678.0,
+      "F_CNT": 1574.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-30",
+      "H_CNT": 1653.0,
+      "P_CNT": 4219.0,
+      "M_CNT": 2240.0,
+      "F_CNT": 1979.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-31",
+      "H_CNT": 960.0,
+      "P_CNT": 2986.0,
+      "M_CNT": 1514.0,
+      "F_CNT": 1472.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-32",
+      "H_CNT": 971.0,
+      "P_CNT": 2936.0,
+      "M_CNT": 1482.0,
+      "F_CNT": 1454.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-33",
+      "H_CNT": 1133.0,
+      "P_CNT": 3076.0,
+      "M_CNT": 1519.0,
+      "F_CNT": 1557.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-34",
+      "H_CNT": 1137.0,
+      "P_CNT": 3526.0,
+      "M_CNT": 1787.0,
+      "F_CNT": 1739.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-35",
+      "H_CNT": 1101.0,
+      "P_CNT": 3465.0,
+      "M_CNT": 1699.0,
+      "F_CNT": 1766.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-36",
+      "H_CNT": 1082.0,
+      "P_CNT": 3316.0,
+      "M_CNT": 1669.0,
+      "F_CNT": 1647.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-37",
+      "H_CNT": 990.0,
+      "P_CNT": 3090.0,
+      "M_CNT": 1567.0,
+      "F_CNT": 1523.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-38",
+      "H_CNT": 1277.0,
+      "P_CNT": 3847.0,
+      "M_CNT": 1971.0,
+      "F_CNT": 1876.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-39",
+      "H_CNT": 1969.0,
+      "P_CNT": 5166.0,
+      "M_CNT": 2596.0,
+      "F_CNT": 2570.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-40",
+      "H_CNT": 1067.0,
+      "P_CNT": 3366.0,
+      "M_CNT": 1677.0,
+      "F_CNT": 1689.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-41",
+      "H_CNT": 1044.0,
+      "P_CNT": 3216.0,
+      "M_CNT": 1645.0,
+      "F_CNT": 1571.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-42",
+      "H_CNT": 916.0,
+      "P_CNT": 2875.0,
+      "M_CNT": 1479.0,
+      "F_CNT": 1396.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-43",
+      "H_CNT": 1507.0,
+      "P_CNT": 4315.0,
+      "M_CNT": 2155.0,
+      "F_CNT": 2160.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-44",
+      "H_CNT": 5.0,
+      "P_CNT": 8.0,
+      "M_CNT": 5.0,
+      "F_CNT": 3.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-45",
+      "H_CNT": 1028.0,
+      "P_CNT": 3208.0,
+      "M_CNT": 1643.0,
+      "F_CNT": 1565.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-46",
+      "H_CNT": 1039.0,
+      "P_CNT": 3099.0,
+      "M_CNT": 1509.0,
+      "F_CNT": 1590.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-47",
+      "H_CNT": 987.0,
+      "P_CNT": 2980.0,
+      "M_CNT": 1447.0,
+      "F_CNT": 1533.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-48",
+      "H_CNT": 913.0,
+      "P_CNT": 2896.0,
+      "M_CNT": 1451.0,
+      "F_CNT": 1445.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-49",
+      "H_CNT": 1071.0,
+      "P_CNT": 3135.0,
+      "M_CNT": 1536.0,
+      "F_CNT": 1599.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-50",
+      "H_CNT": 953.0,
+      "P_CNT": 2863.0,
+      "M_CNT": 1420.0,
+      "F_CNT": 1443.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-51",
+      "H_CNT": 967.0,
+      "P_CNT": 3148.0,
+      "M_CNT": 1572.0,
+      "F_CNT": 1576.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-52",
+      "H_CNT": 947.0,
+      "P_CNT": 3027.0,
+      "M_CNT": 1509.0,
+      "F_CNT": 1518.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-53",
+      "H_CNT": 952.0,
+      "P_CNT": 3001.0,
+      "M_CNT": 1509.0,
+      "F_CNT": 1492.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-54",
+      "H_CNT": 1039.0,
+      "P_CNT": 3253.0,
+      "M_CNT": 1616.0,
+      "F_CNT": 1637.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-55",
+      "H_CNT": 993.0,
+      "P_CNT": 3089.0,
+      "M_CNT": 1574.0,
+      "F_CNT": 1515.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-56",
+      "H_CNT": 915.0,
+      "P_CNT": 2938.0,
+      "M_CNT": 1494.0,
+      "F_CNT": 1444.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-57",
+      "H_CNT": 26.0,
+      "P_CNT": 75.0,
+      "M_CNT": 40.0,
+      "F_CNT": 35.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-58",
+      "H_CNT": 951.0,
+      "P_CNT": 3016.0,
+      "M_CNT": 1533.0,
+      "F_CNT": 1483.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-59",
+      "H_CNT": 1055.0,
+      "P_CNT": 3587.0,
+      "M_CNT": 1820.0,
+      "F_CNT": 1767.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6735-60",
+      "H_CNT": 916.0,
+      "P_CNT": 2755.0,
+      "M_CNT": 1387.0,
+      "F_CNT": 1368.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-01",
+      "H_CNT": 1049.0,
+      "P_CNT": 3008.0,
+      "M_CNT": 1571.0,
+      "F_CNT": 1437.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-03",
+      "H_CNT": 940.0,
+      "P_CNT": 2730.0,
+      "M_CNT": 1346.0,
+      "F_CNT": 1384.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-04",
+      "H_CNT": 1355.0,
+      "P_CNT": 3466.0,
+      "M_CNT": 1661.0,
+      "F_CNT": 1805.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-05",
+      "H_CNT": 958.0,
+      "P_CNT": 2745.0,
+      "M_CNT": 1396.0,
+      "F_CNT": 1349.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-06",
+      "H_CNT": 1071.0,
+      "P_CNT": 2990.0,
+      "M_CNT": 1447.0,
+      "F_CNT": 1543.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-07",
+      "H_CNT": 1224.0,
+      "P_CNT": 2960.0,
+      "M_CNT": 1353.0,
+      "F_CNT": 1607.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-08",
+      "H_CNT": 1223.0,
+      "P_CNT": 3079.0,
+      "M_CNT": 1421.0,
+      "F_CNT": 1658.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-09",
+      "H_CNT": 1078.0,
+      "P_CNT": 2981.0,
+      "M_CNT": 1424.0,
+      "F_CNT": 1557.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-10",
+      "H_CNT": 1575.0,
+      "P_CNT": 3488.0,
+      "M_CNT": 1651.0,
+      "F_CNT": 1837.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-11",
+      "H_CNT": 1104.0,
+      "P_CNT": 3001.0,
+      "M_CNT": 1428.0,
+      "F_CNT": 1573.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-12",
+      "H_CNT": 1244.0,
+      "P_CNT": 3291.0,
+      "M_CNT": 1580.0,
+      "F_CNT": 1711.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-13",
+      "H_CNT": 1096.0,
+      "P_CNT": 2925.0,
+      "M_CNT": 1419.0,
+      "F_CNT": 1506.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-14",
+      "H_CNT": 1174.0,
+      "P_CNT": 2994.0,
+      "M_CNT": 1332.0,
+      "F_CNT": 1662.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-15",
+      "H_CNT": 1178.0,
+      "P_CNT": 3140.0,
+      "M_CNT": 1490.0,
+      "F_CNT": 1650.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-16",
+      "H_CNT": 1179.0,
+      "P_CNT": 3462.0,
+      "M_CNT": 1664.0,
+      "F_CNT": 1798.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-17",
+      "H_CNT": 1213.0,
+      "P_CNT": 2937.0,
+      "M_CNT": 1326.0,
+      "F_CNT": 1611.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-18",
+      "H_CNT": 1477.0,
+      "P_CNT": 3571.0,
+      "M_CNT": 1647.0,
+      "F_CNT": 1924.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-19",
+      "H_CNT": 1361.0,
+      "P_CNT": 3350.0,
+      "M_CNT": 1464.0,
+      "F_CNT": 1886.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-20",
+      "H_CNT": 1153.0,
+      "P_CNT": 3078.0,
+      "M_CNT": 1478.0,
+      "F_CNT": 1600.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-21",
+      "H_CNT": 1099.0,
+      "P_CNT": 3069.0,
+      "M_CNT": 1432.0,
+      "F_CNT": 1637.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-22",
+      "H_CNT": 1021.0,
+      "P_CNT": 2882.0,
+      "M_CNT": 1400.0,
+      "F_CNT": 1482.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6736-23",
+      "H_CNT": 212.0,
+      "P_CNT": 510.0,
+      "M_CNT": 281.0,
+      "F_CNT": 229.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-02",
+      "H_CNT": 1037.0,
+      "P_CNT": 2972.0,
+      "M_CNT": 1534.0,
+      "F_CNT": 1438.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-03",
+      "H_CNT": 1672.0,
+      "P_CNT": 4533.0,
+      "M_CNT": 2134.0,
+      "F_CNT": 2399.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-04",
+      "H_CNT": 1110.0,
+      "P_CNT": 3152.0,
+      "M_CNT": 1526.0,
+      "F_CNT": 1626.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-05",
+      "H_CNT": 953.0,
+      "P_CNT": 2838.0,
+      "M_CNT": 1459.0,
+      "F_CNT": 1379.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-06",
+      "H_CNT": 1165.0,
+      "P_CNT": 3224.0,
+      "M_CNT": 1593.0,
+      "F_CNT": 1631.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-07",
+      "H_CNT": 1135.0,
+      "P_CNT": 3270.0,
+      "M_CNT": 1562.0,
+      "F_CNT": 1708.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-08",
+      "H_CNT": 1324.0,
+      "P_CNT": 3086.0,
+      "M_CNT": 1596.0,
+      "F_CNT": 1490.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-09",
+      "H_CNT": 1009.0,
+      "P_CNT": 2541.0,
+      "M_CNT": 1284.0,
+      "F_CNT": 1257.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-10",
+      "H_CNT": 1267.0,
+      "P_CNT": 3143.0,
+      "M_CNT": 1499.0,
+      "F_CNT": 1644.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-11",
+      "H_CNT": 1093.0,
+      "P_CNT": 2560.0,
+      "M_CNT": 1292.0,
+      "F_CNT": 1268.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-12",
+      "H_CNT": 1087.0,
+      "P_CNT": 2515.0,
+      "M_CNT": 1252.0,
+      "F_CNT": 1263.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-13",
+      "H_CNT": 1087.0,
+      "P_CNT": 2558.0,
+      "M_CNT": 1260.0,
+      "F_CNT": 1298.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-14",
+      "H_CNT": 1420.0,
+      "P_CNT": 3083.0,
+      "M_CNT": 1435.0,
+      "F_CNT": 1648.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-15",
+      "H_CNT": 1391.0,
+      "P_CNT": 2903.0,
+      "M_CNT": 1479.0,
+      "F_CNT": 1424.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-16",
+      "H_CNT": 965.0,
+      "P_CNT": 2474.0,
+      "M_CNT": 1263.0,
+      "F_CNT": 1211.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-17",
+      "H_CNT": 1045.0,
+      "P_CNT": 2401.0,
+      "M_CNT": 1196.0,
+      "F_CNT": 1205.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-18",
+      "H_CNT": 1315.0,
+      "P_CNT": 3376.0,
+      "M_CNT": 1608.0,
+      "F_CNT": 1768.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-19",
+      "H_CNT": 1145.0,
+      "P_CNT": 2747.0,
+      "M_CNT": 1335.0,
+      "F_CNT": 1412.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-20",
+      "H_CNT": 1301.0,
+      "P_CNT": 3293.0,
+      "M_CNT": 1670.0,
+      "F_CNT": 1623.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-21",
+      "H_CNT": 1004.0,
+      "P_CNT": 2436.0,
+      "M_CNT": 1159.0,
+      "F_CNT": 1277.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-22",
+      "H_CNT": 1195.0,
+      "P_CNT": 2898.0,
+      "M_CNT": 1425.0,
+      "F_CNT": 1473.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-23",
+      "H_CNT": 1187.0,
+      "P_CNT": 3126.0,
+      "M_CNT": 1510.0,
+      "F_CNT": 1616.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-24",
+      "H_CNT": 1177.0,
+      "P_CNT": 3043.0,
+      "M_CNT": 1363.0,
+      "F_CNT": 1680.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-25",
+      "H_CNT": 1109.0,
+      "P_CNT": 2754.0,
+      "M_CNT": 1262.0,
+      "F_CNT": 1492.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-26",
+      "H_CNT": 1255.0,
+      "P_CNT": 2958.0,
+      "M_CNT": 1362.0,
+      "F_CNT": 1596.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6737-27",
+      "H_CNT": 1121.0,
+      "P_CNT": 3049.0,
+      "M_CNT": 1355.0,
+      "F_CNT": 1694.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-23",
+      "H_CNT": 990.0,
+      "P_CNT": 2766.0,
+      "M_CNT": 1342.0,
+      "F_CNT": 1424.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-24",
+      "H_CNT": 788.0,
+      "P_CNT": 2231.0,
+      "M_CNT": 1143.0,
+      "F_CNT": 1088.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-25",
+      "H_CNT": 1042.0,
+      "P_CNT": 2909.0,
+      "M_CNT": 1464.0,
+      "F_CNT": 1445.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-27",
+      "H_CNT": 864.0,
+      "P_CNT": 2113.0,
+      "M_CNT": 1120.0,
+      "F_CNT": 993.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6701-28",
+      "H_CNT": 1068.0,
+      "P_CNT": 2602.0,
+      "M_CNT": 1381.0,
+      "F_CNT": 1221.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-02",
+      "H_CNT": 1025.0,
+      "P_CNT": 2680.0,
+      "M_CNT": 1458.0,
+      "F_CNT": 1222.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-03",
+      "H_CNT": 898.0,
+      "P_CNT": 2437.0,
+      "M_CNT": 1250.0,
+      "F_CNT": 1187.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-04",
+      "H_CNT": 1026.0,
+      "P_CNT": 2767.0,
+      "M_CNT": 1383.0,
+      "F_CNT": 1384.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-05",
+      "H_CNT": 1077.0,
+      "P_CNT": 2701.0,
+      "M_CNT": 1380.0,
+      "F_CNT": 1321.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-06",
+      "H_CNT": 975.0,
+      "P_CNT": 2540.0,
+      "M_CNT": 1295.0,
+      "F_CNT": 1245.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-07",
+      "H_CNT": 1029.0,
+      "P_CNT": 2580.0,
+      "M_CNT": 1390.0,
+      "F_CNT": 1190.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-08",
+      "H_CNT": 1.0,
+      "P_CNT": 3.0,
+      "M_CNT": 2.0,
+      "F_CNT": 1.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-09",
+      "H_CNT": 1168.0,
+      "P_CNT": 3053.0,
+      "M_CNT": 1564.0,
+      "F_CNT": 1489.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-10",
+      "H_CNT": 1059.0,
+      "P_CNT": 2687.0,
+      "M_CNT": 1401.0,
+      "F_CNT": 1286.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-11",
+      "H_CNT": 1095.0,
+      "P_CNT": 2685.0,
+      "M_CNT": 1457.0,
+      "F_CNT": 1228.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6702-13",
+      "H_CNT": 600.0,
+      "P_CNT": 1555.0,
+      "M_CNT": 852.0,
+      "F_CNT": 703.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-01",
+      "H_CNT": 1071.0,
+      "P_CNT": 2745.0,
+      "M_CNT": 1489.0,
+      "F_CNT": 1256.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-02",
+      "H_CNT": 917.0,
+      "P_CNT": 2553.0,
+      "M_CNT": 1322.0,
+      "F_CNT": 1231.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-03",
+      "H_CNT": 932.0,
+      "P_CNT": 2462.0,
+      "M_CNT": 1313.0,
+      "F_CNT": 1149.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-04",
+      "H_CNT": 929.0,
+      "P_CNT": 2679.0,
+      "M_CNT": 1427.0,
+      "F_CNT": 1252.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-05",
+      "H_CNT": 1100.0,
+      "P_CNT": 2590.0,
+      "M_CNT": 1454.0,
+      "F_CNT": 1136.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-06",
+      "H_CNT": 938.0,
+      "P_CNT": 2709.0,
+      "M_CNT": 1381.0,
+      "F_CNT": 1328.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-07",
+      "H_CNT": 1005.0,
+      "P_CNT": 2891.0,
+      "M_CNT": 1457.0,
+      "F_CNT": 1434.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-08",
+      "H_CNT": 1028.0,
+      "P_CNT": 2700.0,
+      "M_CNT": 1419.0,
+      "F_CNT": 1281.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-09",
+      "H_CNT": 918.0,
+      "P_CNT": 2451.0,
+      "M_CNT": 1209.0,
+      "F_CNT": 1242.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-10",
+      "H_CNT": 1020.0,
+      "P_CNT": 2682.0,
+      "M_CNT": 1402.0,
+      "F_CNT": 1280.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6703-11",
+      "H_CNT": 1018.0,
+      "P_CNT": 2558.0,
+      "M_CNT": 1297.0,
+      "F_CNT": 1261.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-01",
+      "H_CNT": 758.0,
+      "P_CNT": 2137.0,
+      "M_CNT": 1118.0,
+      "F_CNT": 1019.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-03",
+      "H_CNT": 870.0,
+      "P_CNT": 2342.0,
+      "M_CNT": 1202.0,
+      "F_CNT": 1140.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-04",
+      "H_CNT": 979.0,
+      "P_CNT": 2631.0,
+      "M_CNT": 1351.0,
+      "F_CNT": 1280.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-05",
+      "H_CNT": 865.0,
+      "P_CNT": 2248.0,
+      "M_CNT": 1204.0,
+      "F_CNT": 1044.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-06",
+      "H_CNT": 895.0,
+      "P_CNT": 2465.0,
+      "M_CNT": 1283.0,
+      "F_CNT": 1182.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-07",
+      "H_CNT": 854.0,
+      "P_CNT": 2251.0,
+      "M_CNT": 1169.0,
+      "F_CNT": 1082.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-08",
+      "H_CNT": 955.0,
+      "P_CNT": 2662.0,
+      "M_CNT": 1345.0,
+      "F_CNT": 1317.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-09",
+      "H_CNT": 811.0,
+      "P_CNT": 2342.0,
+      "M_CNT": 1241.0,
+      "F_CNT": 1101.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6704-10",
+      "H_CNT": 758.0,
+      "P_CNT": 2249.0,
+      "M_CNT": 1231.0,
+      "F_CNT": 1018.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-01",
+      "H_CNT": 808.0,
+      "P_CNT": 2512.0,
+      "M_CNT": 1291.0,
+      "F_CNT": 1221.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-02",
+      "H_CNT": 1128.0,
+      "P_CNT": 2925.0,
+      "M_CNT": 1479.0,
+      "F_CNT": 1446.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-03",
+      "H_CNT": 945.0,
+      "P_CNT": 2778.0,
+      "M_CNT": 1442.0,
+      "F_CNT": 1336.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-05",
+      "H_CNT": 969.0,
+      "P_CNT": 2352.0,
+      "M_CNT": 1269.0,
+      "F_CNT": 1083.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-06",
+      "H_CNT": 941.0,
+      "P_CNT": 2580.0,
+      "M_CNT": 1339.0,
+      "F_CNT": 1241.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-07",
+      "H_CNT": 972.0,
+      "P_CNT": 2517.0,
+      "M_CNT": 1303.0,
+      "F_CNT": 1214.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-08",
+      "H_CNT": 1020.0,
+      "P_CNT": 2754.0,
+      "M_CNT": 1471.0,
+      "F_CNT": 1283.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-09",
+      "H_CNT": 1103.0,
+      "P_CNT": 3049.0,
+      "M_CNT": 1571.0,
+      "F_CNT": 1478.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6705-10",
+      "H_CNT": 1003.0,
+      "P_CNT": 2755.0,
+      "M_CNT": 1415.0,
+      "F_CNT": 1340.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-01",
+      "H_CNT": 917.0,
+      "P_CNT": 2217.0,
+      "M_CNT": 1148.0,
+      "F_CNT": 1069.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-02",
+      "H_CNT": 855.0,
+      "P_CNT": 2226.0,
+      "M_CNT": 1122.0,
+      "F_CNT": 1104.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-03",
+      "H_CNT": 906.0,
+      "P_CNT": 2400.0,
+      "M_CNT": 1224.0,
+      "F_CNT": 1176.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-05",
+      "H_CNT": 877.0,
+      "P_CNT": 2300.0,
+      "M_CNT": 1215.0,
+      "F_CNT": 1085.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-06",
+      "H_CNT": 899.0,
+      "P_CNT": 2228.0,
+      "M_CNT": 1174.0,
+      "F_CNT": 1054.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-07",
+      "H_CNT": 1030.0,
+      "P_CNT": 2537.0,
+      "M_CNT": 1390.0,
+      "F_CNT": 1147.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-08",
+      "H_CNT": 967.0,
+      "P_CNT": 2564.0,
+      "M_CNT": 1396.0,
+      "F_CNT": 1168.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-09",
+      "H_CNT": 911.0,
+      "P_CNT": 2398.0,
+      "M_CNT": 1312.0,
+      "F_CNT": 1086.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6706-10",
+      "H_CNT": 914.0,
+      "P_CNT": 2543.0,
+      "M_CNT": 1386.0,
+      "F_CNT": 1157.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-01",
+      "H_CNT": 1056.0,
+      "P_CNT": 2785.0,
+      "M_CNT": 1461.0,
+      "F_CNT": 1324.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-02",
+      "H_CNT": 993.0,
+      "P_CNT": 2784.0,
+      "M_CNT": 1439.0,
+      "F_CNT": 1345.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-03",
+      "H_CNT": 1066.0,
+      "P_CNT": 3218.0,
+      "M_CNT": 1609.0,
+      "F_CNT": 1609.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-04",
+      "H_CNT": 1060.0,
+      "P_CNT": 2994.0,
+      "M_CNT": 1524.0,
+      "F_CNT": 1470.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-05",
+      "H_CNT": 1061.0,
+      "P_CNT": 3106.0,
+      "M_CNT": 1534.0,
+      "F_CNT": 1572.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-06",
+      "H_CNT": 1067.0,
+      "P_CNT": 2964.0,
+      "M_CNT": 1550.0,
+      "F_CNT": 1414.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-07",
+      "H_CNT": 1042.0,
+      "P_CNT": 2882.0,
+      "M_CNT": 1469.0,
+      "F_CNT": 1413.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-08",
+      "H_CNT": 1030.0,
+      "P_CNT": 2893.0,
+      "M_CNT": 1490.0,
+      "F_CNT": 1403.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-09",
+      "H_CNT": 1026.0,
+      "P_CNT": 3000.0,
+      "M_CNT": 1543.0,
+      "F_CNT": 1457.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-10",
+      "H_CNT": 1107.0,
+      "P_CNT": 3112.0,
+      "M_CNT": 1542.0,
+      "F_CNT": 1570.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-11",
+      "H_CNT": 1069.0,
+      "P_CNT": 3130.0,
+      "M_CNT": 1561.0,
+      "F_CNT": 1569.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-12",
+      "H_CNT": 953.0,
+      "P_CNT": 2877.0,
+      "M_CNT": 1396.0,
+      "F_CNT": 1481.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-13",
+      "H_CNT": 1044.0,
+      "P_CNT": 3201.0,
+      "M_CNT": 1580.0,
+      "F_CNT": 1621.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-15",
+      "H_CNT": 968.0,
+      "P_CNT": 2794.0,
+      "M_CNT": 1437.0,
+      "F_CNT": 1357.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6707-16",
+      "H_CNT": 993.0,
+      "P_CNT": 2938.0,
+      "M_CNT": 1528.0,
+      "F_CNT": 1410.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-02",
+      "H_CNT": 824.0,
+      "P_CNT": 2177.0,
+      "M_CNT": 1127.0,
+      "F_CNT": 1050.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-03",
+      "H_CNT": 1077.0,
+      "P_CNT": 2797.0,
+      "M_CNT": 1454.0,
+      "F_CNT": 1343.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-04",
+      "H_CNT": 1131.0,
+      "P_CNT": 3026.0,
+      "M_CNT": 1576.0,
+      "F_CNT": 1450.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-05",
+      "H_CNT": 1069.0,
+      "P_CNT": 2939.0,
+      "M_CNT": 1511.0,
+      "F_CNT": 1428.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-06",
+      "H_CNT": 1162.0,
+      "P_CNT": 3042.0,
+      "M_CNT": 1547.0,
+      "F_CNT": 1495.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-07",
+      "H_CNT": 1169.0,
+      "P_CNT": 3103.0,
+      "M_CNT": 1546.0,
+      "F_CNT": 1557.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-08",
+      "H_CNT": 939.0,
+      "P_CNT": 2591.0,
+      "M_CNT": 1366.0,
+      "F_CNT": 1225.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-09",
+      "H_CNT": 839.0,
+      "P_CNT": 2335.0,
+      "M_CNT": 1192.0,
+      "F_CNT": 1143.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6708-10",
+      "H_CNT": 858.0,
+      "P_CNT": 2525.0,
+      "M_CNT": 1319.0,
+      "F_CNT": 1206.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-01",
+      "H_CNT": 983.0,
+      "P_CNT": 2674.0,
+      "M_CNT": 1398.0,
+      "F_CNT": 1276.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-02",
+      "H_CNT": 892.0,
+      "P_CNT": 2613.0,
+      "M_CNT": 1373.0,
+      "F_CNT": 1240.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-03",
+      "H_CNT": 852.0,
+      "P_CNT": 2659.0,
+      "M_CNT": 1318.0,
+      "F_CNT": 1341.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-04",
+      "H_CNT": 766.0,
+      "P_CNT": 2332.0,
+      "M_CNT": 1175.0,
+      "F_CNT": 1157.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-05",
+      "H_CNT": 793.0,
+      "P_CNT": 2519.0,
+      "M_CNT": 1325.0,
+      "F_CNT": 1194.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-06",
+      "H_CNT": 753.0,
+      "P_CNT": 2302.0,
+      "M_CNT": 1176.0,
+      "F_CNT": 1126.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-07",
+      "H_CNT": 789.0,
+      "P_CNT": 2233.0,
+      "M_CNT": 1104.0,
+      "F_CNT": 1129.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-08",
+      "H_CNT": 808.0,
+      "P_CNT": 2449.0,
+      "M_CNT": 1265.0,
+      "F_CNT": 1184.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6709-09",
+      "H_CNT": 1008.0,
+      "P_CNT": 2537.0,
+      "M_CNT": 1383.0,
+      "F_CNT": 1154.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-01",
+      "H_CNT": 801.0,
+      "P_CNT": 2325.0,
+      "M_CNT": 1194.0,
+      "F_CNT": 1131.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-02",
+      "H_CNT": 1035.0,
+      "P_CNT": 2899.0,
+      "M_CNT": 1503.0,
+      "F_CNT": 1396.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-03",
+      "H_CNT": 994.0,
+      "P_CNT": 2736.0,
+      "M_CNT": 1334.0,
+      "F_CNT": 1402.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-04",
+      "H_CNT": 1068.0,
+      "P_CNT": 2840.0,
+      "M_CNT": 1388.0,
+      "F_CNT": 1452.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-05",
+      "H_CNT": 949.0,
+      "P_CNT": 2729.0,
+      "M_CNT": 1407.0,
+      "F_CNT": 1322.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-06",
+      "H_CNT": 906.0,
+      "P_CNT": 2378.0,
+      "M_CNT": 1265.0,
+      "F_CNT": 1113.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-01",
+      "H_CNT": 965.0,
+      "P_CNT": 3046.0,
+      "M_CNT": 1551.0,
+      "F_CNT": 1495.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6720-06",
+      "H_CNT": 1049.0,
+      "P_CNT": 3175.0,
+      "M_CNT": 1617.0,
+      "F_CNT": 1558.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-30",
+      "H_CNT": 1331.0,
+      "P_CNT": 3160.0,
+      "M_CNT": 1559.0,
+      "F_CNT": 1601.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-31",
+      "H_CNT": 1951.0,
+      "P_CNT": 4518.0,
+      "M_CNT": 2091.0,
+      "F_CNT": 2427.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-32",
+      "H_CNT": 1104.0,
+      "P_CNT": 2910.0,
+      "M_CNT": 1378.0,
+      "F_CNT": 1532.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-33",
+      "H_CNT": 1067.0,
+      "P_CNT": 3392.0,
+      "M_CNT": 1624.0,
+      "F_CNT": 1768.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-34",
+      "H_CNT": 993.0,
+      "P_CNT": 3142.0,
+      "M_CNT": 1520.0,
+      "F_CNT": 1622.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-35",
+      "H_CNT": 1025.0,
+      "P_CNT": 2994.0,
+      "M_CNT": 1447.0,
+      "F_CNT": 1547.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-36",
+      "H_CNT": 1765.0,
+      "P_CNT": 3931.0,
+      "M_CNT": 1998.0,
+      "F_CNT": 1933.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-37",
+      "H_CNT": 1078.0,
+      "P_CNT": 2802.0,
+      "M_CNT": 1395.0,
+      "F_CNT": 1407.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-38",
+      "H_CNT": 1140.0,
+      "P_CNT": 3039.0,
+      "M_CNT": 1391.0,
+      "F_CNT": 1648.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-39",
+      "H_CNT": 1101.0,
+      "P_CNT": 2914.0,
+      "M_CNT": 1350.0,
+      "F_CNT": 1564.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-40",
+      "H_CNT": 1453.0,
+      "P_CNT": 3322.0,
+      "M_CNT": 1522.0,
+      "F_CNT": 1800.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-41",
+      "H_CNT": 1260.0,
+      "P_CNT": 3792.0,
+      "M_CNT": 1899.0,
+      "F_CNT": 1893.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-42",
+      "H_CNT": 1009.0,
+      "P_CNT": 2726.0,
+      "M_CNT": 1322.0,
+      "F_CNT": 1404.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-43",
+      "H_CNT": 899.0,
+      "P_CNT": 2655.0,
+      "M_CNT": 1278.0,
+      "F_CNT": 1377.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-44",
+      "H_CNT": 1633.0,
+      "P_CNT": 4056.0,
+      "M_CNT": 1887.0,
+      "F_CNT": 2169.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-45",
+      "H_CNT": 1358.0,
+      "P_CNT": 3330.0,
+      "M_CNT": 1536.0,
+      "F_CNT": 1794.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-46",
+      "H_CNT": 1020.0,
+      "P_CNT": 2983.0,
+      "M_CNT": 1463.0,
+      "F_CNT": 1520.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-47",
+      "H_CNT": 1123.0,
+      "P_CNT": 3068.0,
+      "M_CNT": 1438.0,
+      "F_CNT": 1630.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-48",
+      "H_CNT": 1096.0,
+      "P_CNT": 2584.0,
+      "M_CNT": 1329.0,
+      "F_CNT": 1255.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-49",
+      "H_CNT": 1015.0,
+      "P_CNT": 2634.0,
+      "M_CNT": 1227.0,
+      "F_CNT": 1407.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-50",
+      "H_CNT": 1230.0,
+      "P_CNT": 3155.0,
+      "M_CNT": 1530.0,
+      "F_CNT": 1625.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-51",
+      "H_CNT": 886.0,
+      "P_CNT": 2664.0,
+      "M_CNT": 1238.0,
+      "F_CNT": 1426.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-52",
+      "H_CNT": 1028.0,
+      "P_CNT": 2930.0,
+      "M_CNT": 1378.0,
+      "F_CNT": 1552.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-53",
+      "H_CNT": 1096.0,
+      "P_CNT": 2578.0,
+      "M_CNT": 1247.0,
+      "F_CNT": 1331.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-54",
+      "H_CNT": 1209.0,
+      "P_CNT": 3105.0,
+      "M_CNT": 1506.0,
+      "F_CNT": 1599.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-55",
+      "H_CNT": 1187.0,
+      "P_CNT": 3002.0,
+      "M_CNT": 1405.0,
+      "F_CNT": 1597.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-56",
+      "H_CNT": 834.0,
+      "P_CNT": 2494.0,
+      "M_CNT": 1187.0,
+      "F_CNT": 1307.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-57",
+      "H_CNT": 1143.0,
+      "P_CNT": 2900.0,
+      "M_CNT": 1345.0,
+      "F_CNT": 1555.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-58",
+      "H_CNT": 974.0,
+      "P_CNT": 2774.0,
+      "M_CNT": 1295.0,
+      "F_CNT": 1479.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-59",
+      "H_CNT": 1007.0,
+      "P_CNT": 2837.0,
+      "M_CNT": 1324.0,
+      "F_CNT": 1513.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-60",
+      "H_CNT": 1004.0,
+      "P_CNT": 2910.0,
+      "M_CNT": 1429.0,
+      "F_CNT": 1481.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-61",
+      "H_CNT": 1028.0,
+      "P_CNT": 2949.0,
+      "M_CNT": 1505.0,
+      "F_CNT": 1444.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-62",
+      "H_CNT": 1168.0,
+      "P_CNT": 3260.0,
+      "M_CNT": 1583.0,
+      "F_CNT": 1677.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-63",
+      "H_CNT": 976.0,
+      "P_CNT": 2722.0,
+      "M_CNT": 1350.0,
+      "F_CNT": 1372.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6732-64",
+      "H_CNT": 1269.0,
+      "P_CNT": 3551.0,
+      "M_CNT": 1797.0,
+      "F_CNT": 1754.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-01",
+      "H_CNT": 1060.0,
+      "P_CNT": 3120.0,
+      "M_CNT": 1511.0,
+      "F_CNT": 1609.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-02",
+      "H_CNT": 1074.0,
+      "P_CNT": 2688.0,
+      "M_CNT": 1307.0,
+      "F_CNT": 1381.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-04",
+      "H_CNT": 957.0,
+      "P_CNT": 2799.0,
+      "M_CNT": 1372.0,
+      "F_CNT": 1427.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-05",
+      "H_CNT": 1035.0,
+      "P_CNT": 2583.0,
+      "M_CNT": 1255.0,
+      "F_CNT": 1328.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-06",
+      "H_CNT": 1000.0,
+      "P_CNT": 2929.0,
+      "M_CNT": 1430.0,
+      "F_CNT": 1499.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-07",
+      "H_CNT": 965.0,
+      "P_CNT": 2574.0,
+      "M_CNT": 1237.0,
+      "F_CNT": 1337.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-08",
+      "H_CNT": 1089.0,
+      "P_CNT": 3061.0,
+      "M_CNT": 1461.0,
+      "F_CNT": 1600.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-09",
+      "H_CNT": 1273.0,
+      "P_CNT": 3297.0,
+      "M_CNT": 1582.0,
+      "F_CNT": 1715.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-10",
+      "H_CNT": 1094.0,
+      "P_CNT": 2942.0,
+      "M_CNT": 1432.0,
+      "F_CNT": 1510.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-11",
+      "H_CNT": 933.0,
+      "P_CNT": 2483.0,
+      "M_CNT": 1204.0,
+      "F_CNT": 1279.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-12",
+      "H_CNT": 1701.0,
+      "P_CNT": 3669.0,
+      "M_CNT": 1717.0,
+      "F_CNT": 1952.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-13",
+      "H_CNT": 1009.0,
+      "P_CNT": 2850.0,
+      "M_CNT": 1382.0,
+      "F_CNT": 1468.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-14",
+      "H_CNT": 999.0,
+      "P_CNT": 2787.0,
+      "M_CNT": 1352.0,
+      "F_CNT": 1435.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-15",
+      "H_CNT": 1624.0,
+      "P_CNT": 3451.0,
+      "M_CNT": 1653.0,
+      "F_CNT": 1798.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-16",
+      "H_CNT": 1199.0,
+      "P_CNT": 3272.0,
+      "M_CNT": 1557.0,
+      "F_CNT": 1715.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-17",
+      "H_CNT": 970.0,
+      "P_CNT": 2858.0,
+      "M_CNT": 1427.0,
+      "F_CNT": 1431.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-18",
+      "H_CNT": 1170.0,
+      "P_CNT": 3220.0,
+      "M_CNT": 1558.0,
+      "F_CNT": 1662.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-19",
+      "H_CNT": 1283.0,
+      "P_CNT": 3155.0,
+      "M_CNT": 1509.0,
+      "F_CNT": 1646.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-20",
+      "H_CNT": 1515.0,
+      "P_CNT": 3639.0,
+      "M_CNT": 1815.0,
+      "F_CNT": 1824.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-21",
+      "H_CNT": 1074.0,
+      "P_CNT": 3150.0,
+      "M_CNT": 1537.0,
+      "F_CNT": 1613.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-22",
+      "H_CNT": 822.0,
+      "P_CNT": 2542.0,
+      "M_CNT": 1307.0,
+      "F_CNT": 1235.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-23",
+      "H_CNT": 1230.0,
+      "P_CNT": 3101.0,
+      "M_CNT": 1549.0,
+      "F_CNT": 1552.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-24",
+      "H_CNT": 1202.0,
+      "P_CNT": 3261.0,
+      "M_CNT": 1600.0,
+      "F_CNT": 1661.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-25",
+      "H_CNT": 1224.0,
+      "P_CNT": 3251.0,
+      "M_CNT": 1580.0,
+      "F_CNT": 1671.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-26",
+      "H_CNT": 898.0,
+      "P_CNT": 2733.0,
+      "M_CNT": 1379.0,
+      "F_CNT": 1354.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-27",
+      "H_CNT": 965.0,
+      "P_CNT": 2896.0,
+      "M_CNT": 1415.0,
+      "F_CNT": 1481.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-28",
+      "H_CNT": 839.0,
+      "P_CNT": 2275.0,
+      "M_CNT": 1104.0,
+      "F_CNT": 1171.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-29",
+      "H_CNT": 927.0,
+      "P_CNT": 2849.0,
+      "M_CNT": 1410.0,
+      "F_CNT": 1439.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-30",
+      "H_CNT": 1002.0,
+      "P_CNT": 2879.0,
+      "M_CNT": 1415.0,
+      "F_CNT": 1464.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-31",
+      "H_CNT": 1170.0,
+      "P_CNT": 3183.0,
+      "M_CNT": 1566.0,
+      "F_CNT": 1617.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-32",
+      "H_CNT": 1166.0,
+      "P_CNT": 3030.0,
+      "M_CNT": 1520.0,
+      "F_CNT": 1510.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-33",
+      "H_CNT": 995.0,
+      "P_CNT": 3236.0,
+      "M_CNT": 1637.0,
+      "F_CNT": 1599.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-34",
+      "H_CNT": 1540.0,
+      "P_CNT": 3924.0,
+      "M_CNT": 2114.0,
+      "F_CNT": 1810.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-36",
+      "H_CNT": 1079.0,
+      "P_CNT": 3107.0,
+      "M_CNT": 1624.0,
+      "F_CNT": 1483.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-37",
+      "H_CNT": 905.0,
+      "P_CNT": 2875.0,
+      "M_CNT": 1478.0,
+      "F_CNT": 1397.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-38",
+      "H_CNT": 994.0,
+      "P_CNT": 3156.0,
+      "M_CNT": 1644.0,
+      "F_CNT": 1512.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-39",
+      "H_CNT": 920.0,
+      "P_CNT": 3090.0,
+      "M_CNT": 1565.0,
+      "F_CNT": 1525.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-40",
+      "H_CNT": 928.0,
+      "P_CNT": 3034.0,
+      "M_CNT": 1580.0,
+      "F_CNT": 1454.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-41",
+      "H_CNT": 866.0,
+      "P_CNT": 3010.0,
+      "M_CNT": 1590.0,
+      "F_CNT": 1420.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-42",
+      "H_CNT": 808.0,
+      "P_CNT": 2713.0,
+      "M_CNT": 1447.0,
+      "F_CNT": 1266.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-43",
+      "H_CNT": 1003.0,
+      "P_CNT": 3469.0,
+      "M_CNT": 1793.0,
+      "F_CNT": 1676.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6733-44",
+      "H_CNT": 85.0,
+      "P_CNT": 249.0,
+      "M_CNT": 122.0,
+      "F_CNT": 127.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-01",
+      "H_CNT": 1077.0,
+      "P_CNT": 3105.0,
+      "M_CNT": 1458.0,
+      "F_CNT": 1647.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-02",
+      "H_CNT": 1126.0,
+      "P_CNT": 3553.0,
+      "M_CNT": 1718.0,
+      "F_CNT": 1835.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-03",
+      "H_CNT": 947.0,
+      "P_CNT": 2613.0,
+      "M_CNT": 1317.0,
+      "F_CNT": 1296.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-04",
+      "H_CNT": 1133.0,
+      "P_CNT": 3518.0,
+      "M_CNT": 1718.0,
+      "F_CNT": 1800.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-05",
+      "H_CNT": 1089.0,
+      "P_CNT": 2972.0,
+      "M_CNT": 1504.0,
+      "F_CNT": 1468.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-06",
+      "H_CNT": 1168.0,
+      "P_CNT": 3470.0,
+      "M_CNT": 1701.0,
+      "F_CNT": 1769.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-07",
+      "H_CNT": 998.0,
+      "P_CNT": 3115.0,
+      "M_CNT": 1559.0,
+      "F_CNT": 1556.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-08",
+      "H_CNT": 1185.0,
+      "P_CNT": 3569.0,
+      "M_CNT": 1704.0,
+      "F_CNT": 1865.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-09",
+      "H_CNT": 982.0,
+      "P_CNT": 2690.0,
+      "M_CNT": 1341.0,
+      "F_CNT": 1349.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-11",
+      "H_CNT": 1029.0,
+      "P_CNT": 2760.0,
+      "M_CNT": 1343.0,
+      "F_CNT": 1417.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-12",
+      "H_CNT": 1111.0,
+      "P_CNT": 2830.0,
+      "M_CNT": 1406.0,
+      "F_CNT": 1424.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-13",
+      "H_CNT": 1329.0,
+      "P_CNT": 3752.0,
+      "M_CNT": 1785.0,
+      "F_CNT": 1967.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-14",
+      "H_CNT": 1179.0,
+      "P_CNT": 3114.0,
+      "M_CNT": 1523.0,
+      "F_CNT": 1591.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-15",
+      "H_CNT": 855.0,
+      "P_CNT": 2674.0,
+      "M_CNT": 1342.0,
+      "F_CNT": 1332.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6734-16",
+      "H_CNT": 1002.0,
+      "P_CNT": 3204.0,
+      "M_CNT": 1592.0,
+      "F_CNT": 1612.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-07",
+      "H_CNT": 976.0,
+      "P_CNT": 2591.0,
+      "M_CNT": 1318.0,
+      "F_CNT": 1273.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6710-08",
+      "H_CNT": 1065.0,
+      "P_CNT": 2963.0,
+      "M_CNT": 1556.0,
+      "F_CNT": 1407.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6711-01",
+      "H_CNT": 1143.0,
+      "P_CNT": 2844.0,
+      "M_CNT": 1548.0,
+      "F_CNT": 1296.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6711-02",
+      "H_CNT": 1075.0,
+      "P_CNT": 2796.0,
+      "M_CNT": 1451.0,
+      "F_CNT": 1345.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6711-04",
+      "H_CNT": 668.0,
+      "P_CNT": 1607.0,
+      "M_CNT": 882.0,
+      "F_CNT": 725.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6711-05",
+      "H_CNT": 1011.0,
+      "P_CNT": 2722.0,
+      "M_CNT": 1454.0,
+      "F_CNT": 1268.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-01",
+      "H_CNT": 855.0,
+      "P_CNT": 2420.0,
+      "M_CNT": 1240.0,
+      "F_CNT": 1180.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-02",
+      "H_CNT": 821.0,
+      "P_CNT": 2403.0,
+      "M_CNT": 1242.0,
+      "F_CNT": 1161.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-03",
+      "H_CNT": 991.0,
+      "P_CNT": 2782.0,
+      "M_CNT": 1426.0,
+      "F_CNT": 1356.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-04",
+      "H_CNT": 960.0,
+      "P_CNT": 2798.0,
+      "M_CNT": 1422.0,
+      "F_CNT": 1376.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-05",
+      "H_CNT": 904.0,
+      "P_CNT": 2652.0,
+      "M_CNT": 1303.0,
+      "F_CNT": 1349.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-06",
+      "H_CNT": 961.0,
+      "P_CNT": 3084.0,
+      "M_CNT": 1510.0,
+      "F_CNT": 1574.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-07",
+      "H_CNT": 1149.0,
+      "P_CNT": 3185.0,
+      "M_CNT": 1651.0,
+      "F_CNT": 1534.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-08",
+      "H_CNT": 1147.0,
+      "P_CNT": 3054.0,
+      "M_CNT": 1498.0,
+      "F_CNT": 1556.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-09",
+      "H_CNT": 952.0,
+      "P_CNT": 2937.0,
+      "M_CNT": 1428.0,
+      "F_CNT": 1509.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-10",
+      "H_CNT": 1043.0,
+      "P_CNT": 3013.0,
+      "M_CNT": 1480.0,
+      "F_CNT": 1533.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-11",
+      "H_CNT": 1015.0,
+      "P_CNT": 2858.0,
+      "M_CNT": 1396.0,
+      "F_CNT": 1462.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-12",
+      "H_CNT": 1034.0,
+      "P_CNT": 2838.0,
+      "M_CNT": 1342.0,
+      "F_CNT": 1496.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-13",
+      "H_CNT": 1040.0,
+      "P_CNT": 3217.0,
+      "M_CNT": 1542.0,
+      "F_CNT": 1675.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-14",
+      "H_CNT": 1140.0,
+      "P_CNT": 3178.0,
+      "M_CNT": 1534.0,
+      "F_CNT": 1644.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-15",
+      "H_CNT": 984.0,
+      "P_CNT": 2903.0,
+      "M_CNT": 1455.0,
+      "F_CNT": 1448.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-16",
+      "H_CNT": 1129.0,
+      "P_CNT": 3223.0,
+      "M_CNT": 1577.0,
+      "F_CNT": 1646.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-17",
+      "H_CNT": 939.0,
+      "P_CNT": 3010.0,
+      "M_CNT": 1483.0,
+      "F_CNT": 1527.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-18",
+      "H_CNT": 1008.0,
+      "P_CNT": 3043.0,
+      "M_CNT": 1527.0,
+      "F_CNT": 1516.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-19",
+      "H_CNT": 1032.0,
+      "P_CNT": 2977.0,
+      "M_CNT": 1543.0,
+      "F_CNT": 1434.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6712-20",
+      "H_CNT": 1227.0,
+      "P_CNT": 3536.0,
+      "M_CNT": 1737.0,
+      "F_CNT": 1799.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-02",
+      "H_CNT": 619.0,
+      "P_CNT": 1605.0,
+      "M_CNT": 866.0,
+      "F_CNT": 739.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-04",
+      "H_CNT": 736.0,
+      "P_CNT": 1861.0,
+      "M_CNT": 1006.0,
+      "F_CNT": 855.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-05",
+      "H_CNT": 958.0,
+      "P_CNT": 2546.0,
+      "M_CNT": 1307.0,
+      "F_CNT": 1239.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-06",
+      "H_CNT": 1030.0,
+      "P_CNT": 2960.0,
+      "M_CNT": 1515.0,
+      "F_CNT": 1445.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-07",
+      "H_CNT": 1076.0,
+      "P_CNT": 3050.0,
+      "M_CNT": 1528.0,
+      "F_CNT": 1522.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-08",
+      "H_CNT": 1125.0,
+      "P_CNT": 2961.0,
+      "M_CNT": 1487.0,
+      "F_CNT": 1474.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-09",
+      "H_CNT": 1042.0,
+      "P_CNT": 2887.0,
+      "M_CNT": 1490.0,
+      "F_CNT": 1397.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-10",
+      "H_CNT": 905.0,
+      "P_CNT": 2436.0,
+      "M_CNT": 1300.0,
+      "F_CNT": 1136.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-11",
+      "H_CNT": 999.0,
+      "P_CNT": 2905.0,
+      "M_CNT": 1397.0,
+      "F_CNT": 1508.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6713-12",
+      "H_CNT": 1031.0,
+      "P_CNT": 2981.0,
+      "M_CNT": 1500.0,
+      "F_CNT": 1481.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-01",
+      "H_CNT": 896.0,
+      "P_CNT": 2745.0,
+      "M_CNT": 1415.0,
+      "F_CNT": 1330.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-02",
+      "H_CNT": 772.0,
+      "P_CNT": 2541.0,
+      "M_CNT": 1306.0,
+      "F_CNT": 1235.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-03",
+      "H_CNT": 881.0,
+      "P_CNT": 2701.0,
+      "M_CNT": 1406.0,
+      "F_CNT": 1295.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-04",
+      "H_CNT": 941.0,
+      "P_CNT": 2753.0,
+      "M_CNT": 1427.0,
+      "F_CNT": 1326.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-05",
+      "H_CNT": 795.0,
+      "P_CNT": 2373.0,
+      "M_CNT": 1208.0,
+      "F_CNT": 1165.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-06",
+      "H_CNT": 891.0,
+      "P_CNT": 2727.0,
+      "M_CNT": 1315.0,
+      "F_CNT": 1412.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-07",
+      "H_CNT": 1001.0,
+      "P_CNT": 3052.0,
+      "M_CNT": 1469.0,
+      "F_CNT": 1583.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-08",
+      "H_CNT": 807.0,
+      "P_CNT": 2441.0,
+      "M_CNT": 1256.0,
+      "F_CNT": 1185.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-09",
+      "H_CNT": 803.0,
+      "P_CNT": 2549.0,
+      "M_CNT": 1299.0,
+      "F_CNT": 1250.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6714-11",
+      "H_CNT": 299.0,
+      "P_CNT": 932.0,
+      "M_CNT": 475.0,
+      "F_CNT": 457.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-01",
+      "H_CNT": 1046.0,
+      "P_CNT": 2837.0,
+      "M_CNT": 1496.0,
+      "F_CNT": 1341.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-02",
+      "H_CNT": 1118.0,
+      "P_CNT": 2666.0,
+      "M_CNT": 1425.0,
+      "F_CNT": 1241.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-03",
+      "H_CNT": 981.0,
+      "P_CNT": 3022.0,
+      "M_CNT": 1517.0,
+      "F_CNT": 1505.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-04",
+      "H_CNT": 998.0,
+      "P_CNT": 2835.0,
+      "M_CNT": 1443.0,
+      "F_CNT": 1392.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-05",
+      "H_CNT": 918.0,
+      "P_CNT": 2765.0,
+      "M_CNT": 1452.0,
+      "F_CNT": 1313.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-06",
+      "H_CNT": 22.0,
+      "P_CNT": 62.0,
+      "M_CNT": 30.0,
+      "F_CNT": 32.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-07",
+      "H_CNT": 891.0,
+      "P_CNT": 2647.0,
+      "M_CNT": 1332.0,
+      "F_CNT": 1315.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-08",
+      "H_CNT": 1053.0,
+      "P_CNT": 3256.0,
+      "M_CNT": 1678.0,
+      "F_CNT": 1578.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6715-09",
+      "H_CNT": 1002.0,
+      "P_CNT": 3094.0,
+      "M_CNT": 1617.0,
+      "F_CNT": 1477.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-01",
+      "H_CNT": 1130.0,
+      "P_CNT": 2927.0,
+      "M_CNT": 1535.0,
+      "F_CNT": 1392.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-02",
+      "H_CNT": 746.0,
+      "P_CNT": 2391.0,
+      "M_CNT": 1177.0,
+      "F_CNT": 1214.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-04",
+      "H_CNT": 1079.0,
+      "P_CNT": 2973.0,
+      "M_CNT": 1525.0,
+      "F_CNT": 1448.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-05",
+      "H_CNT": 1050.0,
+      "P_CNT": 2785.0,
+      "M_CNT": 1468.0,
+      "F_CNT": 1317.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-06",
+      "H_CNT": 1083.0,
+      "P_CNT": 2893.0,
+      "M_CNT": 1515.0,
+      "F_CNT": 1378.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-07",
+      "H_CNT": 3.0,
+      "P_CNT": 7.0,
+      "M_CNT": 5.0,
+      "F_CNT": 2.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-08",
+      "H_CNT": 1049.0,
+      "P_CNT": 3029.0,
+      "M_CNT": 1482.0,
+      "F_CNT": 1547.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6716-09",
+      "H_CNT": 1091.0,
+      "P_CNT": 3004.0,
+      "M_CNT": 1489.0,
+      "F_CNT": 1515.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6717-02",
+      "H_CNT": 834.0,
+      "P_CNT": 2031.0,
+      "M_CNT": 1055.0,
+      "F_CNT": 976.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6717-03",
+      "H_CNT": 966.0,
+      "P_CNT": 2897.0,
+      "M_CNT": 1453.0,
+      "F_CNT": 1444.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6717-05",
+      "H_CNT": 1141.0,
+      "P_CNT": 2873.0,
+      "M_CNT": 1473.0,
+      "F_CNT": 1400.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6717-06",
+      "H_CNT": 1342.0,
+      "P_CNT": 3578.0,
+      "M_CNT": 1791.0,
+      "F_CNT": 1787.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-01",
+      "H_CNT": 851.0,
+      "P_CNT": 2872.0,
+      "M_CNT": 1472.0,
+      "F_CNT": 1400.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-02",
+      "H_CNT": 999.0,
+      "P_CNT": 3079.0,
+      "M_CNT": 1534.0,
+      "F_CNT": 1545.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-03",
+      "H_CNT": 898.0,
+      "P_CNT": 2662.0,
+      "M_CNT": 1431.0,
+      "F_CNT": 1231.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-04",
+      "H_CNT": 935.0,
+      "P_CNT": 2808.0,
+      "M_CNT": 1380.0,
+      "F_CNT": 1428.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-05",
+      "H_CNT": 896.0,
+      "P_CNT": 2951.0,
+      "M_CNT": 1487.0,
+      "F_CNT": 1464.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-06",
+      "H_CNT": 924.0,
+      "P_CNT": 2780.0,
+      "M_CNT": 1411.0,
+      "F_CNT": 1369.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-07",
+      "H_CNT": 866.0,
+      "P_CNT": 2643.0,
+      "M_CNT": 1362.0,
+      "F_CNT": 1281.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-08",
+      "H_CNT": 983.0,
+      "P_CNT": 2955.0,
+      "M_CNT": 1496.0,
+      "F_CNT": 1459.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-09",
+      "H_CNT": 1002.0,
+      "P_CNT": 2965.0,
+      "M_CNT": 1476.0,
+      "F_CNT": 1489.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-10",
+      "H_CNT": 1045.0,
+      "P_CNT": 2828.0,
+      "M_CNT": 1416.0,
+      "F_CNT": 1412.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-11",
+      "H_CNT": 1005.0,
+      "P_CNT": 3015.0,
+      "M_CNT": 1495.0,
+      "F_CNT": 1520.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-12",
+      "H_CNT": 906.0,
+      "P_CNT": 3064.0,
+      "M_CNT": 1547.0,
+      "F_CNT": 1517.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-13",
+      "H_CNT": 943.0,
+      "P_CNT": 3096.0,
+      "M_CNT": 1622.0,
+      "F_CNT": 1474.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-14",
+      "H_CNT": 904.0,
+      "P_CNT": 2954.0,
+      "M_CNT": 1571.0,
+      "F_CNT": 1383.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6718-15",
+      "H_CNT": 1007.0,
+      "P_CNT": 2781.0,
+      "M_CNT": 1449.0,
+      "F_CNT": 1332.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-01",
+      "H_CNT": 944.0,
+      "P_CNT": 2744.0,
+      "M_CNT": 1422.0,
+      "F_CNT": 1322.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-03",
+      "H_CNT": 1024.0,
+      "P_CNT": 2959.0,
+      "M_CNT": 1516.0,
+      "F_CNT": 1443.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-04",
+      "H_CNT": 1052.0,
+      "P_CNT": 3028.0,
+      "M_CNT": 1579.0,
+      "F_CNT": 1449.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-05",
+      "H_CNT": 1360.0,
+      "P_CNT": 3786.0,
+      "M_CNT": 1923.0,
+      "F_CNT": 1863.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-06",
+      "H_CNT": 1125.0,
+      "P_CNT": 3271.0,
+      "M_CNT": 1682.0,
+      "F_CNT": 1589.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-07",
+      "H_CNT": 946.0,
+      "P_CNT": 2840.0,
+      "M_CNT": 1491.0,
+      "F_CNT": 1349.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-08",
+      "H_CNT": 1148.0,
+      "P_CNT": 3237.0,
+      "M_CNT": 1592.0,
+      "F_CNT": 1645.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-09",
+      "H_CNT": 1126.0,
+      "P_CNT": 3096.0,
+      "M_CNT": 1595.0,
+      "F_CNT": 1501.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-10",
+      "H_CNT": 1254.0,
+      "P_CNT": 3492.0,
+      "M_CNT": 1643.0,
+      "F_CNT": 1849.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-11",
+      "H_CNT": 1209.0,
+      "P_CNT": 3353.0,
+      "M_CNT": 1704.0,
+      "F_CNT": 1649.0
+    },
+    {
+      "PRODUCT_ID": 90250,
+      "INFO_TIME": "105Y06M",
+      "CODE2": "A6719-12",
+      "H_CNT": 1130.0,
+      "P_CNT": 3061.0,
+      "M_CNT": 1539.0,
+      "F_CNT": 1522.0
+    }
+  ]
+}

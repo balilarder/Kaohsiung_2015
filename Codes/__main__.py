@@ -29,7 +29,7 @@ if __name__ == '__main__':
 	secondary_homeTable = {}
 	secondary_areaTable = {}
 
-	city = "K"
+	city = "T"
 	# T/K
 
 	BuildBase(base_graph, city)

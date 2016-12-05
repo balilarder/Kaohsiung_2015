@@ -7,11 +7,11 @@ def read_data(graph, base_case2014, base_case2015, T, city):
     # read case data for base area
     
     if city == "K":
-        f2014 = 'Kaohsiung2014_case.csv'
-        f2015 = 'Kaohsiung2015_case.csv'
+        f2014 = '../inputfiles/Kaohsiung2014_case.csv'
+        f2015 = '../inputfiles/Kaohsiung2015_case.csv'
     elif city == "T":
-        f2014 = 'Tainan2014_case.csv'
-        f2015 = 'Tainan2015_case.csv'
+        f2014 = '../inputfiles/Tainan2014_case.csv'
+        f2015 = '../inputfiles/Tainan2015_case.csv'
 
     print "there are %d areas" % len(graph)
     # base_case2014 = area_name: [[week1, level], [week2, level], [week3, level]...]

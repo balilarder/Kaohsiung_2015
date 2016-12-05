@@ -1,7 +1,7 @@
 def read_home():
     # return a dictionary of home
     nodes = {}
-    file = open('kao_popu.csv', 'r')
+    file = open('../inputfiles/kao_popu.csv', 'r')
     allLines = file.readlines()
 
     total_areas = len(allLines)
@@ -17,7 +17,7 @@ def read_home():
 def read_population():
     # return a dictionary of population
     nodes = {}
-    file = open('kao_popu.csv', 'r')
+    file = open('../inputfiles/kao_popu.csv', 'r')
     allLines = file.readlines()
 
     total_areas = len(allLines)
@@ -33,7 +33,7 @@ def read_population():
 def read_area():
     # return a dictionary of area
     nodes = {}
-    file = open('kao_area.csv', 'r')
+    file = open('../inputfiles/kao_area.csv', 'r')
     allLines = file.readlines()
 
     total_areas = len(allLines)

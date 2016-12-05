@@ -32,9 +32,9 @@ get a key as all nodes
 def BuildBase(graph, city):
     # read neighbor file and constructure graph with neighbor link
     if city == "K":
-        filename = "neighbors_1deg(K).csv"
+        filename = "../inputfiles/neighbors_1deg(K).csv"
     elif city == "T":
-        filename = "neighbors_1deg(T).csv"
+        filename = "../inputfiles/neighbors_1deg(T).csv"
     deg1 = open(filename, 'r')
     lines_1 = deg1.readlines()
 
@@ -90,9 +90,9 @@ def BuildBigger(base_graph, graph1, graph2, base2first_table, base2secondary_tab
     # graph1 is first area
     # graph2 is secondary area
     if city == "K":
-        fn = "Kaohsiung.json"
+        fn = "../inputfiles/Kaohsiung.json"
     elif city == "T":
-        fn = "Tainan.json"
+        fn = "../inputfiles/Tainan.json"
 
     with open(fn) as data_file:    
         data = json.load(data_file)

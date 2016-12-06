@@ -76,7 +76,10 @@ if __name__ == '__main__':
 	
 	# New: case for day
 	daydata = ReadCaseByDay(city, secondary_graph, base2first_table, base2secondary_table)
-	Day2Csv(daydata)
+	
+
+	Day2Csv(city+"2014", daydata[0])		# write 2014 csv
+	Day2Csv(city+"2015", daydata[1])		# write 2015 csv
 
 	exit()
 

@@ -65,12 +65,44 @@ def ReadCaseByDay(city, graph, base2first_table, base2secondary_table):
 	
 	# coloring
 	coloring_tag(days_count2014, days_tag2014)
-	coloring_tag(days_count2015, days_count2015)
+	coloring_tag(days_count2015, days_tag2015)
 
+
+	
 	return days_tag2014, days_tag2015
 
-def Day2Csv(data):
-	pass
+def Day2Csv(city, daytag):
+	if city == "K2014":
+		csvfile = "../tempfiles/K2014Day2ndArea.csv"
+	elif city == "K2015":
+		csvfile = "../tempfiles/K2015Day2ndArea.csv"
+	elif city == "T2014":
+		csvfile = "../tempfiles/T2014Day2ndArea.csv"
+	elif city == "T2015":
+		csvfile = "../tempfiles/T2015Day2ndArea.csv"	
+	wfile = open(csvfile, "w")
+	w = csv.writer(wfile)
+	# write data: header
+	wdata = ["2nd areas"]
+	for i in range(1, 367):
+		wdata.append(str(i))
+	w.writerow(wdata)
+	# write data: day tags
+	for k in daytag:
+		wdata = [k]
+		# add every day
+
+		for day in daytag[k]:
+
+			if day == 1:
+				wdata.append("V")
+			else:
+				wdata.append("")
+				# print "??"
+		
+		w.writerow(wdata)
+
+	wfile.close()
 
 
 def convert2WhichDay(datestring):
@@ -109,7 +141,8 @@ def convert2WhichDay(datestring):
 # change tag from 0 to 1		
 def coloring_tag(days_count, days_tag):
 	alert_thershold = 6 	# or 7(for 2nd stastic areas)
-
+	distinct = []
+	a = 0
 	startbound = 366 - 6
 	print startbound
 	for k in days_count:	
@@ -123,6 +156,23 @@ def coloring_tag(days_count, days_tag):
 			if check >= alert_thershold:
 				# tag 7 days at once
 				for day in range(s, t):
-					days_tag[k][day] = 1 
+					days_tag[k][day] = 1
 
-	print "coloring"
+					if k not in distinct:
+						distinct.append(k)
+					# print k, day
+					a += 1
+	print len(distinct)
+	print a 
+
+
+
+	# for k in days_tag:
+	# 	for day in days_tag[k]:
+	# 		print type(day)
+	# 		# if days_tag[k][day] == 1:
+	# 			# print "has 1"
+
+	# print days_tag['A6405-B9']				
+	# for day in days_tag['A6405-B9']:
+	# 	print day

@@ -166,13 +166,3 @@ def coloring_tag(days_count, days_tag):
 	print a 
 
 
-
-	# for k in days_tag:
-	# 	for day in days_tag[k]:
-	# 		print type(day)
-	# 		# if days_tag[k][day] == 1:
-	# 			# print "has 1"
-
-	# print days_tag['A6405-B9']				
-	# for day in days_tag['A6405-B9']:
-	# 	print day

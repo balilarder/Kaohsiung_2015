@@ -81,6 +81,11 @@ if __name__ == '__main__':
 	Day2Csv(city+"2014", daydata[0])		# write 2014 csv
 	Day2Csv(city+"2015", daydata[1])		# write 2015 csv
 
+	# For observation...
+	# build distance table: each node has its 1~5 distance list
+	distance_Matrix = pairdistance(secondary_graph)
+
+
 	exit()
 
 	# step2: count case by weeks, based on given time interval, T

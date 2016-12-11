@@ -137,7 +137,7 @@ def BuildBigger(base_graph, graph1, graph2, base2first_table, base2secondary_tab
     GraphStructure(first_member, graph1, base2first_table, base_graph )
     print "graph1 finish"
     GraphStructure(secondary_member, graph2, first2secondary_table, graph1)        
-    print "grpah2 finish"
+    print "graph2 finish"
     
 
     return(graph1, graph2)
@@ -331,3 +331,40 @@ def MEgraph(origin, case2014, case2015, T, situation):
     #     if new_graph[k].Av != 0:
     #         new_graph[k].toitself.pv_u_0 = (new_graph[k].toitself.Av2u / float(new_graph[k].Av)) 
     return new_graph
+
+# a matrix for 1~5 distance list
+def pairdistance(graph):
+    print "let's compute distance"
+    print len(graph)
+    AllPairDistance = {}
+    for k in graph:
+        AllPairDistance[k] = {1:[],2:[],3:[],4:[],5:[]}
+        # AllPairDistance[k] = {1:[],2:[]}
+        for i in range(1, 6):
+            print i
+            AllPairDistance[k][i] = BFS(k, i, graph)    
+            print k,AllPairDistance[k][i]
+    print len(AllPairDistance)
+    return AllPairDistance
+
+def BFS(node, step, graph):
+    list = []
+    black = [node]          # black = has checked
+    red = black[:]          # red = ready to check
+    # print black,red
+
+    while step > 0:
+        update = []
+        for b in red:
+            for n in graph[b].toother:
+                
+                if n not in black:
+                    black.append(n)
+                    # print n
+                    update.append(n)
+        step -= 1
+        # print black
+        # update red
+        red = update
+    list = update
+    return list

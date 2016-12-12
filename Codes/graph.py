@@ -338,33 +338,36 @@ def pairdistance(graph):
     print len(graph)
     AllPairDistance = {}
     for k in graph:
-        AllPairDistance[k] = {1:[],2:[],3:[],4:[],5:[]}
-        # AllPairDistance[k] = {1:[],2:[]}
-        for i in range(1, 6):
-            print i
-            AllPairDistance[k][i] = BFS(k, i, graph)    
-            print k,AllPairDistance[k][i]
+        AllPairDistance[k] = BFS(k, 6, graph)
+
+    for k in AllPairDistance:
+
+        for d in AllPairDistance[k]:
+            print k,d
+            print AllPairDistance[k][d]
     print len(AllPairDistance)
     return AllPairDistance
 
 def BFS(node, step, graph):
-    list = []
-    black = [node]          # black = has checked
-    red = black[:]          # red = ready to check
-    # print black,red
 
-    while step > 0:
-        update = []
-        for b in red:
-            for n in graph[b].toother:
-                
+    table = {}
+    red = [node]        # red is ready to check
+    black = []          # black is has checked
+    for i in range(1, step):
+        
+        list = []
+        # check red points
+
+        for r in red:
+
+            if r not in black:
+                black.append(r)
+            for n in graph[r].toother:
                 if n not in black:
                     black.append(n)
-                    # print n
-                    update.append(n)
-        step -= 1
-        # print black
-        # update red
-        red = update
-    list = update
-    return list
+                    list.append(n)
+
+
+        table[i] = list
+        red = list
+    return table

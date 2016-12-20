@@ -157,7 +157,7 @@ def BuildAttributeTable(attribute, member):
 # build more edge graph
 
 def MEgraph(origin, case2014, case2015, T, situation):
-    # input orogin graph
+    # input origin graph and build more edge graph
     new_graph = {}
     for k in origin:
         new_graph[k] = AreaInfo()
@@ -332,20 +332,21 @@ def MEgraph(origin, case2014, case2015, T, situation):
     #         new_graph[k].toitself.pv_u_0 = (new_graph[k].toitself.Av2u / float(new_graph[k].Av)) 
     return new_graph
 
-# a matrix for 1~5 distance list
+# a matrix for pair distance list
 def pairdistance(graph):
     print "let's compute distance"
-    print len(graph)
+    # print len(graph)
     AllPairDistance = {}
     for k in graph:
         AllPairDistance[k] = BFS(k, 6, graph)
 
-    for k in AllPairDistance:
+    # for k in AllPairDistance:
 
-        for d in AllPairDistance[k]:
-            print k,d
-            print AllPairDistance[k][d]
-    print len(AllPairDistance)
+    #     for d in AllPairDistance[k]:
+    #         print k,d
+    #         print AllPairDistance[k][d]
+    # print len(AllPairDistance)
+    print "all pair distance computing completed"
     return AllPairDistance
 
 def BFS(node, step, graph):

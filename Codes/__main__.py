@@ -36,29 +36,7 @@ if __name__ == '__main__':
 	BuildBase(base_graph, city)
 	BuildBigger(base_graph, first_graph, secondary_graph, base2first_table, 
 		base2secondary_table, first2secondary_table, first_member, secondary_member, city)
-	# # test
-	# print len(base_graph)
-	# print len(first_member)
-	# print len(secondary_member)
 
-	# print first_member["A6405-54-006"]
-	# print first_member["A6418-03-010"]
-
-	# # print graph to file
-	# g1 = open("first-graph.txt", "w")
-	# for k in first_graph:
-	#     print >> g1, "%s:" %k,
-	#     for f in first_graph[k].toother:
-	#         print >> g1, "%s," %f,
-	#     print >> g1
-	# g1.close()
-	# g2 = open("second-graph.txt", "w")
-	# for k in secondary_graph:
-	#     print >> g2, "%s:" %k,
-	#     for f in secondary_graph[k].toother:
-	#         print >> g2, "%s," %f,
-	#     print >> g2
-	# g2.close()
 
 	# get attribute table(Kaouhiung)
 	if city == "K":
@@ -84,8 +62,11 @@ if __name__ == '__main__':
 	# For observation...
 	# build distance table: each node has its 1~5 distance list
 	distance_Matrix = pairdistance(secondary_graph)
-
-
+	print len(distance_Matrix)
+	fn = "../tempfiles/pairdistance.json"
+	with open(fn, 'w') as file:
+		json.dump(distance_Matrix, file)
+	
 	exit()
 
 	# step2: count case by weeks, based on given time interval, T

@@ -89,7 +89,7 @@ def main():
     # output 2014 feature
     with open('../dataset/Tainan2014_feature.csv', 'w') as f:
         w = csv.writer(f)
-        title = ['area', 'week', 'male', 'female', 'delay(avg)']+age_categories+['result_label']
+        title = ['area', 'week', 'male', 'female', 'delay(avg)']+age_categories+['total', 'result_label']
         w.writerow(title)
         # each area, each week data
         for area in tainan.sa2.year2014.case:
@@ -100,6 +100,7 @@ def main():
                 data['area'] = area
                 data['week'] = week
                 data['result_label'] = 'x'
+                data['total'] = len(tainan.sa2.year2014.case[area][week])
 
                 print(area, week)
                 
@@ -120,7 +121,7 @@ def main():
 
                 print(data)
                 row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)']]+[data[x] for x in age_categories]+\
-                    [data['result_label']]
+                    [data['total'], data['result_label']]
                 w.writerow(row)
     
     # 2015
@@ -176,7 +177,7 @@ def main():
     # output 2015 feature
     with open('../dataset/Tainan2015_feature.csv', 'w') as f:
         w = csv.writer(f)
-        title = ['area', 'week', 'male', 'female', 'delay(avg)']+age_categories+['result_label']
+        title = ['area', 'week', 'male', 'female', 'delay(avg)']+age_categories+['total','result_label']
         w.writerow(title)
         # each area, each week data
         for area in tainan.sa2.year2015.case:
@@ -187,7 +188,7 @@ def main():
                 data['area'] = area
                 data['week'] = week
                 data['result_label'] = 'x'
-
+                data['total'] = len(tainan.sa2.year2015.case[area][week])
                 print(area, week)
                 
 
@@ -207,12 +208,85 @@ def main():
 
                 print(data)
                 row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)']]+[data[x] for x in age_categories]+\
-                    [data['result_label']]
+                    [data['total'], data['result_label']]
                 w.writerow(row)    
 
+
     # compute label for 2014, 2015 tainan   
+    '''
+    computing_label('Tainan2014_feature.csv', tainan)
+    
+    '''
+    computing_label('Tainan2015_feature.csv', tainan)
 
+    # print(df)
 
+def computing_label(feature_file, city):
+    import pandas as pd
+    import neighbor012      # use to know the graph structure to compute labels
+    
+    df = pd.read_csv(feature_file)
+    print(df.ix[3][0])
+    row, col = (df.shape[0], df.shape[1])
+
+    also = 0                # next week also has case
+    also_neighbor = 0       # next week also has AND its neighbor also has one
+    no = 0                  # next week no
+    no_neighbor = 0         # next week no BUT its neighbor has
+
+    for i in range(row):
+        ### compute the label
+        a, w = (df.iloc[i]['area'], df.iloc[i]['week'])
+        # print(i, a, w)
+        # print(city.sa2.year2014.case[a][w])
+        # print("the result is based on "+ str(w+1)+ " of " + a)
+        label = "?"
+        try:
+            neighbors = neighbor012.TainanGraphsa2[a]
+        except KeyError as e:
+            print("keyerror")
+            print(e)
+            
+
+        # print(neighbors)
+
+        try:
+            check_next_week = city.sa2.year2014.case[a][w+1]
+            # print(check_next_week, "next week also")
+            # print(i)
+            label = "Still has case"
+            print(label)
+            also += 1
+
+        except KeyError as e:
+            # print("next week no", e.args[0])
+            no += 1
+            label = "No case"
+            # if any(w+1 in city.sa2.year2014.case[n] for n in neighbors):
+            #     label = "no BUT neighbor has"   
+            #     no_neighbor += 1 
+
+        if label == "Still has case":
+            neighbors = [n for n in neighbors if n in city.sa2.year2014.case]
+            if any(w+1 in city.sa2.year2014.case[n] for n in neighbors):
+                label = "self and neighbor both"
+                print(i, label)
+                also_neighbor += 1
+
+        elif label == "No case":
+            neighbors = [n for n in neighbors if n in city.sa2.year2014.case]
+            if any(w+1 in city.sa2.year2014.case[n] for n in neighbors):
+                # label = "No case BUT neighbor has"
+                
+                print(i, label)
+                no_neighbor += 1
+
+        df.iloc[i, df.columns.get_loc('result_label')] = label
+    # df.iloc[3, df.columns.get_loc('female')] = 1234
+    
+    print(also, also_neighbor, no, no_neighbor)
+    print(row)
+    df.to_csv(feature_file, index=False)
 
             
 if __name__ == '__main__':

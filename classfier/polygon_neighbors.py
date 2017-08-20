@@ -194,7 +194,6 @@ def polygon_sa2_neighbor(city):
                 w1.writerow(data)  
 
 if __name__ == '__main__':
-
     # sa0 information: objects
     CityLevel0s = {}
 

@@ -23,8 +23,6 @@ class City(object):
             case = {}
 def main():
 
-    '''counting SA0-2 per week'''
-
     tainan = City()
     kaohsiung = City()
 
@@ -38,18 +36,17 @@ def main():
 
     print(len(CityGraphsa0), len(CityGraphsa1), len(CityGraphsa2))
     
-    output_feature_list("Tainan2014", tainan, 2014)
+    output_feature_list("Tainan2014", tainan, 2014, CityGraphsa2)
     print("tainan 2014 finish")
-    output_feature_list("Tainan2015", tainan, 2015)
+    output_feature_list("Tainan2015", tainan, 2015, CityGraphsa2)
     print("tainan 2015 finish")
 
-    sys.exit(0)
-
     # compute label for 2014, 2015 tainan   
-    '''
-    computing_label('Tainan2014_feature.csv', tainan)
     
-    '''
+    # computing_label('Tainan2014_feature.csv', tainan)
+    # computing_label('Tainan2014', tainan, 2014, CityGraphsa2)
+    # computing_label('Tainan2015', tainan, 2015, CityGraphsa2)
+    
     # computing_label('Tainan2015_feature.csv', tainan)
 
     # print(df)
@@ -68,13 +65,13 @@ def read_graph_sturcture(city):
             area = i[1]
             neighbors = i[2].strip(',')
             neighbors = neighbors.split(',')
-            print(area, neighbors)
+            # print(area, neighbors)
             # TainanLevel0s[area] = Level0(area)
             graph[area] = neighbors
 
     return CityGraphsa0, CityGraphsa1, CityGraphsa2
 
-def output_feature_list(file_name, city, year):
+def output_feature_list(file_name, city, year, CityGraphsa2):
     # Use city.sa2.year2014 or sity.sa2.year2015
     use = '?'
     if year == 2014:
@@ -82,7 +79,8 @@ def output_feature_list(file_name, city, year):
     elif year == 2015:
         use = city.sa2.year2015
 
-    i = 0       # counter tainan case(sa2)
+    i = 0    
+    # read case file
     with open('../dataset/'+file_name+'_case.csv', 'r') as f:
         # form each week(nodes)
         r = f.readlines()
@@ -102,12 +100,12 @@ def output_feature_list(file_name, city, year):
                 d1 = datetime.date(d1[0], d1[1], d1[2])
                 d2 = map(int, segment[1].split('/'))
                 d2 = datetime.date(d2[0], d2[1], d2[2])
+
                 delay = (d2-d1).days
                 data = {'delay': delay, 'gender': segment[3], 'age': segment[4], 'day': segment[2]}
                 # the first case in the area
                 if sa2 not in use.area:
                     use.area[sa2] = 1
-
                     use.case[sa2] = {week: [data]}
 
                 else:
@@ -120,24 +118,17 @@ def output_feature_list(file_name, city, year):
                         use.case[sa2][week].append(data)                
     # find the all age categories
     age_categories = []
-    # print(use.case)
     for area in use.case:
-        # print(area)
-        # print(use.case[area])
         for week in use.case[area]:
-            # print(week, use.case[area][week])
             for case in use.case[area][week]:
-                # print(week, case)
-                # print(case['age'])
                 if case['age'] not in age_categories:
                     age_categories.append(case['age'])
-    # print(age_categories)
     # split age to young, middle, old
 
-    # output 2014 feature
+    # output feature file
     with open('../dataset/'+file_name+'_feature.csv', 'w') as f:
         w = csv.writer(f)
-        title = ['area', 'week', 'male', 'female', 'delay(avg)', 'young', 'middle', 'old', 'total', 'result_label']
+        title = ['area', 'week', 'male', 'female', 'delay(avg)', 'young', 'middle', 'old', 'total', 'neighbor-total', 'result_label']
         w.writerow(title)
         # each area, each week data
         for area in use.case:
@@ -148,21 +139,31 @@ def output_feature_list(file_name, city, year):
                 data['area'] = area
                 data['week'] = week
                 data['result_label'] = 'x'
-                data['total'] = len(use.case[area][week])
+                data['total'] = len(use.case[area][week])    
 
-                # print(area, week)
+                # check neighbor-total:
+                neighbor_total = 0
+                print(area)
+                if area in CityGraphsa2:
+                    for neighbor in CityGraphsa2[area]:
+                        print(neighbor, week)
+                        if neighbor in use.case: 
+                            if week in use.case[neighbor]:
+                                print(week, len(use.case[neighbor][week])) 
+                                neighbor_total += len(use.case[neighbor][week])     
+                print(neighbor_total)
+                print
+                data['neighbor-total'] = neighbor_total
                 
-
+                # check gender, age, delay
                 total_delay_avg = 0
                 for case in use.case[area][week]:
-                    print('\t'+str(case))
                     # check gender
                     if case['gender'] == '\xe7\x94\xb7':
                         data['male'] += 1
                     else:
                         data['female'] += 1
                     # check age
-                    # data[case['age']] += 1
                     if case['age'] in young:
                         data['young'] += 1
                     elif case['age'] in middle:
@@ -172,16 +173,15 @@ def output_feature_list(file_name, city, year):
                     # check delay
                     total_delay_avg += case['delay']
 
-                    data['delay(avg)'] = total_delay_avg / float(len(use.case[area][week]))
+                data['delay(avg)'] = total_delay_avg / float(len(use.case[area][week]))
 
-                # print(data)
                 row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)'], data['young'], data['middle'], 
-                       data['old'], data['total'], data['result_label']]
+                       data['old'], data['total'], data['neighbor-total'], data['result_label']]
                 w.writerow(row)
 
 
     print("A feature output finish")
-    
+
 def computing_label(feature_file, city):
     import pandas as pd
     # import neighbor012      # use to know the graph structure to compute labels

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 ## global vars
-random_sample_rate_NOCASE = 0.002
+random_sample_rate_NOCASE = 1
 
 
 def split_train_test(dataset):
@@ -43,6 +43,9 @@ def split_train_test(dataset):
         elif int(data[1]) in even:
             testing.append(data)
             testing_labels.append(data[-1])
+        # else:
+        #     while 1:
+        #         pass
 
     print(len(training), len(testing))
 
@@ -69,23 +72,38 @@ def split_train_test(dataset):
     return training, testing  
 
 
-from sklearn import tree            # decision tree model
+from sklearn import tree                            # decision tree model
+from sklearn.ensemble import AdaBoostClassifier     # adaboost
 
-class ClassifyDecisionTree(object):
+class ClassifyMethod(object):
     # to train a decision tree
     @ staticmethod
-    def normal(training):
+    def normal_decision_tree(training):
         print("normal decision tree")
         # X = [[0, 0], [1, 1]]
         # Y = [0, 1]
         # clf = tree.DecisionTreeClassifier()
         # clf = clf.fit(X, Y)
-        X = [i[2:25] for i in training]    
+        X = [i[2:10] for i in training]    
         Y = [i[-1] for i in training]
         clf = tree.DecisionTreeClassifier()
         clf = clf.fit(X, Y)
 
         return clf
+
+    @ staticmethod
+    def adaboost_origin(training):
+        print("adaboost based on decision tree:")
+        X = [i[2:10] for i in training]    
+        Y = [i[-1] for i in training]
+        clf = AdaBoostClassifier()
+        clf = clf.fit(X, Y)
+
+        return clf
+
+    @ staticmethod
+    def svm(training):
+        print("svm base method:")
     
 def evaluate(clf, testing):
     # in=classifer, testing
@@ -96,34 +114,42 @@ def evaluate(clf, testing):
     print(len(testing))
     # use the property method to predict label
     if isinstance(clf, tree.DecisionTreeClassifier):
-        truth = [i[-1] for i in testing]
-        print(len(truth))
-        predict = [i[2:25] for i in testing]
-        predict = clf.predict(predict)
+        print("method: decision tree")
 
-        truth_label = Counter(truth)
-        predict_label = Counter(predict)
-        print("truth/predict label")
-        print(truth_label)
-        print(predict_label)
-        performance = {k: [0, 0, 0] for k in truth_label}       # [#bingo, #truth, #guess]
-        print(performance)
+    elif isinstance(clf, AdaBoostClassifier):
+        print("method: adaboost")
+    else:
+        print("else")
+        return
 
-        # compute bars for precision/recall
-        for i, j in zip(truth, predict):
-            if i == j:
-                performance[i][0] += 1
-            performance[i][1] += 1
-            performance[j][2] += 1
-        print(performance)
-        for key in performance:
-            precision = performance[key][0] / float(performance[key][2])
-            recall = performance[key][0] / float(performance[key][1])
-            performance[key] = (precision, recall)
-        # print(performance)
-        return performance
+    truth = [i[-1] for i in testing]
+    print(len(truth))
+    predict = [i[2:10] for i in testing]
+    predict = clf.predict(predict)
 
-def ploting(precision_recall):
+    truth_label = Counter(truth)
+    predict_label = Counter(predict)
+    print("truth/predict label")
+    print(truth_label)
+    print(predict_label)
+    performance = {k: [0, 0, 0] for k in truth_label}       # [#bingo, #truth, #guess]
+    print(performance)
+
+    # compute bars for precision/recall
+    for i, j in zip(truth, predict):
+        if i == j:
+            performance[i][0] += 1
+        performance[i][1] += 1
+        performance[j][2] += 1
+    print(performance)
+    for key in performance:
+        precision = performance[key][0] / float(performance[key][2])
+        recall = performance[key][0] / float(performance[key][1])
+        performance[key] = (precision, recall)
+    # print(performance)
+    return performance
+    
+def ploting(precision_recall, title):
     print(precision_recall)
     
     precision = [precision_recall[i][0] for i in precision_recall]
@@ -164,25 +190,26 @@ def ploting(precision_recall):
 
     plt.xlabel('Labels')
     plt.ylabel('precision/recall')
-    plt.title('decision tree')
+    plt.title(title)
     plt.xticks(index + bar_width, [i for i in catagory])
-    plt.legend(loc='upper left')
-     
+    plt.legend(loc='upper center', bbox_to_anchor=(.7, 1.05),)
+    
     plt.tight_layout()
     plt.show()
 
 
 def main():
-    with open('Tainan2015_feature.csv', 'r') as file:
+    with open('../dataset/Tainan2015_feature.csv', 'r') as file:
         lines = file.readlines()[1:]
         lines = [line.strip() for line in lines]
 
         training, testing = split_train_test(lines)
         print("split finish")
         print(len(training), len(testing))
+        
 
-        ## start train!
-        clf_tree = ClassifyDecisionTree.normal(training)
+        ## start train-decision tree
+        clf_tree = ClassifyMethod.normal_decision_tree(training)
 
         ## predict and evaluate
         performance = evaluate(clf_tree, testing)
@@ -190,7 +217,22 @@ def main():
         print(performance)
 
         ## plotting
-        plot = ploting(performance)
+        plot = ploting(performance, "decision tree")
+
+        ## start train-adaboost
+        ## start train!
+        clf_adaboost = ClassifyMethod.adaboost_origin(training)
+
+        ## predict and evaluate
+        performance = evaluate(clf_adaboost, testing)
+        print("draw plot")
+        print(performance)
+
+        ## plotting
+        plot = ploting(performance, "adaboost")
+
+    
+
 
 if __name__ == '__main__':
     main()

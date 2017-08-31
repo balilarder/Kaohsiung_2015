@@ -42,14 +42,9 @@ def main():
     print("tainan 2015 finish")
 
     # compute label for 2014, 2015 tainan   
+    computing_label('Tainan2014', tainan, 2014, CityGraphsa2)
+    computing_label('Tainan2015', tainan, 2015, CityGraphsa2)
     
-    # computing_label('Tainan2014_feature.csv', tainan)
-    # computing_label('Tainan2014', tainan, 2014, CityGraphsa2)
-    # computing_label('Tainan2015', tainan, 2015, CityGraphsa2)
-    
-    # computing_label('Tainan2015_feature.csv', tainan)
-
-    # print(df)
 def read_graph_sturcture(city):
 
     CityGraphsa0 = {}
@@ -182,15 +177,20 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
 
     print("A feature output finish")
 
-def computing_label(feature_file, city):
+def computing_label(feature_file_name, city, year, CityGraphsa2):
     import pandas as pd
-    # import neighbor012      # use to know the graph structure to compute labels
-    import polygon_neighbors
 
-    df = pd.read_csv(feature_file)
-    print(df.ix[3][0])
+    use = '?'
+    if year == 2014:
+        use = city.sa2.year2014
+    elif year == 2015:
+        use = city.sa2.year2015
+
+    df = pd.read_csv('../dataset/'+feature_file_name+'_feature.csv')
+    # print(df.ix[3][0])
     row, col = (df.shape[0], df.shape[1])
-
+    
+    # define labels
     also = 0                # next week also has case
     also_neighbor = 0       # next week also has AND its neighbor also has one
     no = 0                  # next week no
@@ -199,58 +199,43 @@ def computing_label(feature_file, city):
     for i in range(row):
         ### compute the label
         a, w = (df.iloc[i]['area'], df.iloc[i]['week'])
-        # print(i, a, w)
-        # print(city.sa2.year2014.case[a][w])
-        # print("the result is based on "+ str(w+1)+ " of " + a)
         label = "?"
-        
-        try:
-            # neighbors = neighbor012.TainanGraphsa2[a]
-            neighbors = polygon_neighbors.CityGraphsa2[a]
-        except KeyError as e:
-            print("keyerror")
-            print(e)
+
+        if a in CityGraphsa2:
+            neighbors = CityGraphsa2[a]
+        else:
+            neighbors = []
             
-
-        # print(neighbors)
-
+        # next week: self
         try:
-            check_next_week = city.sa2.year2014.case[a][w+1]
-            # print(check_next_week, "next week also")
-            # print(i)
+            check_next_week = use.case[a][w+1]
             label = "Still has case"
-            print(label)
             also += 1
-
         except KeyError as e:
             # print("next week no", e.args[0])
             no += 1
             label = "No case"
-            # if any(w+1 in city.sa2.year2014.case[n] for n in neighbors):
-            #     label = "no BUT neighbor has"   
-            #     no_neighbor += 1 
 
+        # next week: neighbor
         if label == "Still has case":
-            neighbors = [n for n in neighbors if n in city.sa2.year2014.case]
-            if any(w+1 in city.sa2.year2014.case[n] for n in neighbors):
+            neighbors = [n for n in neighbors if n in use.case]
+            if any(w+1 in use.case[n] for n in neighbors):
                 label = "self and neighbor both"
-                print(i, label)
+                # print(i, label)
                 also_neighbor += 1
-
         elif label == "No case":
-            neighbors = [n for n in neighbors if n in city.sa2.year2014.case]
-            if any(w+1 in city.sa2.year2014.case[n] for n in neighbors):
+            neighbors = [n for n in neighbors if n in use.case]
+            if any(w+1 in use.case[n] for n in neighbors):
                 # label = "No case BUT neighbor has"
                 
-                print(i, label)
                 no_neighbor += 1
-
+        # print(i, a, w, label)
         df.iloc[i, df.columns.get_loc('result_label')] = label
     # df.iloc[3, df.columns.get_loc('female')] = 1234
     
     print(also, also_neighbor, no, no_neighbor)
     print(row)
-    df.to_csv(feature_file, index=False)
+    df.to_csv('../dataset/'+feature_file_name+'_feature.csv', index=False)
 
             
 if __name__ == '__main__':

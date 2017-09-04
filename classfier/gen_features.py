@@ -36,6 +36,11 @@ def main():
 
     print(len(CityGraphsa0), len(CityGraphsa1), len(CityGraphsa2))
     
+    # feature of with case
+    """
+    isocalender: 
+    2014 has 52 week, 2015 has 53 week
+    """
     output_feature_list("Tainan2014", tainan, 2014, CityGraphsa2)
     print("tainan 2014 finish")
     output_feature_list("Tainan2015", tainan, 2015, CityGraphsa2)
@@ -44,7 +49,17 @@ def main():
     # compute label for 2014, 2015 tainan   
     computing_label('Tainan2014', tainan, 2014, CityGraphsa2)
     computing_label('Tainan2015', tainan, 2015, CityGraphsa2)
-    
+
+    # feature of "no" case
+    output_feature_no_case("Tainan2014", tainan, 2014, CityGraphsa2)
+    output_feature_no_case("Tainan2015", tainan, 2015, CityGraphsa2)
+
+    # feature for "no" case
+    print("start computing no case feature")
+    computing_label_no_case("Tainan2014", tainan, 2014, CityGraphsa2)
+    print("2014 finish")
+    computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2)
+    print("2015 finish")
 def read_graph_sturcture(city):
 
     CityGraphsa0 = {}
@@ -128,6 +143,9 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
         # each area, each week data
         for area in use.case:
             for week in use.case[area]:
+
+                if week >= 53:
+                    continue
                 
                 data = {x:0 for x in title}
 
@@ -177,6 +195,85 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
 
     print("A feature output finish")
 
+def output_feature_no_case(file_name, city, year, CityGraphsa2):
+    """
+    output a feature file of "this week without case"
+    """
+    # Use city.sa2.year2014 or sity.sa2.year2015
+    use = '?'
+    if year == 2014:
+        use = city.sa2.year2014
+    elif year == 2015:
+        use = city.sa2.year2015
+
+    # output feature file
+    print("no case feature file")
+    with open('../dataset/'+file_name+'_feature(no case).csv', 'w') as f:
+        w = csv.writer(f)
+        # title = ['area', 'week', 'neighbor-total', 'result_label']
+        title = ['area', 'week', 'male', 'female', 'delay(avg)', 'young', 'middle', 'old', 'total', 'neighbor-total', 'result_label']
+
+        w.writerow(title)
+
+        # where and when has no case?
+        for area in CityGraphsa2:
+            for i in range(1, 53):
+                if area in use.case:
+                    if i not in use.case[area]:
+                        data = {x:0 for x in title}
+
+                        data['area'] = area
+                        data['week'] = i
+                        data['result_label'] = 'x'
+
+                        # check neighbor-total:
+                        neighbor_total = 0
+                        print(area)
+                        if area in CityGraphsa2:
+                            for neighbor in CityGraphsa2[area]:
+                                print(neighbor, i)
+                                if neighbor in use.case: 
+                                    if i in use.case[neighbor]:
+                                        print(i, len(use.case[neighbor][i])) 
+                                        neighbor_total += len(use.case[neighbor][i])     
+                        print(neighbor_total)
+                        print
+                        data['neighbor-total'] = neighbor_total
+
+                        # row = [data['area'], data['week']]
+                        row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)'], data['young'], data['middle'], 
+                               data['old'], data['total'], data['neighbor-total'], data['result_label']]
+
+                        w.writerow(row)
+
+                else:       # has no case in a whole year
+                    data = {x:0 for x in title}
+
+                    data['area'] = area
+                    data['week'] = i
+                    data['result_label'] = 'x'
+
+                    # check neighbor-total:
+                    neighbor_total = 0
+                    print(area)
+                    if area in CityGraphsa2:
+                        for neighbor in CityGraphsa2[area]:
+                            print(neighbor, i)
+                            if neighbor in use.case: 
+                                if i in use.case[neighbor]:
+                                    print(i, len(use.case[neighbor][i])) 
+                                    neighbor_total += len(use.case[neighbor][i])     
+                    print(neighbor_total)
+                    print
+                    data['neighbor-total'] = neighbor_total
+
+                    # row = [data['area'], data['week']]
+                    row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)'], data['young'], data['middle'], 
+                           data['old'], data['total'], data['neighbor-total'], data['result_label']]
+
+
+                    w.writerow(row)
+
 def computing_label(feature_file_name, city, year, CityGraphsa2):
     import pandas as pd
 
@@ -191,10 +288,10 @@ def computing_label(feature_file_name, city, year, CityGraphsa2):
     row, col = (df.shape[0], df.shape[1])
     
     # define labels
-    also = 0                # next week also has case
-    also_neighbor = 0       # next week also has AND its neighbor also has one
-    no = 0                  # next week no
-    no_neighbor = 0         # next week no BUT its neighbor has
+    yes = 0                         # next week has case
+    yes_self_yes_neighbor = 0       # next week has AND its neighbor has one
+    no = 0                          # next week no
+    no_self_yes_neighbor = 0        # next week no BUT its neighbor has
 
     for i in range(row):
         ### compute the label
@@ -207,36 +304,151 @@ def computing_label(feature_file_name, city, year, CityGraphsa2):
             neighbors = []
             
         # next week: self
-        try:
-            check_next_week = use.case[a][w+1]
-            label = "Still has case"
-            also += 1
-        except KeyError as e:
-            # print("next week no", e.args[0])
-            no += 1
-            label = "No case"
+        if w == 52 and year == 2014:        # the case check 2015 first week!
+            print("check 2015 first week!!")
+            if a in city.sa2.year2015.case:
+                if 1 in city.sa2.year2015.case[a]:
+                    # # print(city.sa2.year2015.case[a][10])
+                    # print(city.sa2.year2014.case[a][52])
+                    label = "Only self has case"
+                    yes += 1
+                    # check neighbor
+                    neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
+                    if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                        label = "Both have case"
+                        yes_self_yes_neighbor += 1
+                else:
+                    label = "No case"
+                    no += 1
+            else:
+                label = "No case"
+                no += 1
 
-        # next week: neighbor
-        if label == "Still has case":
-            neighbors = [n for n in neighbors if n in use.case]
-            if any(w+1 in use.case[n] for n in neighbors):
-                label = "self and neighbor both"
-                # print(i, label)
-                also_neighbor += 1
-        elif label == "No case":
-            neighbors = [n for n in neighbors if n in use.case]
-            if any(w+1 in use.case[n] for n in neighbors):
-                # label = "No case BUT neighbor has"
-                
-                no_neighbor += 1
+            if label == "No case":
+                neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
+                if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                    no_self_yes_neighbor += 1
+            print(label)
+
+        else:
+            try:
+                check_next_week = use.case[a][w+1]
+                label = "Only self has case"
+                yes += 1
+            except KeyError as e:
+                # print("next week no", e.args[0])
+                no += 1
+                label = "No case"
+
+            # next week: neighbor
+            if label == "Only self has case":
+                neighbors = [n for n in neighbors if n in use.case]
+                if any(w+1 in use.case[n] for n in neighbors):
+                    label = "Both have case"
+                    # print(i, label)
+                    yes_self_yes_neighbor += 1
+            elif label == "No case":
+                neighbors = [n for n in neighbors if n in use.case]
+                if any(w+1 in use.case[n] for n in neighbors):
+                    no_self_yes_neighbor += 1
         # print(i, a, w, label)
         df.iloc[i, df.columns.get_loc('result_label')] = label
     # df.iloc[3, df.columns.get_loc('female')] = 1234
     
-    print(also, also_neighbor, no, no_neighbor)
+    print(yes, yes_self_yes_neighbor, no, no_self_yes_neighbor)
     print(row)
+
     df.to_csv('../dataset/'+feature_file_name+'_feature.csv', index=False)
 
-            
+def computing_label_no_case(feature_file_name, city, year, CityGraphsa2):
+    import pandas as pd
+
+    use = '?'
+    if year == 2014:
+        use = city.sa2.year2014
+    elif year == 2015:
+        use = city.sa2.year2015
+
+    df = pd.read_csv('../dataset/'+feature_file_name+'_feature(no case).csv')
+    # print(df.ix[3][0])
+    row, col = (df.shape[0], df.shape[1])
+    
+    # define labels
+    yes = 0                         # next week has case
+    yes_self_yes_neighbor = 0       # next week has AND its neighbor has one
+    no = 0                          # next week no
+    no_self_yes_neighbor = 0        # next week no BUT its neighbor has
+
+    for i in range(row):
+        ### compute the label
+        a, w = (df.iloc[i]['area'], df.iloc[i]['week'])
+        label = "?"
+
+        if a in CityGraphsa2:
+            neighbors = CityGraphsa2[a]
+        else:
+            neighbors = []
+
+        # check 2015 first week
+        if w == 52 and year == 2014:
+            if a in city.sa2.year2015.case:
+                if 1 in city.sa2.year2015.case[a]:
+                    label = "Only self has case"
+                    yes += 1
+                    neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
+                    if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                        label = "Both have case"
+                        yes_self_yes_neighbor += 1
+
+                else:
+                    label = "No case"
+                    no += 1
+            else:
+                label = "No case"
+                no += 1
+
+            if label == "No case":
+                neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
+                if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                    no_self_yes_neighbor += 1
+
+        # just check the next week
+        else:
+            if a in use.case:
+                try:
+                    check_next_week = use.case[a][w+1]
+                    label = "Only self has case"
+                    yes += 1
+                except KeyError as e:
+                    # print("next week no", e.args[0])
+                    no += 1
+                    label = "No case"
+
+                # next week: neighbor
+                if label == "Only self has case":
+                    neighbors = [n for n in neighbors if n in use.case]
+                    if any(w+1 in use.case[n] for n in neighbors):
+                        label = "Both have case"
+                        # print(i, label)
+                        yes_self_yes_neighbor += 1
+                elif label == "No case":
+                    neighbors = [n for n in neighbors if n in use.case]
+                    if any(w+1 in use.case[n] for n in neighbors):
+                        no_self_yes_neighbor += 1
+            else:
+                # label must=="No case"
+                label = "No case"
+                no += 1
+                neighbors = [n for n in neighbors if n in use.case]
+                if any(w+1 in use.case[n] for n in neighbors):
+                    no_self_yes_neighbor += 1
+
+        df.iloc[i, df.columns.get_loc('result_label')] = label
+    
+    print(yes, yes_self_yes_neighbor, no, no_self_yes_neighbor)
+    print(row)
+
+    df.to_csv('../dataset/'+feature_file_name+'_feature(no case).csv', index=False)
+
 if __name__ == '__main__':
     main()

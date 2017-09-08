@@ -20,8 +20,6 @@ def split_train_test(dataset):
     then get the testing data without processing,
     but 'random sampling' the training data with 'no case' label to avoid bias
     '''
-
-
     # odd/even month week:
     training = []
     testing = []
@@ -43,16 +41,15 @@ def split_train_test(dataset):
         elif int(data[1]) in even:
             testing.append(data)
             testing_labels.append(data[-1])
-        # else:
-        #     while 1:
-        #         pass
 
     print(len(training), len(testing))
 
     ## processing with training data
     
     counting = Counter(training_labels)
+    print("train:")
     print(counting)
+    print("test:")
     counting = Counter(testing_labels)
     print(counting)
 
@@ -66,6 +63,7 @@ def split_train_test(dataset):
             training_.append(data)
     training = training_
     training_labels = [x[-1] for x in training]
+    print("train:")
     counting = Counter(training_labels)
     print(counting)
     print(len(training)) 
@@ -192,44 +190,52 @@ def ploting(precision_recall, title):
     plt.ylabel('precision/recall')
     plt.title(title)
     plt.xticks(index + bar_width, [i for i in catagory])
-    plt.legend(loc='upper center', bbox_to_anchor=(.7, 1.05),)
+    # plt.legend(loc='upper center', bbox_to_anchor=(.7, 1.05),)
+    plt.legend(loc='upper right')
     
     plt.tight_layout()
-    plt.show()
+    # plt.show()
+    fig.savefig('../plot/'+title+'.png') # Use fig. here
 
 
 def main():
-    with open('../dataset/Tainan2015_feature.csv', 'r') as file:
-        lines = file.readlines()[1:]
-        lines = [line.strip() for line in lines]
+    # get data, mix feature file with "have case" and "no case"
+    with open('../dataset/Tainan2015_feature.csv', 'r') as file1, \
+         open('../dataset/Tainan2015_feature(no case).csv', 'r') as file2:
+            lines = file1.readlines()[1:]+file2.readlines()[1:]
+            # lines = file1.readlines()[1:]
 
-        training, testing = split_train_test(lines)
-        print("split finish")
-        print(len(training), len(testing))
+            lines = [line.strip() for line in lines]
+
+            print(len(lines))
         
+            training, testing = split_train_test(lines)
+            print("split finish")
+            print(len(training), len(testing))
+            
 
-        ## start train-decision tree
-        clf_tree = ClassifyMethod.normal_decision_tree(training)
+            ## start train-decision tree
+            clf_tree = ClassifyMethod.normal_decision_tree(training)
 
-        ## predict and evaluate
-        performance = evaluate(clf_tree, testing)
-        print("draw plot")
-        print(performance)
+            ## predict and evaluate
+            performance = evaluate(clf_tree, testing)
+            print("draw plot")
+            print(performance)
 
-        ## plotting
-        plot = ploting(performance, "decision tree")
+            ## plotting
+            plot = ploting(performance, "decision tree")
+            #=======
+            # ## start train-adaboost
+            # ## start train!
+            # clf_adaboost = ClassifyMethod.adaboost_origin(training)
 
-        ## start train-adaboost
-        ## start train!
-        clf_adaboost = ClassifyMethod.adaboost_origin(training)
+            # ## predict and evaluate
+            # performance = evaluate(clf_adaboost, testing)
+            # print("draw plot")
+            # print(performance)
 
-        ## predict and evaluate
-        performance = evaluate(clf_adaboost, testing)
-        print("draw plot")
-        print(performance)
-
-        ## plotting
-        plot = ploting(performance, "adaboost")
+            # ## plotting
+            # plot = ploting(performance, "adaboost")
 
     
 

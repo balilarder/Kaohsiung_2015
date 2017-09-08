@@ -41,8 +41,11 @@ def main():
     isocalender: 
     2014 has 52 week, 2015 has 53 week
     """
+    read_case("Tainan2014", tainan, 2014, CityGraphsa2)
     output_feature_list("Tainan2014", tainan, 2014, CityGraphsa2)
     print("tainan 2014 finish")
+
+    read_case("Tainan2015", tainan, 2015, CityGraphsa2)
     output_feature_list("Tainan2015", tainan, 2015, CityGraphsa2)
     print("tainan 2015 finish")
 
@@ -81,7 +84,7 @@ def read_graph_sturcture(city):
 
     return CityGraphsa0, CityGraphsa1, CityGraphsa2
 
-def output_feature_list(file_name, city, year, CityGraphsa2):
+def read_case(file_name, city, year, CityGraphsa2):
     # Use city.sa2.year2014 or sity.sa2.year2015
     use = '?'
     if year == 2014:
@@ -101,7 +104,7 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
             segment = case.split(',')
             # find the sa2 of the case (if it has sa2)
             sa2 = segment[12]
-            if sa2 != "":
+            if sa2 != "" and sa2 in CityGraphsa2:
                 i += 1
                 date = map(int, segment[2].split('/'))
                 week = datetime.date(date[0], date[1], date[2]).isocalendar()[1]
@@ -125,15 +128,15 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
                     if week not in use.case[sa2]:
                         use.case[sa2][week] = [data]
                     else:
-                        use.case[sa2][week].append(data)                
-    # find the all age categories
-    age_categories = []
-    for area in use.case:
-        for week in use.case[area]:
-            for case in use.case[area][week]:
-                if case['age'] not in age_categories:
-                    age_categories.append(case['age'])
-    # split age to young, middle, old
+                        use.case[sa2][week].append(data)
+
+def output_feature_list(file_name, city, year, CityGraphsa2):
+    # Use city.sa2.year2014 or sity.sa2.year2015
+    use = '?'
+    if year == 2014:
+        use = city.sa2.year2014
+    elif year == 2015:
+        use = city.sa2.year2015
 
     # output feature file
     with open('../dataset/'+file_name+'_feature.csv', 'w') as f:
@@ -243,7 +246,6 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
                         # row = [data['area'], data['week']]
                         row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)'], data['young'], data['middle'], 
                                data['old'], data['total'], data['neighbor-total'], data['result_label']]
-
                         w.writerow(row)
 
                 else:       # has no case in a whole year
@@ -270,8 +272,6 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
                     # row = [data['area'], data['week']]
                     row = [data['area'], data['week'], data['male'], data['female'], data['delay(avg)'], data['young'], data['middle'], 
                            data['old'], data['total'], data['neighbor-total'], data['result_label']]
-
-
                     w.writerow(row)
 
 def computing_label(feature_file_name, city, year, CityGraphsa2):

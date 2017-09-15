@@ -8,19 +8,26 @@ import pandas as pd
 import sys
 
 class City(object):
-    """docstring for City"""
-    # counting case
-    sa0 = {}
-    sa1 = {}
-    class sa2(object):
-        class year2014(object):
-            area = {}
-            counting = 0
-            case = {}
-        class year2015(object):
-            area = {}
-            counting = 0
-            case = {}
+    def __init__(self):
+        self.sa0 = {}
+        self.sa1 = {}
+        self.sa2 = Sa2()
+
+class Sa2(object):
+    def __init__(self):
+        self.year2014 = Year2014()
+        self.year2015 = Year2015()
+
+class Year2014(object):
+    def __init__(self):
+        self.area = {}
+        self.counting = 0
+        self.case = {}
+class Year2015(object):
+    def __init__(self):
+        self.area = {}
+        self.counting = 0
+        self.case = {}
 
 alert_threshold_list = range(1, 4)       # decide a week has case or Not a contagious region
 young = ['5-9', '2', '10-14']
@@ -65,9 +72,9 @@ def main():
 
     # feature for "no" case
     print("start computing Not a contagious region feature")
-    computing_label_no_case("Tainan2014", tainan, 2014, CityGraphsa2)
+    computing_label_no_case("Tainan2014", tainan, 2014, CityGraphsa2, 1)
     print("2014 finish")
-    computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2)
+    computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2, 1)
     print("2015 finish")
 def read_graph_sturcture(city):
 
@@ -101,7 +108,7 @@ def read_case(file_name, city, year, CityGraphsa2):
     elif year == 2015:
         use = city.sa2.year2015
 
-    
+
     i = 0    
     # read case file
     with open('../dataset/'+file_name+'_case.csv', 'r') as f:

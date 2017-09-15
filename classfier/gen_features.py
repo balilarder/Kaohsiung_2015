@@ -21,18 +21,23 @@ class City(object):
             area = {}
             counting = 0
             case = {}
+
+alert_threshold_list = range(1, 4)       # decide a week has case or Not a contagious region
+young = ['5-9', '2', '10-14']
+middle = ['50-54', '55-59', '35-39', '15-19', '25-29', '30-34', '40-44', '45-49',
+          '20-24']
+old = ['70+', '65-69', '60-64']
+
 def main():
 
+    
     tainan = City()
     kaohsiung = City()
 
+    CityGraphsa0, CityGraphsa1, CityGraphsa2 = read_graph_sturcture('Tainan')
     global young, middle, old
 
-    CityGraphsa0, CityGraphsa1, CityGraphsa2 = read_graph_sturcture('Tainan')
-    young = ['5-9', '2', '10-14']
-    middle = ['50-54', '55-59', '35-39', '15-19', '25-29', '30-34', '40-44', '45-49',
-              '20-24']
-    old = ['70+', '65-69', '60-64']
+
 
     print(len(CityGraphsa0), len(CityGraphsa1), len(CityGraphsa2))
     
@@ -49,16 +54,17 @@ def main():
     output_feature_list("Tainan2015", tainan, 2015, CityGraphsa2)
     print("tainan 2015 finish")
 
-    # compute label for 2014, 2015 tainan   
-    computing_label('Tainan2014', tainan, 2014, CityGraphsa2)
-    computing_label('Tainan2015', tainan, 2015, CityGraphsa2)
-
     # feature of "no" case
     output_feature_no_case("Tainan2014", tainan, 2014, CityGraphsa2)
     output_feature_no_case("Tainan2015", tainan, 2015, CityGraphsa2)
 
+
+    # compute label for 2014, 2015 tainan   
+    computing_label('Tainan2014', tainan, 2014, CityGraphsa2, 1)
+    computing_label('Tainan2015', tainan, 2015, CityGraphsa2, 1)
+
     # feature for "no" case
-    print("start computing no case feature")
+    print("start computing Not a contagious region feature")
     computing_label_no_case("Tainan2014", tainan, 2014, CityGraphsa2)
     print("2014 finish")
     computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2)
@@ -76,8 +82,11 @@ def read_graph_sturcture(city):
         
         for i in data:
             area = i[1]
-            neighbors = i[2].strip(',')
-            neighbors = neighbors.split(',')
+            if pd.isnull(i[2]):
+                neighbors = []
+            else:
+                neighbors = i[2].strip(',')
+                neighbors = neighbors.split(',')
             # print(area, neighbors)
             # TainanLevel0s[area] = Level0(area)
             graph[area] = neighbors
@@ -92,6 +101,7 @@ def read_case(file_name, city, year, CityGraphsa2):
     elif year == 2015:
         use = city.sa2.year2015
 
+    
     i = 0    
     # read case file
     with open('../dataset/'+file_name+'_case.csv', 'r') as f:
@@ -159,7 +169,7 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
 
                 # check neighbor-total:
                 neighbor_total = 0
-                print(area)
+                # print(area)
                 if area in CityGraphsa2:
                     for neighbor in CityGraphsa2[area]:
                         print(neighbor, week)
@@ -167,8 +177,8 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
                             if week in use.case[neighbor]:
                                 print(week, len(use.case[neighbor][week])) 
                                 neighbor_total += len(use.case[neighbor][week])     
-                print(neighbor_total)
-                print
+                # print(neighbor_total)
+                # print
                 data['neighbor-total'] = neighbor_total
                 
                 # check gender, age, delay
@@ -210,7 +220,7 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
         use = city.sa2.year2015
 
     # output feature file
-    print("no case feature file")
+    print("Not a contagious region feature file")
     with open('../dataset/'+file_name+'_feature(no case).csv', 'w') as f:
         w = csv.writer(f)
         # title = ['area', 'week', 'neighbor-total', 'result_label']
@@ -218,7 +228,7 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
 
         w.writerow(title)
 
-        # where and when has no case?
+        # where and when has Not a contagious region?
         for area in CityGraphsa2:
             for i in range(1, 53):
                 if area in use.case:
@@ -248,7 +258,7 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
                                data['old'], data['total'], data['neighbor-total'], data['result_label']]
                         w.writerow(row)
 
-                else:       # has no case in a whole year
+                else:       # has Not a contagious region in a whole year
                     data = {x:0 for x in title}
 
                     data['area'] = area
@@ -274,7 +284,7 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
                            data['old'], data['total'], data['neighbor-total'], data['result_label']]
                     w.writerow(row)
 
-def computing_label(feature_file_name, city, year, CityGraphsa2):
+def computing_label(feature_file_name, city, year, CityGraphsa2, alert_threshold):
     import pandas as pd
 
     use = '?'
@@ -308,49 +318,79 @@ def computing_label(feature_file_name, city, year, CityGraphsa2):
             print("check 2015 first week!!")
             if a in city.sa2.year2015.case:
                 if 1 in city.sa2.year2015.case[a]:
-                    # # print(city.sa2.year2015.case[a][10])
-                    # print(city.sa2.year2014.case[a][52])
-                    label = "Only self has case"
-                    yes += 1
-                    # check neighbor
-                    neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
-                    if any(1 in city.sa2.year2015.case[n] for n in neighbors):
-                        label = "Both have case"
-                        yes_self_yes_neighbor += 1
+                    if len(city.sa2.year2015.case[a][1]) >= alert_threshold:
+                        label = "Only self is contagious region"
+                        yes += 1
+                        # check neighbor
+                        neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
+                        # if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                        #     label = "Both are contagious region"
+                        #     yes_self_yes_neighbor += 1
+                        for n in neighbors:
+                            if 1 in city.sa2.year2015.case[n]:
+                                if len(city.sa2.year2015.case[n][1]) >= alert_threshold:
+                                    label = 'Both are contagious region'
+                                    yes_self_yes_neighbor += 1
+                                    break
+                    else:
+                        label = "Not a contagious region"
+                        no += 1
                 else:
-                    label = "No case"
+                    label = "Not a contagious region"
                     no += 1
             else:
-                label = "No case"
+                label = "Not a contagious region"
                 no += 1
 
-            if label == "No case":
+            if label == "Not a contagious region":
                 neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
-                if any(1 in city.sa2.year2015.case[n] for n in neighbors):
-                    no_self_yes_neighbor += 1
+                # if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                #     no_self_yes_neighbor += 1
+                for n in neighbors:
+                    if 1 in city.sa2.year2015.case[n]:
+                        if len(city.sa2.year2015.case[n][1]) >= alert_threshold:
+                            no_self_yes_neighbor += 1
+                            break
             print(label)
 
         else:
             try:
                 check_next_week = use.case[a][w+1]
-                label = "Only self has case"
-                yes += 1
+                if len(use.case[a][w+1]) >= alert_threshold:
+                    label = "Only self is contagious region"
+                    yes += 1
+                else:
+                    label = "Not a contagious region"
+                    no += 1
             except KeyError as e:
                 # print("next week no", e.args[0])
                 no += 1
-                label = "No case"
+                label = "Not a contagious region"
 
             # next week: neighbor
-            if label == "Only self has case":
+            if label == "Only self is contagious region":
                 neighbors = [n for n in neighbors if n in use.case]
-                if any(w+1 in use.case[n] for n in neighbors):
-                    label = "Both have case"
-                    # print(i, label)
-                    yes_self_yes_neighbor += 1
-            elif label == "No case":
+
+                for n in neighbors:
+                    if w+1 in use.case[n]:
+                        if len(use.case[n][w+1]) >= alert_threshold:
+                            label = "Both are contagious region"
+                            yes_self_yes_neighbor += 1
+                            break
+
+                # if any(w+1 in use.case[n] for n in neighbors):
+                #     label = "Both are contagious region"
+                #     # print(i, label)
+                #     yes_self_yes_neighbor += 1
+            elif label == "Not a contagious region":
                 neighbors = [n for n in neighbors if n in use.case]
-                if any(w+1 in use.case[n] for n in neighbors):
-                    no_self_yes_neighbor += 1
+                # if any(w+1 in use.case[n] for n in neighbors):
+                #     no_self_yes_neighbor += 1
+                for n in neighbors:
+                    if w+1 in use.case[n]:
+                        if len(use.case[n][w+1]) >= alert_threshold:
+                            no_self_yes_neighbor += 1
+                            break
         # print(i, a, w, label)
         df.iloc[i, df.columns.get_loc('result_label')] = label
     # df.iloc[3, df.columns.get_loc('female')] = 1234
@@ -360,7 +400,7 @@ def computing_label(feature_file_name, city, year, CityGraphsa2):
 
     df.to_csv('../dataset/'+feature_file_name+'_feature.csv', index=False)
 
-def computing_label_no_case(feature_file_name, city, year, CityGraphsa2):
+def computing_label_no_case(feature_file_name, city, year, CityGraphsa2, alert_threshold):
     import pandas as pd
 
     use = '?'
@@ -368,6 +408,7 @@ def computing_label_no_case(feature_file_name, city, year, CityGraphsa2):
         use = city.sa2.year2014
     elif year == 2015:
         use = city.sa2.year2015
+
 
     df = pd.read_csv('../dataset/'+feature_file_name+'_feature(no case).csv')
     # print(df.ix[3][0])
@@ -393,55 +434,91 @@ def computing_label_no_case(feature_file_name, city, year, CityGraphsa2):
         if w == 52 and year == 2014:
             if a in city.sa2.year2015.case:
                 if 1 in city.sa2.year2015.case[a]:
-                    label = "Only self has case"
-                    yes += 1
-                    neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
-                    if any(1 in city.sa2.year2015.case[n] for n in neighbors):
-                        label = "Both have case"
-                        yes_self_yes_neighbor += 1
-
+                    if len(city.sa2.year2015.case[a][1]) >= alert_threshold:
+                        label = "Only self is contagious region"
+                        yes += 1
+                        neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
+                        # if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                        #     label = "Both are contagious region"
+                        #     yes_self_yes_neighbor += 1
+                        for n in neighbors:
+                            if 1 in city.sa2.year2015.case[n]:
+                                if len(city.sa2.year2015.case[n][1]) >= alert_threshold:
+                                    label = 'Both are contagious region'
+                                    yes_self_yes_neighbor += 1
+                                    break
+                    else:
+                        label = "Not a contagious region"
+                        no += 1
                 else:
-                    label = "No case"
+                    label = "Not a contagious region"
                     no += 1
             else:
-                label = "No case"
+                label = "Not a contagious region"
                 no += 1
 
-            if label == "No case":
+            if label == "Not a contagious region":
                 neighbors = [n for n in neighbors if n in city.sa2.year2015.case]
-                if any(1 in city.sa2.year2015.case[n] for n in neighbors):
-                    no_self_yes_neighbor += 1
+                # if any(1 in city.sa2.year2015.case[n] for n in neighbors):
+                #     no_self_yes_neighbor += 1
+                for n in neighbors:
+                    if 1 in city.sa2.year2015.case[n]:
+                        if len(city.sa2.year2015.case[n][1]) >= alert_threshold:
+                            no_self_yes_neighbor += 1
+                            break
 
         # just check the next week
         else:
             if a in use.case:
                 try:
                     check_next_week = use.case[a][w+1]
-                    label = "Only self has case"
-                    yes += 1
+                    if len(use.case[a][w+1]) >= alert_threshold:
+                        label = "Only self is contagious region"
+                        yes += 1
+                    else:
+                        label = "Not a contagious region"
+                        no += 1
                 except KeyError as e:
                     # print("next week no", e.args[0])
                     no += 1
-                    label = "No case"
+                    label = "Not a contagious region"
 
                 # next week: neighbor
-                if label == "Only self has case":
+                if label == "Only self is contagious region":
                     neighbors = [n for n in neighbors if n in use.case]
-                    if any(w+1 in use.case[n] for n in neighbors):
-                        label = "Both have case"
-                        # print(i, label)
-                        yes_self_yes_neighbor += 1
-                elif label == "No case":
+                    # if any(w+1 in use.case[n] for n in neighbors):
+                    #     label = "Both are contagious region"
+                    #     # print(i, label)
+                    #     yes_self_yes_neighbor += 1
+
+                    for n in neighbors:
+                        if w+1 in use.case[n]:
+                            if len(use.case[n][w+1]) >= alert_threshold:
+                                label = "Both are contagious region"
+                                yes_self_yes_neighbor += 1
+                                break
+
+                elif label == "Not a contagious region":
                     neighbors = [n for n in neighbors if n in use.case]
-                    if any(w+1 in use.case[n] for n in neighbors):
-                        no_self_yes_neighbor += 1
+                    # if any(w+1 in use.case[n] for n in neighbors):
+                    #     no_self_yes_neighbor += 1
+                    for n in neighbors:
+                        if w+1 in use.case[n]:
+                            if len(use.case[n][w+1]) >= alert_threshold:
+                                no_self_yes_neighbor += 1
+                                break
             else:
-                # label must=="No case"
-                label = "No case"
+                # label must=="Not a contagious region"
+                label = "Not a contagious region"
                 no += 1
                 neighbors = [n for n in neighbors if n in use.case]
-                if any(w+1 in use.case[n] for n in neighbors):
-                    no_self_yes_neighbor += 1
+                # if any(w+1 in use.case[n] for n in neighbors):
+                #     no_self_yes_neighbor += 1
+                for n in neighbors:
+                    if w+1 in use.case[n]:
+                        if len(use.case[n][w+1]) >= alert_threshold:
+                            no_self_yes_neighbor += 1
+                            break
 
         df.iloc[i, df.columns.get_loc('result_label')] = label
     

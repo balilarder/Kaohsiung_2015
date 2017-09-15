@@ -21,7 +21,7 @@ def main():
     print(len(training), len(testing))
 
     # learing
-    ic_graph = computing_propagation_rate("Tainan2015", tainan, 2015, CityGraphsa2, training)
+    ic_graph = computing_propagation_rate("Tainan2015", tainan, 2015, CityGraphsa2, training, 1)
     print("finish train 2015 ic model")
 
     # predict: a round decide all area yes or no.
@@ -36,7 +36,7 @@ def main():
     labels = computing_label_for_testing(tainan, 2015, testing, all_predict_result, CityGraphsa2)
     # evaluate stage
     performance = evaluate(labels, testing)
-    plot = classify.ploting(performance, "IC model, threshod=%f" %(threshold))
+    plot = classify.ploting(performance, "IC model, threshod=%f, alertthreshold=%d" %(threshold, alert_threshold))
 
 
 def get_data(file_name, city, year, graph):
@@ -51,7 +51,7 @@ def get_data(file_name, city, year, graph):
             return training, testing  
 
 
-def computing_propagation_rate(file_name, city, year, graph, training_data):
+def computing_propagation_rate(file_name, city, year, graph, training_data, alert_threshold):
     
     # init graph
     n = 0
@@ -67,7 +67,7 @@ def computing_propagation_rate(file_name, city, year, graph, training_data):
     # compute probalility-use training data
     print("training data: compute probability")
     # features: "this week no case" is useless
-    training_data = [x for x in training_data if x[8] != '0']
+    training_data = [x for x in training_data if int(x[8]) >= alert_threshold]
     for x in training_data:
         x[1] = int(x[1])
 
@@ -164,15 +164,15 @@ def computing_label_for_testing(city, year, tesing_data, all_predict_result, Cit
         truth = data[-1]
         predict = all_predict_result[week][area]
         if predict == 'no':
-            predict_label = 'No case'
+            predict_label = 'Not a contagious region'
             labels.append(predict_label)
         elif predict == 'yes':
             # both or only self
             if any(all_predict_result[week][neighbor] == 'yes' for neighbor in CityGraphsa2[area]):
-                predict_label = 'Both have case'
+                predict_label = 'Both are contagious region'
                 labels.append(predict_label)
             else:
-                predict_label = 'Only self has case'
+                predict_label = 'Only self is contagious region'
                 labels.append(predict_label)
 
         # print(area, week, truth, predict_label)

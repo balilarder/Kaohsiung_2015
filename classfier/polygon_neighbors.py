@@ -1,6 +1,7 @@
 from shapely.geometry import Polygon
 import csv
 import pandas as pd
+
 '''
 Use polygon to find neighbors ot sa0
 '''
@@ -62,17 +63,17 @@ def reading_json_feature_infos(city):
 def polygon_sa0_neighbor(city):
     # sa0 neighbor graph
 
-    df = pd.read_csv('../dataset/neighbors_1deg(T).csv')
+    # df = pd.read_csv('../dataset/neighbors_1deg(T).csv')
     
     # create the object of area
-    dictionary = {}
-    data = list(df.itertuples())
-    for i in data:
-        area = i.codebase.replace(" ", "")
-        neighbors = i.neighbors.strip(',')
-        neighbors = neighbors.split(',')
+    # dictionary = {}
+    # data = list(df.itertuples())
+    # for i in data:
+    #     area = i.codebase.replace(" ", "")
+    #     neighbors = i.neighbors.strip(',')
+    #     neighbors = neighbors.split(',')
         
-        dictionary[area] = neighbors
+    #     dictionary[area] = neighbors
 
 
     cnt = 0
@@ -99,14 +100,17 @@ def polygon_sa1_neighbor(city):
 
     print(len(CityLevel1s))
 
-    df = pd.read_csv('../dataset/Tainan_polygon_sa0_neighbor.csv')
+    df = pd.read_csv('../dataset/'+ city +'_polygon_sa0_neighbor.csv')
     # create the object of area
     data = list(df.itertuples())
     for i in data:
         level0 = i.level0
-        neighbors = i.neighbors.strip(',')
-        neighbors = neighbors.split(',')
-        print(level0, neighbors)
+        if pd.isnull(i.neighbors):
+            neighbors = []
+        else:
+            neighbors = i.neighbors.strip(',')
+            neighbors = neighbors.split(',')
+            print(level0, neighbors)
         # TainanLevel0s[area] = Level0(area)
         CityLevel0s[level0].neighbor = neighbors
 
@@ -141,14 +145,17 @@ def polygon_sa2_neighbor(city):
 
     print(len(CityLevel2s))
 
-    df = pd.read_csv('../dataset/Tainan_polygon_sa0_neighbor.csv')
+    df = pd.read_csv('../dataset/'+ city +'_polygon_sa0_neighbor.csv')
     # create the object of area
     data = list(df.itertuples())
     for i in data:
         level0 = i.level0
-        neighbors = i.neighbors.strip(',')
-        neighbors = neighbors.split(',')
-        print(level0, neighbors)
+        if pd.isnull(i.neighbors):
+            neighbors = []
+        else:
+            neighbors = i.neighbors.strip(',')
+            neighbors = neighbors.split(',')
+            print(level0, neighbors)
         # TainanLevel0s[area] = Level0(area)
         CityLevel0s[level0].neighbor = neighbors
 
@@ -203,10 +210,18 @@ if __name__ == '__main__':
     CityGraphsa1 = {}
     CityGraphsa2 = {}
 
-    reading_json_feature_infos('Tainan')
+    # reading_json_feature_infos('Tainan')
     # polygon_sa0_neighbor('Tainan')
-    polygon_sa1_neighbor('Tainan')
-    polygon_sa2_neighbor('Tainan')
+    # polygon_sa1_neighbor('Tainan')
+    # polygon_sa2_neighbor('Tainan')
+    # print(len(CityLevel0s), len(CityLevel1s), len(CityGraphsa2))
+
+    reading_json_feature_infos('Kaohsiung')
+    # polygon_sa0_neighbor('Kaohsiung')
+    polygon_sa1_neighbor('Kaohsiung')
+    polygon_sa2_neighbor('Kaohsiung')
+    print(len(CityLevel0s), len(CityLevel1s), len(CityGraphsa2))
+
 
     # clear data for the next city... 
     CityLevel0s.clear()
@@ -216,3 +231,6 @@ if __name__ == '__main__':
 
     CityGraphsa1.clear()
     CityGraphsa2.clear()
+
+
+

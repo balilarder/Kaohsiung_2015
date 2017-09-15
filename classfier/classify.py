@@ -72,6 +72,7 @@ def split_train_test(dataset):
 
 from sklearn import tree                            # decision tree model
 from sklearn.ensemble import AdaBoostClassifier     # adaboost
+from sklearn.svm import SVC                         # svm
 
 class ClassifyMethod(object):
     # to train a decision tree
@@ -102,6 +103,12 @@ class ClassifyMethod(object):
     @ staticmethod
     def svm(training):
         print("svm base method:")
+        X = [i[2:10] for i in training]    
+        Y = [i[-1] for i in training]
+        clf = SVC()
+        clf = clf.fit(X, Y)
+
+    # random forest...
     
 def evaluate(clf, testing):
     # in=classifer, testing
@@ -195,7 +202,8 @@ def ploting(precision_recall, title):
     
     plt.tight_layout()
     # plt.show()
-    fig.savefig('../plot/'+title+'.png') # Use fig. here
+    fig.savefig('../plot/'+title+'.eps', format='eps', dpi=1200) # Use fig. here
+    print("a plot finish")
 
 
 def main():

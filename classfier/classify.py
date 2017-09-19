@@ -73,6 +73,7 @@ def split_train_test(dataset):
 from sklearn import tree                            # decision tree model
 from sklearn.ensemble import AdaBoostClassifier     # adaboost
 from sklearn.svm import SVC                         # svm
+from sklearn.ensemble import RandomForestClassifier # random forest
 
 class ClassifyMethod(object):
     # to train a decision tree
@@ -85,7 +86,7 @@ class ClassifyMethod(object):
         # clf = clf.fit(X, Y)
         X = [i[2:10] for i in training]    
         Y = [i[-1] for i in training]
-        clf = tree.DecisionTreeClassifier()
+        clf = tree.DecisionTreeClassifier(max_depth=2)
         clf = clf.fit(X, Y)
 
         return clf
@@ -108,7 +109,17 @@ class ClassifyMethod(object):
         clf = SVC()
         clf = clf.fit(X, Y)
 
-    # random forest...
+        return clf
+
+    @ staticmethod
+    def random_forest(training):
+        print("random forest method:")
+        X = [i[2:10] for i in training]    
+        Y = [i[-1] for i in training]
+        clf = RandomForestClassifier(max_depth=2)
+        clf = clf.fit(X, Y)
+
+        return clf
     
 def evaluate(clf, testing):
     # in=classifer, testing
@@ -123,9 +134,9 @@ def evaluate(clf, testing):
 
     elif isinstance(clf, AdaBoostClassifier):
         print("method: adaboost")
-    else:
-        print("else")
-        return
+    # else:
+    #     print("else")
+    #     return
 
     truth = [i[-1] for i in testing]
     print(len(truth))
@@ -148,8 +159,15 @@ def evaluate(clf, testing):
         performance[j][2] += 1
     print(performance)
     for key in performance:
-        precision = performance[key][0] / float(performance[key][2])
-        recall = performance[key][0] / float(performance[key][1])
+        # negative means NaN
+        if (performance[key][2]) == 0:
+            precision = -0.1
+        else:
+            precision = performance[key][0] / float(performance[key][2])
+        if float(performance[key][1]) == 0:
+            recall = -0.1
+        else:
+            recall = performance[key][0] / float(performance[key][1])
         performance[key] = (precision, recall)
     # print(performance)
     return performance
@@ -244,6 +262,19 @@ def main():
 
             # ## plotting
             # plot = ploting(performance, "adaboost")
+
+            #=======
+            ## start svm
+            ## start train!
+            clf_svm = ClassifyMethod.svm(training)
+
+            ## predict and evaluate
+            performance = evaluate(clf_svm, testing)
+            print("draw plot")
+            print(performance)
+
+            ## plotting
+            plot = ploting(performance, "svm")
 
     
 

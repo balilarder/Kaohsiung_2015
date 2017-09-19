@@ -3,7 +3,11 @@ import classify
 
 import networkx as nx
 import operator
+import numpy as np
 from collections import Counter
+import matplotlib.pyplot as plt
+plt.rc('font', weight='bold')
+
 
 
 def main():
@@ -26,17 +30,59 @@ def main():
 
     # predict: a round decide all area yes or no.
     # Use testing data to compare predict result
-    threshold = 0.5
-    testing_week = list(set([t[1] for t in testing]))
+    alert_threshold = 1
+    # threshold = 0.9
+    for threshold in np.arange(0.05, 0.99, 0.05):
+        testing_week = list(set([t[1] for t in testing]))
+        print(testing_week)
 
-    all_predict_result = {}
-    for week in testing_week:
-        all_predict_result[week] = predict(tainan, 2015, int(week), ic_graph, threshold)
 
-    labels = computing_label_for_testing(tainan, 2015, testing, all_predict_result, CityGraphsa2)
-    # evaluate stage
-    performance = evaluate(labels, testing)
-    plot = classify.ploting(performance, "IC model, threshod=%f, alertthreshold=%d" %(threshold, alert_threshold))
+        all_predict_result = {}
+        for week in testing_week:
+            all_predict_result[week] = predict(tainan, 2015, int(week), ic_graph, threshold)
+
+        labels = computing_label_for_testing(tainan, 2015, testing, all_predict_result, CityGraphsa2)
+        
+        # evaluate stage
+        performance = evaluate(labels, testing)
+        plot = classify.ploting(performance, "IC model, threshod=%f, alertthreshold=%d" %(threshold, alert_threshold))
+
+    # # Tainan Roc curve 2015(week=32 39 45)
+    # print("tainan roc curve:")
+    # early = roc_curve(testing, 32, tainan, 2015, ic_graph)    
+    # middle = roc_curve(testing, 39, tainan, 2015, ic_graph)
+    # later = roc_curve(testing, 45, tainan, 2015, ic_graph)
+    # print("plot tainan:")
+    # roc_plot(early[0], early[1], middle[0], middle[1], later[0], later[1])
+
+    ## Tainan just use last week
+    # testing_week = list(set([t[1] for t in testing]))
+    # labels = just_use_last_week(tainan, 2015, testing, training)
+
+
+    ## Kaohsiung ROC
+    # CityGraphsa0, CityGraphsa1, CityGraphsa2 = gen_features.read_graph_sturcture('Kaohsiung')
+    # print(len(CityGraphsa0), len(CityGraphsa1), len(CityGraphsa2))
+
+    # gen_features.read_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    # gen_features.read_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+
+    # # get data, training and testing
+    # training, testing = get_data("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+    # print(len(training), len(testing))
+
+    # # learing
+    # ic_graph = computing_propagation_rate("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2, training, 1)
+    # print("finish kaohsiung 2015 ic model")
+
+
+    # # Kaohsiung Roc curve 2015(week = )
+    # print("tainan roc curve:")
+    # early = roc_curve(testing, 40, kaohsiung, 2015, ic_graph)    
+    # middle = roc_curve(testing, 46, kaohsiung, 2015, ic_graph)
+    # later = roc_curve(testing, 48, kaohsiung, 2015, ic_graph)
+    # print("plot kaohsiung:")
+    # roc_plot(early[0], early[1], middle[0], middle[1], later[0], later[1])
 
 
 def get_data(file_name, city, year, graph):
@@ -155,10 +201,11 @@ def predict(city, year, week, ic_graph, threshold):
             predict_result[area] = 'no'
     return predict_result
 
-def computing_label_for_testing(city, year, tesing_data, all_predict_result, CityGraphsa2):
+def computing_label_for_testing(city, year, testing_data, all_predict_result, CityGraphsa2):
     labels = []
     print("compute testing data labels:")
-    for data in tesing_data:
+    for data in testing_data:
+
         area = data[0]
         week = data[1]
         truth = data[-1]
@@ -176,6 +223,32 @@ def computing_label_for_testing(city, year, tesing_data, all_predict_result, Cit
                 labels.append(predict_label)
 
         # print(area, week, truth, predict_label)
+    return labels
+
+def just_use_last_week(city, year, testing_data, training_data, CityGraphsa2, alert_threshold):
+    print("Use the last week to predict LABEL:")
+    use = '?'
+    if year == 2014:
+        use = city.sa2.year2014
+    elif year == 2015:
+        use = city.sa2.year2015
+
+    labels = []
+    total_data = testing_data + training_data
+    print(len(total_data))
+
+    testing_week = list(set([t[1] for t in testing_data]))
+    for i in testing_data:
+        if i[1] in testing_week:
+            area = i[0]
+            week = int(i[1])
+            for find in total_data:
+                if find[0] == area and int(find[1]) == week-1:
+                    labels.append(find[-1])
+                    break
+
+            
+
     return labels
 
 def evaluate(predict, testing):
@@ -207,5 +280,64 @@ def evaluate(predict, testing):
         performance[key] = (precision, recall)
     # print(performance)
     return performance
+
+
+def roc_curve(testing_data, week, city, year, ic_graph):
+    print(week)
+    testing_data = [t for t in testing_data if int(t[1]) == week]
+    # when threshold is min, get point(1, 1)
+    FPR = [1]
+    TPR = [1]
+
+    for threshold in np.arange(0.05, 0.99, 0.05):
+        TP = 0
+        FP = 0
+        FN = 0
+        TN = 0
+        print("do a predict by %f and compute FPR, TPR" %(threshold))
+        predict_a_week = predict(city, year, week, ic_graph, threshold)
+        
+        for td in testing_data:
+            area = td[0]
+            truth_label = td[-1]
+            if (truth_label == 'Both are contagious region' or truth_label == 'Only self is contagious region') \
+            and predict_a_week[area] == 'yes':
+                TP += 1
+            elif (truth_label == 'Both are contagious region' or truth_label == 'Only self is contagious region') \
+            and predict_a_week[area] == 'no':
+                FN += 1
+            elif truth_label == 'Not a contagious region' and predict_a_week[area] == 'yes':
+                FP += 1
+            elif truth_label == 'Not a contagious region' and predict_a_week[area] == 'no':
+                TN += 1
+
+        print("TP=%d, FP=%d, FN=%d, TN=%d" %(TP, FP, FN, TN))
+
+        FPR.append(FP / float(FP+TN))
+        TPR.append(TP / float(TP+FN))
+    # when threshold is max, get point(0, 0)
+    FPR.append(0)
+    TPR.append(0)
+
+    return FPR, TPR
+
+def roc_plot(early_fpr, early_tpr, middle_fpr, middle_tpr, later_fpr, later_tpr, title):
+    line1, = plt.plot(early_fpr, early_tpr, label='early stage', linewidth=3, linestyle='-')
+    line2, = plt.plot(middle_fpr, middle_tpr, label='middle stage', linewidth=3, linestyle=':')
+    line3, = plt.plot(later_fpr, later_tpr, label='later stage', linewidth=3, linestyle='-.')
+
+    plt.xlabel('FPR',fontweight='bold')
+    plt.ylabel('TPR',fontweight='bold')
+    
+    plt.legend(loc='lower right', frameon=False)
+    plt.savefig('../plot/'+title+'.eps', format='eps', dpi=1200)
+    plt.close()
+    print(early_fpr)
+    print(early_tpr)
+    print(middle_fpr)
+    print(middle_tpr)
+    print(later_fpr)
+    print(later_tpr)
+
 if __name__ == '__main__':
     main()

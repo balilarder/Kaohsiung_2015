@@ -76,6 +76,33 @@ def main():
     print("2014 finish")
     computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2, 1)
     print("2015 finish")
+
+
+    ## Kaohsiung
+    CityGraphsa0, CityGraphsa1, CityGraphsa2 = read_graph_sturcture('Kaohsiung')
+    read_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    output_feature_list("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    print("kaohsiung 2014 finish")
+
+    read_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+    output_feature_list("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+    print("kaohsiung 2015 finish")
+
+    # feature of "no" case
+    output_feature_no_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    output_feature_no_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+
+
+    # compute label for 2014, 2015 tainan   
+    computing_label('Kaohsiung2014', kaohsiung, 2014, CityGraphsa2, 1)
+    computing_label('Kaohsiung2015', kaohsiung, 2015, CityGraphsa2, 1)
+
+    # feature for "no" case
+    print("start computing Not a contagious region feature")
+    computing_label_no_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2, 1)
+    print("2014 finish")
+    computing_label_no_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2, 1)
+    print("2015 finish")
 def read_graph_sturcture(city):
 
     CityGraphsa0 = {}

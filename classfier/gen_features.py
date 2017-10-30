@@ -37,72 +37,61 @@ old = ['70+', '65-69', '60-64']
 
 def main():
 
-    
+    # eta = 3
     tainan = City()
     kaohsiung = City()
 
     CityGraphsa0, CityGraphsa1, CityGraphsa2 = read_graph_sturcture('Tainan')
     global young, middle, old
 
-
-
     print(len(CityGraphsa0), len(CityGraphsa1), len(CityGraphsa2))
-    
-    # feature of with case
-    """
-    isocalender: 
-    2014 has 52 week, 2015 has 53 week
-    """
-    read_case("Tainan2014", tainan, 2014, CityGraphsa2)
-    output_feature_list("Tainan2014", tainan, 2014, CityGraphsa2)
-    print("tainan 2014 finish")
 
+    # feature of with case
     read_case("Tainan2015", tainan, 2015, CityGraphsa2)
     output_feature_list("Tainan2015", tainan, 2015, CityGraphsa2)
     print("tainan 2015 finish")
 
-    # feature of "no" case
-    output_feature_no_case("Tainan2014", tainan, 2014, CityGraphsa2)
+    # # feature of "no" case
     output_feature_no_case("Tainan2015", tainan, 2015, CityGraphsa2)
 
+    # # given alert-threshold.
+    for alert_threshold in range(1, 11):
+        print(alert_threshold)
 
-    # compute label for 2014, 2015 tainan   
-    computing_label('Tainan2014', tainan, 2014, CityGraphsa2, 1)
-    computing_label('Tainan2015', tainan, 2015, CityGraphsa2, 1)
+        computing_label('Tainan2015', tainan, 2015, CityGraphsa2, alert_threshold)
 
-    # feature for "no" case
-    print("start computing Not a contagious region feature")
-    computing_label_no_case("Tainan2014", tainan, 2014, CityGraphsa2, 1)
-    print("2014 finish")
-    computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2, 1)
-    print("2015 finish")
-
-
-    ## Kaohsiung
-    CityGraphsa0, CityGraphsa1, CityGraphsa2 = read_graph_sturcture('Kaohsiung')
-    read_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
-    output_feature_list("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
-    print("kaohsiung 2014 finish")
-
-    read_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
-    output_feature_list("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
-    print("kaohsiung 2015 finish")
-
-    # feature of "no" case
-    output_feature_no_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
-    output_feature_no_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+        # feature for "no" case
+        print("start computing no case feature")
+        computing_label_no_case("Tainan2015", tainan, 2015, CityGraphsa2, alert_threshold)
+        print("2015 finish")
+        print("finish a eta label computing")
 
 
-    # compute label for 2014, 2015 tainan   
-    computing_label('Kaohsiung2014', kaohsiung, 2014, CityGraphsa2, 1)
-    computing_label('Kaohsiung2015', kaohsiung, 2015, CityGraphsa2, 1)
+    # ## Kaohsiung
+    # CityGraphsa0, CityGraphsa1, CityGraphsa2 = read_graph_sturcture('Kaohsiung')
+    # # read_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    # # output_feature_list("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    # # print("kaohsiung 2014 finish")
 
-    # feature for "no" case
-    print("start computing Not a contagious region feature")
-    computing_label_no_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2, 1)
-    print("2014 finish")
-    computing_label_no_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2, 1)
-    print("2015 finish")
+    # read_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+    # output_feature_list("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+    # print("kaohsiung 2015 finish")
+
+    # # feature of "no" case
+    # # output_feature_no_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2)
+    # output_feature_no_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2)
+
+
+    # # compute label for 2014, 2015 tainan   
+    # # computing_label('Kaohsiung2014', kaohsiung, 2014, CityGraphsa2, 1)
+    # computing_label('Kaohsiung2015', kaohsiung, 2015, CityGraphsa2, eta)
+
+    # # feature for "no" case
+    # print("start computing Not a contagious region feature")
+    # # computing_label_no_case("Kaohsiung2014", kaohsiung, 2014, CityGraphsa2, 1)
+    # # print("2014 finish")
+    # computing_label_no_case("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2, eta)
+    # print("2015 finish")
 def read_graph_sturcture(city):
 
     CityGraphsa0 = {}
@@ -206,10 +195,10 @@ def output_feature_list(file_name, city, year, CityGraphsa2):
                 # print(area)
                 if area in CityGraphsa2:
                     for neighbor in CityGraphsa2[area]:
-                        print(neighbor, week)
+                        # print(neighbor, week)
                         if neighbor in use.case: 
                             if week in use.case[neighbor]:
-                                print(week, len(use.case[neighbor][week])) 
+                                # print(week, len(use.case[neighbor][week])) 
                                 neighbor_total += len(use.case[neighbor][week])     
                 # print(neighbor_total)
                 # print
@@ -275,16 +264,16 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
 
                         # check neighbor-total:
                         neighbor_total = 0
-                        print(area)
+                        # print(area)
                         if area in CityGraphsa2:
                             for neighbor in CityGraphsa2[area]:
-                                print(neighbor, i)
+                                # print(neighbor, i)
                                 if neighbor in use.case: 
                                     if i in use.case[neighbor]:
-                                        print(i, len(use.case[neighbor][i])) 
+                                        # print(i, len(use.case[neighbor][i])) 
                                         neighbor_total += len(use.case[neighbor][i])     
-                        print(neighbor_total)
-                        print
+                        # print(neighbor_total)
+                        # print
                         data['neighbor-total'] = neighbor_total
 
                         # row = [data['area'], data['week']]
@@ -301,16 +290,16 @@ def output_feature_no_case(file_name, city, year, CityGraphsa2):
 
                     # check neighbor-total:
                     neighbor_total = 0
-                    print(area)
+                    # print(area)
                     if area in CityGraphsa2:
                         for neighbor in CityGraphsa2[area]:
-                            print(neighbor, i)
+                            # print(neighbor, i)
                             if neighbor in use.case: 
                                 if i in use.case[neighbor]:
-                                    print(i, len(use.case[neighbor][i])) 
+                                    # print(i, len(use.case[neighbor][i])) 
                                     neighbor_total += len(use.case[neighbor][i])     
-                    print(neighbor_total)
-                    print
+                    # print(neighbor_total)
+                    # print
                     data['neighbor-total'] = neighbor_total
 
                     # row = [data['area'], data['week']]
@@ -385,7 +374,7 @@ def computing_label(feature_file_name, city, year, CityGraphsa2, alert_threshold
                         if len(city.sa2.year2015.case[n][1]) >= alert_threshold:
                             no_self_yes_neighbor += 1
                             break
-            print(label)
+            # print(label)
 
         else:
             try:
@@ -429,10 +418,10 @@ def computing_label(feature_file_name, city, year, CityGraphsa2, alert_threshold
         df.iloc[i, df.columns.get_loc('result_label')] = label
     # df.iloc[3, df.columns.get_loc('female')] = 1234
     
-    print(yes, yes_self_yes_neighbor, no, no_self_yes_neighbor)
-    print(row)
+    # print(yes, yes_self_yes_neighbor, no, no_self_yes_neighbor)
+    # print(row)
 
-    df.to_csv('../dataset/'+feature_file_name+'_feature.csv', index=False)
+    df.to_csv('../dataset/'+feature_file_name+'_feature-eta'+str(alert_threshold)+'.csv', index=False)
 
 def computing_label_no_case(feature_file_name, city, year, CityGraphsa2, alert_threshold):
     import pandas as pd
@@ -556,10 +545,10 @@ def computing_label_no_case(feature_file_name, city, year, CityGraphsa2, alert_t
 
         df.iloc[i, df.columns.get_loc('result_label')] = label
     
-    print(yes, yes_self_yes_neighbor, no, no_self_yes_neighbor)
-    print(row)
+    # print(yes, yes_self_yes_neighbor, no, no_self_yes_neighbor)
+    # print(row)
 
-    df.to_csv('../dataset/'+feature_file_name+'_feature(no case).csv', index=False)
+    df.to_csv('../dataset/'+feature_file_name+'_feature(no case)-eta'+str(alert_threshold)+'.csv', index=False)
 
 if __name__ == '__main__':
     main()

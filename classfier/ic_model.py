@@ -11,9 +11,12 @@ plt.rc('font', weight='bold')
 
 
 def main():
+    alert_threshold = 5
     tainan = gen_features.City()
     kaohsiung = gen_features.City()
 
+
+    # tainan
     CityGraphsa0, CityGraphsa1, CityGraphsa2 = gen_features.read_graph_sturcture('Tainan')
     print(len(CityGraphsa0), len(CityGraphsa1), len(CityGraphsa2))
 
@@ -21,31 +24,43 @@ def main():
     gen_features.read_case("Tainan2015", tainan, 2015, CityGraphsa2)
 
     # get data, training and testing
-    training, testing = get_data("Tainan2015", tainan, 2015, CityGraphsa2)
+    training, testing = get_data("Tainan2015", tainan, 2015, CityGraphsa2, alert_threshold)
     print(len(training), len(testing))
 
     # learing
-    ic_graph = computing_propagation_rate("Tainan2015", tainan, 2015, CityGraphsa2, training, 1)
+    ic_graph = computing_propagation_rate("Tainan2015", tainan, 2015, CityGraphsa2, training, alert_threshold)
     print("finish train 2015 ic model")
 
-    # predict: a round decide all area yes or no.
-    # Use testing data to compare predict result
-    alert_threshold = 1
-    # threshold = 0.9
-    for threshold in np.arange(0.05, 0.99, 0.05):
-        testing_week = list(set([t[1] for t in testing]))
-        print(testing_week)
+
+    # predict test:
+    testing_week = list(set([t[1] for t in testing]))
+    print(testing_week)
+    threshold = 0.5
+    all_predict_result = {}
+    for week in testing_week:
+        all_predict_result[week] = predict(tainan, 2015, int(week), ic_graph, threshold)
+
+    ###############
+    # # predict: a round decide all area yes or no.
+    # # Use testing data to compare predict result
+    # alert_threshold = 1
+    # # threshold = 0.9
+    # for threshold in np.arange(0.05, 0.99, 0.05):
+    #     testing_week = list(set([t[1] for t in testing]))
+    #     print(testing_week)
 
 
-        all_predict_result = {}
-        for week in testing_week:
-            all_predict_result[week] = predict(tainan, 2015, int(week), ic_graph, threshold)
+    #     all_predict_result = {}
+    #     for week in testing_week:
+    #         all_predict_result[week] = predict(tainan, 2015, int(week), ic_graph, threshold)
 
-        labels = computing_label_for_testing(tainan, 2015, testing, all_predict_result, CityGraphsa2)
+    #     labels = computing_label_for_testing(tainan, 2015, testing, all_predict_result, CityGraphsa2)
         
-        # evaluate stage
-        performance = evaluate(labels, testing)
-        plot = classify.ploting(performance, "IC model, threshod=%f, alertthreshold=%d" %(threshold, alert_threshold))
+    #     # evaluate stage
+    #     performance = evaluate(labels, testing)
+    #     plot = classify.ploting(performance, "IC model, threshod=%f, alertthreshold=%d" %(threshold, alert_threshold))
+    #################
+
 
     # # Tainan Roc curve 2015(week=32 39 45)
     # print("tainan roc curve:")
@@ -53,11 +68,32 @@ def main():
     # middle = roc_curve(testing, 39, tainan, 2015, ic_graph)
     # later = roc_curve(testing, 45, tainan, 2015, ic_graph)
     # print("plot tainan:")
-    # roc_plot(early[0], early[1], middle[0], middle[1], later[0], later[1])
+    # roc_plot(early[0], early[1], middle[0], middle[1], later[0], later[1], "Tainan ROC, eta=%d" %(eta))
 
     ## Tainan just use last week
     # testing_week = list(set([t[1] for t in testing]))
     # labels = just_use_last_week(tainan, 2015, testing, training)
+
+
+    ### Tainan's early, middle, later topk(IC model+clf)
+    # clf = decision tree
+
+
+
+    # clf = classify.ClassifyMethod.normal_decision_tree(training)
+    # alpha = 2
+    # print("Tainan topk")
+    # topk = []
+    # # for k in range(5, 51, 5):
+    # for k in range(1, 21):
+    #     k_precision = topk_precision(tainan, 2015, 39, ic_graph, testing, k, clf, alpha)
+    #     print(k_precision)
+    #     topk.append(k_precision)
+    # print(topk)
+
+
+    # k_precision = topk_precision(tainan, 2015, 39, ic_graph, testing, 'k=?', clf, alpha)
+
 
 
     ## Kaohsiung ROC
@@ -72,22 +108,34 @@ def main():
     # print(len(training), len(testing))
 
     # # learing
-    # ic_graph = computing_propagation_rate("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2, training, 1)
+    # ic_graph = computing_propagation_rate("Kaohsiung2015", kaohsiung, 2015, CityGraphsa2, training, eta)
     # print("finish kaohsiung 2015 ic model")
 
 
-    # # Kaohsiung Roc curve 2015(week = )
-    # print("tainan roc curve:")
+
+    ### kaohsiung's early, middle, later topk
+    # print("Kaohsiung topk")
+    # topk = []
+    # # for k in range(5, 51, 5):
+    # for k in range(1, 21):
+    #     k_precision = topk_precision(kaohsiung, 2015, 48, ic_graph, testing, k)
+    #     print(k_precision)
+    #     topk.append(k_precision)
+    # print(topk)
+
+
+    # # Kaohsiung Roc curve 2015(week = 40, 46, 48)
+    # print("kaohsiung roc curve:")
     # early = roc_curve(testing, 40, kaohsiung, 2015, ic_graph)    
     # middle = roc_curve(testing, 46, kaohsiung, 2015, ic_graph)
     # later = roc_curve(testing, 48, kaohsiung, 2015, ic_graph)
     # print("plot kaohsiung:")
-    # roc_plot(early[0], early[1], middle[0], middle[1], later[0], later[1])
+    # roc_plot(early[0], early[1], middle[0], middle[1], later[0], later[1], "Kaohsiung ROC, eta=%d" %(eta))
 
 
-def get_data(file_name, city, year, graph):
-    with open('../dataset/'+file_name+'_feature.csv', 'r') as file1, \
-         open('../dataset/'+file_name+'_feature(no case).csv', 'r') as file2:
+def get_data(file_name, city, year, graph, alert_threshold):
+    with open('../dataset/'+file_name+'_feature-eta'+str(alert_threshold)+'.csv', 'r') as file1, \
+         open('../dataset/'+file_name+'_feature(no case)-eta'+str(alert_threshold)+'.csv', 'r') as file2:
             lines = file1.readlines()[1:]+file2.readlines()[1:]
             lines = [line.strip() for line in lines]
 
@@ -165,7 +213,7 @@ def computing_propagation_rate(file_name, city, year, graph, training_data, aler
         except ZeroDivisionError:
             pass
         probalilitys.append(ic_graph.edge[v][u]['p'])
-    # print(Counter(probalilitys))
+    print(Counter(probalilitys))
     Avs = [ic_graph.node[n]['Av'] for n in ic_graph.nodes()]
     # print(Counter(Avs), len(Avs))
     return ic_graph
@@ -190,15 +238,21 @@ def predict(city, year, week, ic_graph, threshold):
                     probalilitys_on_edges.append(attr['p'])
                 else:
                     probalilitys_on_edges.append(0)
+        # print(probalilitys_on_edges, area)
         probability = 1
         for p in probalilitys_on_edges:
             probability = probability * (1-p)
         probability = 1 - probability
+
+        if probability >= threshold:
+            print(area, week, probability)
         
-        if probability > threshold:
+        if probability >= threshold:
             predict_result[area] = 'yes'
         else:
             predict_result[area] = 'no'
+    # print("yes or no", week)
+    # print(Counter(predict_result))
     return predict_result
 
 def computing_label_for_testing(city, year, testing_data, all_predict_result, CityGraphsa2):
@@ -246,9 +300,6 @@ def just_use_last_week(city, year, testing_data, training_data, CityGraphsa2, al
                 if find[0] == area and int(find[1]) == week-1:
                     labels.append(find[-1])
                     break
-
-            
-
     return labels
 
 def evaluate(predict, testing):
@@ -275,11 +326,111 @@ def evaluate(predict, testing):
         performance[j][2] += 1
     print(performance)
     for key in performance:
-        precision = performance[key][0] / float(performance[key][2])
-        recall = performance[key][0] / float(performance[key][1])
+        if float(performance[key][2]) == 0:
+            precision = -0.1
+        else:
+            precision = performance[key][0] / float(performance[key][2])
+        if float(performance[key][1]) == 0:
+            recall = -0.1
+        else:
+            recall = performance[key][0] / float(performance[key][1])
         performance[key] = (precision, recall)
     # print(performance)
     return performance
+
+def evaluate_overall(predict, testing):
+    overall_precision = 0
+    overall_recall = 0
+
+    TP = 0
+    FP = 0
+    FN = 0
+    TN = 0
+    correct = 0
+
+    truth = [i[-1] for i in testing]
+    print(len(truth))
+
+    # compute precision, recall by FPR, TPR
+    for i,j in zip(truth, predict):
+        # print(i, j)
+        if (i == 'Both are contagious region' or i == "Only self is contagious region") and \
+        (j == 'Both are contagious region' or j == "Only self is contagious region"):
+            TP += 1
+            correct += 1
+        elif (i == 'Both are contagious region' or i == "Only self is contagious region") and \
+        j == "Not a contagious region":
+            FN += 1
+        elif i == "Not a contagious region" and \
+        (j == 'Both are contagious region' or j == "Only self is contagious region"):
+            FP += 1
+        elif i == "Not a contagious region" and j == "Not a contagious region" :
+            TN += 1
+            correct += 1
+        # print(TP, FN, FP, TN)
+
+    if TP+FP == 0:
+        overall_precision = float('NaN')
+    else:
+        overall_precision = TP/float(TP+FP)
+    
+    if TP+FN == 0:
+        overall_recall = float('NaN')
+    else:
+        overall_recall = TP/float(TP+FN)
+
+    accuracy = correct/float(len(truth))
+
+    return overall_precision, overall_recall, accuracy
+
+
+def evaluate_from0_to1(predict, testing, eta):
+    print(len(testing), eta)
+
+    truth = [i[-1] for i in testing]
+    print(len(truth))
+    
+    
+    # print(predict)
+
+    ## from 0 to 1's recall
+    recall = 0
+    son = 0
+    mom = 0
+    
+    for t, p in zip(testing, predict):
+        
+        if int(t[-3]) < eta and \
+            (t[-1] == "Both are contagious region" or t[-1] == "Only self is contagious region"):
+                mom += 1
+                if p == "Both are contagious region" or p == "Only self is contagious region":
+                    son += 1
+
+    if mom == 0:
+        recall = float('NaN')
+    else:
+        recall = son/float(mom)
+    # print(recall)
+
+    ## from 0 to 1's precision
+    precision = 0
+    son = 0
+    mom = 0
+
+    for t, p in zip(testing, predict):
+        if p == "Both are contagious region" or p == "Only self is contagious region":
+            mom += 1
+            if int(t[-3]) < eta and \
+                (t[-1] == "Both are contagious region" or t[-1] == "Only self is contagious region"):
+                    son += 1
+
+    if mom == 0:
+        precision = float('NaN')
+    else:
+        precision  = son/float(mom)
+    # print(precision)
+    return precision, recall
+
 
 
 def roc_curve(testing_data, week, city, year, ic_graph):
@@ -320,6 +471,83 @@ def roc_curve(testing_data, week, city, year, ic_graph):
     TPR.append(0)
 
     return FPR, TPR
+
+
+def topk_precision(city, year, week, ic_graph, testing_data, k, clf, alpha):
+    print("choose top k for the contagious region:")
+    use = '?'
+    if year == 2014:
+        use = city.sa2.year2014
+    elif year == 2015:
+        use = city.sa2.year2015
+
+    testing_data = [t for t in testing_data if int(t[1]) == week]
+
+    ## predict: clf
+    clf_result = {}
+    areas = [i[0] for i in testing_data]
+    predict = [i[2:10] for i in testing_data]
+    predict = clf.predict(predict)
+    # print(len(areas))
+    # print(len(predict))
+    for i, j in zip(areas, predict):
+        if j == "Not a contagious region":
+            clf_result[i] = 0
+        elif j == "Both are contagious region" or j == "Only self is contagious region":
+            clf_result[i] = alpha
+    # print(clf_result)
+    # print(len(clf_result))
+    
+    ## predict: IC model
+    predict_result = {}
+    for area in ic_graph.nodes():
+        probalilitys_on_edges = []
+        for v, u, attr in ic_graph.edges(data=True):
+            if u == area:
+                if v not in use.case:
+                    probalilitys_on_edges.append(0)
+                elif week in use.case[v]:    
+                    probalilitys_on_edges.append(attr['p'])
+                else:
+                    probalilitys_on_edges.append(0)
+        probability = 1
+        for p in probalilitys_on_edges:
+            probability = probability * (1-p)
+        probability = 1 - probability
+        
+        predict_result[area] = probability
+
+    score = {}
+    for i in clf_result:
+        if clf_result[i] != 0:
+            score[i] = clf_result[i] + predict_result[i]
+        else:
+            score[i] = predict_result[i]
+
+    # sort_score = sorted(score.items(), key=operator.itemgetter(1), reverse=True)
+    choose_topk = dict(sorted(score.iteritems(), key=operator.itemgetter(1), reverse=True)[:k])
+
+    # print(sort_score)
+    # while 1:
+    #     pass
+    # print(choose_topk)
+    
+    testing_data_label = {}
+    for i in testing_data:
+        if i[-1] == 'Not a contagious region':
+            testing_data_label[i[0]] = 0
+        elif i[-1] == 'Both are contagious region' or i[-1] == "Only self is contagious region":
+            testing_data_label[i[0]] = 1
+
+
+    bingo = 0
+    for area in choose_topk:
+        if testing_data_label[area] == 1:
+            bingo += 1
+
+    return bingo/float(len(choose_topk))
+
+    # return precision
 
 def roc_plot(early_fpr, early_tpr, middle_fpr, middle_tpr, later_fpr, later_tpr, title):
     line1, = plt.plot(early_fpr, early_tpr, label='early stage', linewidth=3, linestyle='-')

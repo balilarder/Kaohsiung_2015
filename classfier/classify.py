@@ -6,6 +6,77 @@ import matplotlib.pyplot as plt
 
 ## global vars
 random_sample_rate_NOCASE = 1
+eta = 3
+
+def main():
+    # get data, mix feature file with "have case" and "no case"
+    with open('../dataset/Tainan2015_feature.csv', 'r') as file1, \
+         open('../dataset/Tainan2015_feature(no case).csv', 'r') as file2:
+            lines = file1.readlines()[1:]+file2.readlines()[1:]
+            # lines = file1.readlines()[1:]
+
+            lines = [line.strip() for line in lines]
+
+            print(len(lines))
+        
+            training, testing = split_train_test(lines)
+            print("split finish")
+            print(len(training), len(testing))
+            
+            ########## TRAIN WITH DIFFERENT LABELS
+            ## start train-decision tree
+            clf_tree = ClassifyMethod.normal_decision_tree(training)
+
+            # experiment: from0 to 1
+            evaluate_from0_to1(clf_tree, testing, eta)
+
+
+
+            # ## predict and evaluate
+            # performance = evaluate(clf_tree, testing)
+            # print("draw plot")
+            # print(performance)
+
+            # ## plotting
+            # plot = ploting(performance, "decision tree")
+            # #=======
+            # # ## start train-adaboost
+            # # ## start train!
+            # # clf_adaboost = ClassifyMethod.adaboost_origin(training)
+
+            # # ## predict and evaluate
+            # # performance = evaluate(clf_adaboost, testing)
+            # # print("draw plot")
+            # # print(performance)
+
+            # # ## plotting
+            # # plot = ploting(performance, "adaboost")
+
+            # #=======
+            # ## start svm
+            # ## start train!
+            # clf_svm = ClassifyMethod.svm(training)
+
+            # ## predict and evaluate
+            # performance = evaluate(clf_svm, testing)
+            # print("draw plot")
+            # print(performance)
+
+            # ## plotting
+            # plot = ploting(performance, "svm")
+
+
+            # ######### TRAIN WITHOUT DIFFERENT LABELS:
+            # ## start train-decision tree
+            # clf_tree = ClassifyMethod.normal_decision_tree(training)
+
+            # ## predict and evaluate
+            # precision, recall = evaluate_overall(clf_tree, testing)
+
+            # print(precision)
+            # print(recall)
+
+
 
 
 def split_train_test(dataset):
@@ -64,8 +135,8 @@ def split_train_test(dataset):
     training = training_
     training_labels = [x[-1] for x in training]
     print("train:")
-    counting = Counter(training_labels)
-    print(counting)
+    # counting = Counter(training_labels)
+    # print(counting)
     print(len(training)) 
     return training, testing  
 
@@ -171,7 +242,108 @@ def evaluate(clf, testing):
         performance[key] = (precision, recall)
     # print(performance)
     return performance
+ 
+def evaluate_overall(clf, testing):
+    ### evaluate the precision and recall without different labels
+    ### just care its 0 or 1
+
+    overall_precision = 0
+    overall_recall = 0
+
+    TP = 0
+    FP = 0
+    FN = 0
+    TN = 0
+    correct = 0
+
+    truth = [i[-1] for i in testing]
+    print(len(truth))
+    predict = [i[2:10] for i in testing]
+    predict = clf.predict(predict)
+
     
+
+    # compute precision, recall by FPR, TPR
+    for i,j in zip(truth, predict):
+        # print(i, j)
+        if (i == 'Both are contagious region' or i == "Only self is contagious region") and \
+        (j == 'Both are contagious region' or j == "Only self is contagious region"):
+            TP += 1
+            correct += 1
+        elif (i == 'Both are contagious region' or i == "Only self is contagious region") and \
+        j == "Not a contagious region":
+            FN += 1
+        elif i == "Not a contagious region" and \
+        (j == 'Both are contagious region' or j == "Only self is contagious region"):
+            FP += 1
+        elif i == "Not a contagious region" and j == "Not a contagious region" :
+            TN += 1
+            correct += 1
+        # print(TP, FN, FP, TN)
+
+    if TP+FP == 0:
+        overall_precision = float('NaN')
+    else:
+        overall_precision = TP/float(TP+FP)
+    
+    if TP+FN == 0:
+        overall_recall = float('NaN')
+    else:
+        overall_recall = TP/float(TP+FN)
+
+    accuracy = correct/float(len(truth))
+
+
+
+    return overall_precision, overall_recall, accuracy
+
+def evaluate_from0_to1(clf, testing, eta):
+    print(len(testing), eta)
+
+    truth = [i[-1] for i in testing]
+    print(len(truth))
+    predict = [i[2:10] for i in testing]
+    predict = clf.predict(predict)
+    # print(predict)
+
+    ## from 0 to 1's recall
+    recall = 0
+    son = 0
+    mom = 0
+    
+    for t, p in zip(testing, predict):
+        
+        if int(t[-3]) < eta and \
+            (t[-1] == "Both are contagious region" or t[-1] == "Only self is contagious region"):
+                mom += 1
+                if p == "Both are contagious region" or p == "Only self is contagious region":
+                    son += 1
+
+    if mom == 0:
+        recall = float('NaN')
+    else:
+        recall = son/float(mom)
+    # print(recall)
+
+    ## from 0 to 1's precision
+    precision = 0
+    son = 0
+    mom = 0
+
+    for t, p in zip(testing, predict):
+        if p == "Both are contagious region" or p == "Only self is contagious region":
+            mom += 1
+            if int(t[-3]) < eta and \
+                (t[-1] == "Both are contagious region" or t[-1] == "Only self is contagious region"):
+                    son += 1
+
+    if mom == 0:
+        precision = float('NaN')
+    else:
+        precision  = son/float(mom)
+    # print(precision)
+    return precision, recall
+
 def ploting(precision_recall, title):
     print(precision_recall)
     
@@ -224,57 +396,7 @@ def ploting(precision_recall, title):
     print("a plot finish")
 
 
-def main():
-    # get data, mix feature file with "have case" and "no case"
-    with open('../dataset/Tainan2015_feature.csv', 'r') as file1, \
-         open('../dataset/Tainan2015_feature(no case).csv', 'r') as file2:
-            lines = file1.readlines()[1:]+file2.readlines()[1:]
-            # lines = file1.readlines()[1:]
 
-            lines = [line.strip() for line in lines]
-
-            print(len(lines))
-        
-            training, testing = split_train_test(lines)
-            print("split finish")
-            print(len(training), len(testing))
-            
-
-            ## start train-decision tree
-            clf_tree = ClassifyMethod.normal_decision_tree(training)
-
-            ## predict and evaluate
-            performance = evaluate(clf_tree, testing)
-            print("draw plot")
-            print(performance)
-
-            ## plotting
-            plot = ploting(performance, "decision tree")
-            #=======
-            # ## start train-adaboost
-            # ## start train!
-            # clf_adaboost = ClassifyMethod.adaboost_origin(training)
-
-            # ## predict and evaluate
-            # performance = evaluate(clf_adaboost, testing)
-            # print("draw plot")
-            # print(performance)
-
-            # ## plotting
-            # plot = ploting(performance, "adaboost")
-
-            #=======
-            ## start svm
-            ## start train!
-            clf_svm = ClassifyMethod.svm(training)
-
-            ## predict and evaluate
-            performance = evaluate(clf_svm, testing)
-            print("draw plot")
-            print(performance)
-
-            ## plotting
-            plot = ploting(performance, "svm")
 
     
 
